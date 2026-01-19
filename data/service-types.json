@@ -1,0 +1,144 @@
+{
+  "types": [
+    {
+      "slug": "lekkage-reparatie",
+      "name": "Lekkage reparatie",
+      "description": "Professionele reparatie van waterlekkages in leidingen, kranen, daken en andere installaties. Snelle opsporing en verhelping van lekkages.",
+      "search_terms": ["lekkage", "waterlekkage", "lek", "lekkende kraan", "lekkende leiding", "lekkage opsporen", "waterschade"],
+      "icon": "droplet"
+    },
+    {
+      "slug": "ontstopping",
+      "name": "Ontstopping",
+      "description": "Professioneel ontstoppen van afvoeren, riolen, toiletten en gootstenen. Met moderne apparatuur worden verstoppingen snel verholpen.",
+      "search_terms": ["ontstoppen", "verstopping", "afvoer verstopt", "riool verstopt", "wc verstopt", "gootsteen verstopt", "douche verstopt"],
+      "icon": "wrench"
+    },
+    {
+      "slug": "cv-ketel-installatie",
+      "name": "CV-ketel installatie",
+      "description": "Complete installatie van nieuwe CV-ketels inclusief aansluiting, afstelling en uitleg. Erkende installateurs voor alle merken.",
+      "search_terms": ["cv ketel installeren", "cv ketel plaatsen", "nieuwe cv ketel", "cv ketel vervangen", "hr ketel"],
+      "icon": "flame"
+    },
+    {
+      "slug": "cv-ketel-onderhoud",
+      "name": "CV-ketel onderhoud",
+      "description": "Jaarlijks onderhoud aan uw CV-ketel voor optimale werking en veiligheid. Inclusief reiniging en controle van alle onderdelen.",
+      "search_terms": ["cv onderhoud", "ketel onderhoud", "cv service", "cv ketel schoonmaken", "cv ketel controleren"],
+      "icon": "settings"
+    },
+    {
+      "slug": "cv-ketel-storing",
+      "name": "CV-ketel storing",
+      "description": "Snelle hulp bij CV-storingen. Diagnose en reparatie van defecte onderdelen, foutcodes en andere problemen met uw verwarmingssysteem.",
+      "search_terms": ["cv storing", "ketel storing", "cv kapot", "cv werkt niet", "geen warm water", "foutcode"],
+      "icon": "alert-triangle"
+    },
+    {
+      "slug": "badkamer-installatie",
+      "name": "Badkamer installatie",
+      "description": "Complete badkamer renovatie en installatie inclusief sanitair, tegels, en leidingwerk. Van ontwerp tot oplevering.",
+      "search_terms": ["badkamer", "sanitair", "douche", "bad", "badkamer verbouwing", "badkamer renovatie", "nieuwe badkamer"],
+      "icon": "bath"
+    },
+    {
+      "slug": "toilet-installatie",
+      "name": "Toilet installatie",
+      "description": "Professioneel plaatsen en vervangen van toiletten. Inclusief hangtoiletten, staande toiletten en inbouwreservoirs.",
+      "search_terms": ["toilet", "wc", "toilet plaatsen", "wc installeren", "hangtoilet", "inbouwtoilet", "toilet vervangen"],
+      "icon": "home"
+    },
+    {
+      "slug": "kraan-reparatie",
+      "name": "Kraan reparatie",
+      "description": "Reparatie van lekkende en defecte kranen. Ook vervanging van kraanonderdelen en complete kranen.",
+      "search_terms": ["kraan", "mengkraan", "kraan repareren", "lekkende kraan", "kraan druppelt", "thermostaat kraan"],
+      "icon": "droplets"
+    },
+    {
+      "slug": "kraan-installatie",
+      "name": "Kraan installatie",
+      "description": "Professioneel plaatsen van keukenkranen, badkamerkranen, buitenkranen en speciale kranen.",
+      "search_terms": ["kraan plaatsen", "kraan monteren", "nieuwe kraan", "keukenkraan", "badkamerkraan"],
+      "icon": "plug"
+    },
+    {
+      "slug": "gas-installatie",
+      "name": "Gas installatie",
+      "description": "Gecertificeerde gasinstallaties inclusief gasleidingen, gasaansluitingen en gastoestellen. Veiligheid staat voorop.",
+      "search_terms": ["gas", "gasleiding", "gas aansluiting", "gasinstallateur", "gasmeter", "gaskookplaat aansluiten"],
+      "icon": "flame"
+    },
+    {
+      "slug": "waterleiding-aanleg",
+      "name": "Waterleiding aanleg",
+      "description": "Aanleg van nieuwe waterleidingen voor nieuwbouw, verbouwing of uitbreiding. Professioneel leidingwerk.",
+      "search_terms": ["waterleiding", "waterleiding aanleggen", "nieuwe waterleiding", "leidingwerk"],
+      "icon": "git-branch"
+    },
+    {
+      "slug": "waterleiding-reparatie",
+      "name": "Waterleiding reparatie",
+      "description": "Reparatie en vervanging van waterleidingen. Opsporen en verhelpen van lekken in het leidingwerk.",
+      "search_terms": ["leiding repareren", "leiding vervangen", "buisbreuk", "leidingbreuk", "koperen leiding"],
+      "icon": "tool"
+    },
+    {
+      "slug": "rioolservice",
+      "name": "Rioolservice",
+      "description": "Complete rioolservice inclusief ontstopping, reiniging, inspectie en reparatie van riolering.",
+      "search_terms": ["riool", "riolering", "riool ontstoppen", "rioolreiniging", "riool inspectie", "rioolcamera"],
+      "icon": "circle"
+    },
+    {
+      "slug": "vloerverwarming",
+      "name": "Vloerverwarming",
+      "description": "Installatie van vloerverwarming systemen. Zowel watergedragen als elektrische vloerverwarming.",
+      "search_terms": ["vloerverwarming", "vloerverwarming installeren", "vloerverwarming aanleggen", "elektrische vloerverwarming"],
+      "icon": "thermometer"
+    },
+    {
+      "slug": "warmtepomp",
+      "name": "Warmtepomp installatie",
+      "description": "Installatie van warmtepompen voor duurzame verwarming. Lucht-water, bodem-water en hybride systemen.",
+      "search_terms": ["warmtepomp", "warmtepomp installeren", "hybride warmtepomp", "lucht warmtepomp", "duurzaam verwarmen"],
+      "icon": "sun"
+    },
+    {
+      "slug": "boiler-installatie",
+      "name": "Boiler installatie",
+      "description": "Plaatsen en vervangen van boilers voor warm water. Elektrische boilers, gasboilers en zonneboilers.",
+      "search_terms": ["boiler", "boiler installeren", "boiler vervangen", "elektrische boiler", "zonneboiler"],
+      "icon": "battery-charging"
+    },
+    {
+      "slug": "radiator-installatie",
+      "name": "Radiator installatie",
+      "description": "Plaatsen, vervangen en bijplaatsen van radiatoren. Ook design radiatoren en handdoekradiatoren.",
+      "search_terms": ["radiator", "radiator plaatsen", "radiator vervangen", "centrale verwarming", "handdoekradiator"],
+      "icon": "layout-grid"
+    },
+    {
+      "slug": "thermostaatkraan",
+      "name": "Thermostaatkraan",
+      "description": "Installatie en vervanging van thermostaatkranen op radiatoren voor betere temperatuurregeling.",
+      "search_terms": ["thermostaatkraan", "radiatorkraan", "slimme thermostaat", "temperatuurregeling"],
+      "icon": "sliders"
+    },
+    {
+      "slug": "spoed-loodgieter",
+      "name": "Spoed loodgieter (24/7)",
+      "description": "24 uur per dag, 7 dagen per week bereikbaar voor noodgevallen. Lekkages, verstoppingen en storingen direct verholpen.",
+      "search_terms": ["spoed", "noodgeval", "24 uur", "spoedservice", "nacht loodgieter", "weekend loodgieter", "direct hulp"],
+      "icon": "alert-circle"
+    },
+    {
+      "slug": "waterontharder",
+      "name": "Waterontharder",
+      "description": "Installatie van waterontharders tegen kalkaanslag. Beschermt leidingen en apparaten tegen kalk.",
+      "search_terms": ["waterontharder", "ontkalker", "kalk", "kalkaanslag", "zacht water"],
+      "icon": "droplet"
+    }
+  ]
+}

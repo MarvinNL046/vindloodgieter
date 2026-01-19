@@ -11,28 +11,28 @@ interface FAQItem {
 
 const faqItems: FAQItem[] = [
   {
-    question: "What is inpatient rehab?",
-    answer: "Inpatient rehab, also known as residential treatment, is a program where patients live at the treatment facility 24/7 while receiving intensive care. This includes medical supervision, individual and group therapy, medication management, and structured daily activities. Inpatient programs typically last 30, 60, or 90 days and are ideal for severe addictions or those who need a safe, substance-free environment."
+    question: "Wat kost een loodgieter per uur?",
+    answer: "De kosten van een loodgieter varieren tussen 40 en 75 euro per uur, afhankelijk van de regio en het type werkzaamheden. Voor spoedklussen in avonden en weekenden gelden vaak hogere tarieven (tot 100+ euro per uur). Vraag altijd vooraf om een offerte en vraag naar voorrijkosten en BTW."
   },
   {
-    question: "How long does addiction treatment take?",
-    answer: "Treatment duration varies based on individual needs, substance type, and addiction severity. Short-term programs typically last 28-30 days, while standard programs run 60-90 days. Long-term residential treatment can last 6-12 months. Research shows longer treatment periods often lead to better outcomes. Many people also continue with outpatient care and support groups after completing initial treatment."
+    question: "Hoe snel kan een spoed loodgieter er zijn?",
+    answer: "Bij spoedgevallen zoals lekkages of verstoppingen kan een loodgieter vaak binnen 30-60 minuten ter plaatse zijn. Dit hangt af van uw locatie en beschikbaarheid. Veel loodgieters bieden 24/7 service aan voor noodgevallen. Bel bij ernstige lekkages direct om waterschade te beperken."
   },
   {
-    question: "Does insurance cover rehab?",
-    answer: "Yes, most health insurance plans cover addiction treatment thanks to the Affordable Care Act and Mental Health Parity Act. Coverage typically includes detox, inpatient rehab, outpatient treatment, and medications. The extent of coverage varies by plan, so it's important to verify benefits with your insurance provider. Many treatment centers also offer payment plans or sliding scale fees for those without insurance."
+    question: "Wat moet ik doen bij een waterlekkage?",
+    answer: "Sluit bij een lekkage direct de hoofdkraan af (vaak bij de watermeter). Zet de stroom uit als er water bij stopcontacten komt. Vang lekwater op met emmers en handdoeken. Maak foto's voor de verzekering. Bel daarna een spoed loodgieter. Let op: waterschade valt vaak onder uw inboedel- of opstalverzekering."
   },
   {
-    question: "What's the difference between inpatient and outpatient treatment?",
-    answer: "Inpatient treatment requires living at the facility full-time with 24/7 medical supervision and structured programming. Outpatient treatment allows patients to live at home while attending scheduled therapy sessions. Intensive Outpatient Programs (IOP) typically involve 9-20 hours of treatment per week. Inpatient is recommended for severe addictions, while outpatient suits those with milder addictions, strong support systems, or work/family obligations."
+    question: "Hoe vaak moet mijn CV-ketel worden onderhouden?",
+    answer: "Een CV-ketel moet jaarlijks worden gecontroleerd en onderhouden door een erkend installateur. Dit verlengt de levensduur, voorkomt storingen en houdt uw ketel veilig en efficient. Veel fabrikanten eisen dit ook voor behoud van garantie. Kosten liggen tussen 80 en 150 euro inclusief kleine onderdelen."
   },
   {
-    question: "What happens during detox?",
-    answer: "Detox is the process of safely removing substances from your body under medical supervision. It typically lasts 3-10 days depending on the substance. Medical staff monitor vital signs, manage withdrawal symptoms, and may administer medications to ease discomfort and prevent complications. Symptoms can include nausea, anxiety, tremors, and insomnia. Detox alone is not treatment; it's the first step before comprehensive addiction therapy begins."
+    question: "Wanneer heb ik een erkend installateur nodig?",
+    answer: "Voor werkzaamheden aan gasinstallaties is een erkend installateur wettelijk verplicht. Dit geldt voor CV-ketels, gashaarden, geisers en gasleidingen. Bij sanitairwerk is dit niet verplicht, maar wel aan te raden voor garantie en kwaliteit. Erkende installateurs zijn te herkennen aan keurmerken zoals Techniek Nederland of STEK-certificering."
   },
   {
-    question: "How do I choose the right treatment center?",
-    answer: "Consider these factors when choosing a rehab: accreditation and licensing, treatment approaches offered (evidence-based therapies like CBT, DBT), staff credentials, specialized programs for your specific addiction, location preferences, insurance acceptance, aftercare planning, and amenities. Visit facilities if possible, read reviews, and ask about success rates. The right center should address your physical, mental, and emotional needs while fitting your personal circumstances."
+    question: "Hoe vind ik een betrouwbare loodgieter?",
+    answer: "Let bij het kiezen van een loodgieter op: KvK-registratie, verzekering, reviews van eerdere klanten, duidelijke prijsopgave vooraf, en eventuele keurmerken. Vraag meerdere offertes aan en vergelijk niet alleen op prijs maar ook op garantievoorwaarden. Via VindLoodgieter.nl vindt u alleen geverifieerde bedrijven met beoordelingen."
   }
 ];
 
@@ -68,7 +68,7 @@ export default function FAQSection() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold text-center mb-8">Veelgestelde Vragen</h2>
         <div className="max-w-3xl mx-auto space-y-4">
           {faqItems.map((item, index) => (
             <Card key={index} className="overflow-hidden">

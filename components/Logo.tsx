@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import { Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -42,14 +42,14 @@ export default function Logo({
       icon: "text-white",
       glow: "group-hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]",
       textPrimary: "text-white",
-      textAccent: "text-teal-300",
+      textAccent: "text-orange-300",
     },
     dark: {
-      iconBg: "bg-teal-600 group-hover:bg-teal-500",
+      iconBg: "bg-blue-600 group-hover:bg-blue-500",
       icon: "text-white",
-      glow: "group-hover:shadow-[0_0_20px_rgba(13,148,136,0.5)]",
-      textPrimary: "text-teal-600",
-      textAccent: "text-gray-700",
+      glow: "group-hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]",
+      textPrimary: "text-blue-600",
+      textAccent: "text-orange-500",
     },
   };
 
@@ -65,7 +65,7 @@ export default function Logo({
         className
       )}
     >
-      {/* Heart Icon Container - symbolizing recovery/healing */}
+      {/* Wrench Icon Container - symbolizing plumbing */}
       <div
         className={cn(
           currentSize.container,
@@ -84,18 +84,17 @@ export default function Logo({
             "transition-opacity duration-300",
             variant === "light"
               ? "bg-gradient-to-tr from-white/10 to-transparent"
-              : "bg-gradient-to-tr from-teal-400/20 to-transparent"
+              : "bg-gradient-to-tr from-blue-400/20 to-transparent"
           )}
         />
 
-        {/* Heart icon representing recovery and healing */}
-        <Heart
+        {/* Wrench icon representing plumbing */}
+        <Wrench
           className={cn(
             currentSize.icon,
             currentVariant.icon,
             "relative z-10 transition-transform duration-300",
-            "group-hover:scale-110",
-            "fill-current"
+            "group-hover:scale-110 group-hover:rotate-12"
           )}
           strokeWidth={2}
         />
@@ -115,7 +114,7 @@ export default function Logo({
               "transition-colors duration-300"
             )}
           >
-            Rehab
+            Vind
           </span>
           <span
             className={cn(
@@ -123,7 +122,15 @@ export default function Logo({
               "transition-colors duration-300"
             )}
           >
-            NearMe
+            Loodgieter
+          </span>
+          <span
+            className={cn(
+              "text-gray-400",
+              "transition-colors duration-300"
+            )}
+          >
+            .nl
           </span>
         </span>
       )}

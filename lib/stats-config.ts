@@ -1,56 +1,55 @@
 /**
- * Central Statistics Configuration for RehabNearMe.com
+ * Centrale Statistieken Configuratie voor VindLoodgieter.nl
  *
- * Update these values in ONE place when data changes.
- * All components and pages import from here.
+ * Update deze waarden op EEN plek wanneer data verandert.
+ * Alle componenten en pagina's importeren hiervandaan.
  *
- * Last update: 2025-01-18
- * - Initial setup for addiction treatment facility directory
+ * Laatste update: 2025-01-18
+ * - Initiele setup voor loodgieters directory Nederland
  */
 
 export const SITE_STATS = {
   // Display values (formatted for UI)
-  totalFacilitiesDisplay: '15,000',  // Estimated treatment facilities
-  totalFacilitiesExact: 15000,
+  totalFacilitiesDisplay: '5.000',  // Geschat aantal loodgieters in NL
+  totalFacilitiesExact: 5000,
 
-  // Geographic coverage
-  totalStates: 50,
-  totalStatesWithDC: 51,  // 50 states + DC
-  totalCounties: 3143,    // US counties
+  // Geographic coverage - Nederlandse provincies
+  totalProvinces: 12,
+  totalMunicipalities: 342,  // Nederlandse gemeenten
 
   // Dynamic placeholder (when API hasn't loaded yet)
-  facilitiesPlaceholder: '15,000+',
+  facilitiesPlaceholder: '5.000+',
 
   // Site info
-  siteName: 'RehabNearMe',
-  siteUrl: 'https://www.rehabnearbyme.com',
-  country: 'United States',
-  countryShort: 'USA',
+  siteName: 'VindLoodgieter.nl',
+  siteUrl: 'https://www.vindloodgieter.nl',
+  country: 'Nederland',
+  countryShort: 'NL',
 
-  // Treatment facility stats
-  inpatientCentersCount: 4500,
-  outpatientCentersCount: 8000,
-  detoxCentersCount: 2500,
-  soberLivingCount: 3000,
+  // Loodgieter diensten stats
+  spoedLoodgietersCount: 1200,
+  sanitairInstallateursCount: 3500,
+  cvInstallateursCount: 2800,
+  rioolServiceCount: 1500,
 
-  // Recovery statistics (SAMHSA data)
-  americansInRecovery: '23 million',
-  annualAdmissions: '1.5 million',
-  substanceUseDisorderRate: '10%',
+  // Markt statistieken
+  jaarlijkseWaterSchade: '1 miljard',
+  huishoudensMet CVKetel: '7 miljoen',
+  gemiddeldLoodgieterUurtarief: '50-75',
 
-  // Top states by facility count
-  topStates: {
-    california: 2100,
-    florida: 1800,
-    texas: 1200,
-    newYork: 1100,
-    pennsylvania: 900,
+  // Top provincies by loodgieter count
+  topProvinces: {
+    zuidHolland: 950,
+    noordHolland: 820,
+    noordBrabant: 680,
+    gelderland: 520,
+    utrecht: 380,
   },
 
-  // Treatment types
-  treatmentTypesCount: 12,
-  insuranceProvidersAccepted: 500,
-  totalReviewsDisplay: '25,000+',
+  // Dienst types
+  serviceTypesCount: 8,
+  spoedBereikbaar: '24/7',
+  totalReviewsDisplay: '10.000+',
 } as const;
 
 /**
@@ -59,13 +58,13 @@ export const SITE_STATS = {
 export function getStatsDescription(variant: 'short' | 'long' | 'seo' = 'short'): string {
   switch (variant) {
     case 'short':
-      return `Find treatment facilities across all ${SITE_STATS.totalStates} states.`;
+      return `Vind loodgieters in alle ${SITE_STATS.totalProvinces} provincies.`;
     case 'long':
-      return `Search our comprehensive database of ${SITE_STATS.totalFacilitiesDisplay}+ addiction treatment centers, rehabilitation facilities, and detox programs across all ${SITE_STATS.totalStates} states in the ${SITE_STATS.country}.`;
+      return `Doorzoek onze uitgebreide database van ${SITE_STATS.totalFacilitiesDisplay}+ loodgieters, installateurs en sanitair specialisten in alle ${SITE_STATS.totalProvinces} provincies van ${SITE_STATS.country}.`;
     case 'seo':
-      return `Find addiction treatment centers, rehab facilities, and detox programs near you. Search by state, city, or zip code. Get verified information, insurance details, and reviews for treatment centers across the ${SITE_STATS.country}.`;
+      return `Vind loodgieters, CV-installateurs en sanitair specialisten bij u in de buurt. Zoek op plaats, provincie of postcode. Bekijk reviews en vraag direct offertes aan.`;
     default:
-      return `Find treatment facilities across all ${SITE_STATS.totalStates} states.`;
+      return `Vind loodgieters in alle ${SITE_STATS.totalProvinces} provincies.`;
   }
 }
 
@@ -73,33 +72,33 @@ export function getStatsDescription(variant: 'short' | 'long' | 'seo' = 'short')
  * Get CTA stats text for blog pages and promotional sections
  */
 export function getCtaStatsText(): string {
-  return `Search directly for treatment centers in our extensive database with more than ${SITE_STATS.totalFacilitiesDisplay} facilities.`;
+  return `Doorzoek direct onze uitgebreide database met meer dan ${SITE_STATS.totalFacilitiesDisplay} loodgieters.`;
 }
 
 /**
  * Get FAQ answer about facility count
  */
 export function getFaqFacilitiesAnswer(): string {
-  return `The ${SITE_STATS.country} has approximately ${SITE_STATS.totalFacilitiesDisplay} addiction treatment facilities, including inpatient rehab centers, outpatient programs, detox centers, and sober living homes. These facilities are spread across all ${SITE_STATS.totalStates} states, offering various treatment approaches and specializations.`;
+  return `${SITE_STATS.country} heeft ongeveer ${SITE_STATS.totalFacilitiesDisplay} loodgieters en installatiebedrijven, inclusief spoed loodgieters, sanitair installateurs, CV-monteurs en rioolspecialisten. Deze bedrijven zijn verspreid over alle ${SITE_STATS.totalProvinces} provincies.`;
 }
 
 /**
  * Get "why us" feature text
  */
 export function getComprehensiveDataText(): string {
-  return `Information on treatment facilities across all ${SITE_STATS.totalStates} states with verified details, insurance information, and contact details.`;
+  return `Informatie over loodgieters in alle ${SITE_STATS.totalProvinces} provincies met geverifieerde gegevens, reviews en contactinformatie.`;
 }
 
 /**
- * Get states message for empty state pages
+ * Get provinces message for empty province pages
  */
-export function getStatesComingSoonText(): string {
-  return `We're actively adding treatment facility data for all ${SITE_STATS.totalStates} states. Check back soon for updates!`;
+export function getProvincesComingSoonText(): string {
+  return `We voegen actief loodgieter data toe voor alle ${SITE_STATS.totalProvinces} provincies. Kom snel terug voor updates!`;
 }
 
 /**
- * Get recovery statistics text
+ * Get market statistics text
  */
-export function getRecoveryStatsText(): string {
-  return `Over ${SITE_STATS.americansInRecovery} Americans are in recovery from addiction. With ${SITE_STATS.annualAdmissions} treatment admissions annually, finding the right facility is crucial for successful recovery.`;
+export function getMarketStatsText(): string {
+  return `Jaarlijks is er voor ${SITE_STATS.jaarlijkseWaterSchade} euro aan waterschade in Nederland. ${SITE_STATS.huishoudensMet CVKetel} huishoudens hebben een CV-ketel die regelmatig onderhoud nodig heeft.`;
 }

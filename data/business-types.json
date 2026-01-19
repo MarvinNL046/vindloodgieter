@@ -1,0 +1,94 @@
+{
+  "types": [
+    {
+      "slug": "loodgietersbedrijf",
+      "name": "Loodgietersbedrijf",
+      "description": "Volledig loodgietersbedrijf dat alle gangbare loodgieterswerk uitvoert, van kleine reparaties tot complete installaties.",
+      "search_terms": ["loodgieter", "loodgietersbedrijf", "installateur", "sanitair bedrijf"]
+    },
+    {
+      "slug": "cv-installateur",
+      "name": "CV-installateur",
+      "description": "Specialist in centrale verwarming installaties, onderhoud en reparaties van CV-ketels en verwarmingssystemen.",
+      "search_terms": ["cv installateur", "cv monteur", "verwarmingsmonteur", "ketel installateur"]
+    },
+    {
+      "slug": "sanitair-specialist",
+      "name": "Sanitair specialist",
+      "description": "Gespecialiseerd in badkamers, toiletten en sanitaire installaties. Van renovatie tot nieuwbouw.",
+      "search_terms": ["sanitair", "badkamer specialist", "sanitair installateur", "badkamer monteur"]
+    },
+    {
+      "slug": "rioolservice",
+      "name": "Rioolservice bedrijf",
+      "description": "Specialist in rioolwerkzaamheden zoals ontstopping, reiniging, inspectie en reparatie van riolering.",
+      "search_terms": ["rioolservice", "riool bedrijf", "ontstoppingsdienst", "rioolreiniging"]
+    },
+    {
+      "slug": "spoedloodgieter",
+      "name": "Spoed loodgieter",
+      "description": "24/7 beschikbaar voor noodgevallen. Snelle hulp bij lekkages, verstoppingen en andere urgente problemen.",
+      "search_terms": ["spoed loodgieter", "24 uur loodgieter", "noodloodgieter", "avond loodgieter", "weekend loodgieter"]
+    },
+    {
+      "slug": "gasinstallateur",
+      "name": "Gasinstallateur",
+      "description": "Gecertificeerd gasinstallateur voor aanleg, onderhoud en reparatie van gasinstallaties.",
+      "search_terms": ["gasinstallateur", "gas monteur", "gasleiding", "gas specialist"]
+    },
+    {
+      "slug": "warmtepomp-specialist",
+      "name": "Warmtepomp specialist",
+      "description": "Expert in warmtepomp installaties voor duurzame verwarming en koeling van woningen en bedrijven.",
+      "search_terms": ["warmtepomp installateur", "warmtepomp specialist", "warmtepomp monteur", "duurzaam verwarmen"]
+    },
+    {
+      "slug": "vloerverwarming-specialist",
+      "name": "Vloerverwarming specialist",
+      "description": "Gespecialiseerd in de aanleg van vloerverwarming systemen, zowel watergedragen als elektrisch.",
+      "search_terms": ["vloerverwarming", "vloerverwarming installateur", "vloerverwarming specialist"]
+    },
+    {
+      "slug": "installatiebedrijf",
+      "name": "Installatiebedrijf",
+      "description": "Breed georiënteerd installatiebedrijf voor loodgieterswerk, elektra, gas en klimaattechniek.",
+      "search_terms": ["installatiebedrijf", "technisch installatiebedrijf", "installatietechniek"]
+    },
+    {
+      "slug": "badkamer-renovatie",
+      "name": "Badkamer renovatie bedrijf",
+      "description": "Gespecialiseerd in complete badkamer renovaties en verbouwingen. Van ontwerp tot oplevering.",
+      "search_terms": ["badkamer renovatie", "badkamer verbouwing", "nieuwe badkamer", "badkamer specialist"]
+    },
+    {
+      "slug": "lekkage-specialist",
+      "name": "Lekkage specialist",
+      "description": "Expert in het opsporen en verhelpen van lekkages met moderne detectieapparatuur.",
+      "search_terms": ["lekkage opsporen", "lekkage detectie", "lekkage specialist", "waterlekkage"]
+    },
+    {
+      "slug": "zzp-loodgieter",
+      "name": "ZZP Loodgieter",
+      "description": "Zelfstandig werkende loodgieter voor kleinere klussen en reparaties. Flexibel en persoonlijk.",
+      "search_terms": ["zzp loodgieter", "zelfstandig loodgieter", "freelance loodgieter", "kleine klussen"]
+    },
+    {
+      "slug": "onderhoudsbedrijf",
+      "name": "Onderhoudsbedrijf",
+      "description": "Gespecialiseerd in periodiek onderhoud van CV-ketels, boilers en verwarmingssystemen.",
+      "search_terms": ["onderhoud", "onderhoudsbedrijf", "cv onderhoud", "ketel onderhoud", "service contract"]
+    },
+    {
+      "slug": "daklekkage-specialist",
+      "name": "Daklekkage specialist",
+      "description": "Expert in het opsporen en repareren van daklekkages en waterschade aan daken.",
+      "search_terms": ["daklekkage", "dak reparatie", "daklekkage specialist", "lekkend dak"]
+    },
+    {
+      "slug": "zakelijke-installateur",
+      "name": "Zakelijke installateur",
+      "description": "Installatiebedrijf gericht op zakelijke klanten, bedrijfspanden en utiliteit.",
+      "search_terms": ["zakelijk loodgieter", "bedrijf installateur", "utiliteit", "commercieel loodgieter"]
+    }
+  ]
+}

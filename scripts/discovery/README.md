@@ -1,177 +1,188 @@
-# Facility Discovery System
+# Loodgieter Discovery Systeem
 
-Automatically discover rehabilitation facilities via Bright Data SERP API.
+Automatisch ontdekken van loodgieters via Bright Data SERP API.
 
-## Overview
+## Overzicht
 
-This system automatically searches for rehab facilities across US states and cities via Google Maps, retrieves CIDs/place_ids, and collects reviews, ratings, and opening hours.
+Dit systeem zoekt automatisch naar loodgieters in alle Nederlandse provincies en steden via Google Maps, haalt CIDs/place_ids op, en verzamelt reviews, beoordelingen en openingstijden.
 
 ## Scripts
 
-### 1. `seed-locations.ts` - Generate search locations
+### 1. `discover-loodgieters.ts` - Zoek naar loodgieters
 
-Creates a list of all US states and cities.
-
-```bash
-# Generate all locations
-npx tsx scripts/discovery/seed-locations.ts
-
-# Only one state
-npx tsx scripts/discovery/seed-locations.ts --state "California"
-
-# Dry run (preview)
-npx tsx scripts/discovery/seed-locations.ts --dry-run
-
-# Reset and start fresh
-npx tsx scripts/discovery/seed-locations.ts --reset
-```
-
-### 2. `discover-facilities.ts` - Search for facilities
-
-Searches via Bright Data SERP API for rehab facilities in each location.
+Zoekt via Bright Data SERP API naar loodgieters in elke locatie.
 
 ```bash
-# Process all pending locations
-npx tsx scripts/discovery/discover-facilities.ts
+# Verwerk alle openstaande locaties
+npx tsx scripts/discovery/discover-loodgieters.ts
 
-# Only one state
-npx tsx scripts/discovery/discover-facilities.ts --state "Texas"
+# Alleen een provincie
+npx tsx scripts/discovery/discover-loodgieters.ts --provincie "Limburg"
 
-# Limit number of locations
-npx tsx scripts/discovery/discover-facilities.ts --batch 50
+# Beperk aantal locaties
+npx tsx scripts/discovery/discover-loodgieters.ts --batch 50
 
-# Dry run (preview, no API calls)
-npx tsx scripts/discovery/discover-facilities.ts --dry-run
+# Dry run (preview, geen API calls)
+npx tsx scripts/discovery/discover-loodgieters.ts --dry-run
 
-# Resume after interruption
-npx tsx scripts/discovery/discover-facilities.ts --resume
+# Hervat na onderbreking
+npx tsx scripts/discovery/discover-loodgieters.ts --resume
+
+# Test met 3 steden
+npx tsx scripts/discovery/discover-loodgieters.ts --test
+
+# Zonder database writes (alleen JSON)
+npx tsx scripts/discovery/discover-loodgieters.ts --no-db
 ```
 
-### 3. `export-to-main-data.ts` - Export to main data
-
-Merges discovered facilities with the existing `facilities.json`.
-
-```bash
-# Export all
-npx tsx scripts/discovery/export-to-main-data.ts
-
-# Preview without changes
-npx tsx scripts/discovery/export-to-main-data.ts --dry-run
-
-# Only new (skip updates)
-npx tsx scripts/discovery/export-to-main-data.ts --skip-existing
-```
-
-## Data Files
+## Data Bestanden
 
 ```
 data/discovery/
-├── locations.json              # All US locations with status
-├── progress.json               # Progress statistics
-├── discovered-facilities.json  # Discovered facilities (raw)
-└── rate-limits.json            # API rate limiting state
+├── locations.json                # Alle Nederlandse locaties met status
+├── progress.json                 # Voortgang statistieken
+├── discovered-loodgieters.json   # Gevonden loodgieters (raw)
+└── rate-limits.json              # API rate limiting state
 ```
 
 ## Workflow
 
-1. **Seed locations** (one-time or after boundary changes)
+1. **Run discovery** (kan meerdere keren worden uitgevoerd, hervat automatisch)
    ```bash
-   npx tsx scripts/discovery/seed-locations.ts
+   npx tsx scripts/discovery/discover-loodgieters.ts
    ```
 
-2. **Run discovery** (can be run multiple times, auto-resumes)
+2. **Check voortgang**
    ```bash
-   npx tsx scripts/discovery/discover-facilities.ts
+   cat data/discovery/progress.json
    ```
 
-3. **Export to main data**
-   ```bash
-   npx tsx scripts/discovery/export-to-main-data.ts
-   ```
-
-4. **Commit & deploy**
+3. **Commit & deploy**
    ```bash
    git add data/
-   git commit -m "Add discovered facilities"
+   git commit -m "Loodgieters gevonden"
    ```
 
 ## Rate Limiting
 
-The discovery script has built-in rate limiting:
+De discovery script heeft ingebouwde rate limiting:
 
-| Limit | Value |
-|-------|-------|
-| Per minute | 10 requests |
-| Per hour | 300 requests |
-| Per day | 3000 requests |
-| Retry attempts | 3 (exponential backoff) |
-| Batch delay | 3 seconds |
+| Limiet | Waarde |
+|--------|--------|
+| Per minuut | Onbeperkt (configureerbaar) |
+| Retry pogingen | 3 (exponential backoff) |
+| Vertraging tussen queries | 500ms |
+| Vertraging tussen locaties | 2000ms |
 
-The state is saved in `rate-limits.json` and persists between runs.
+De status wordt opgeslagen in `rate-limits.json` en blijft behouden tussen runs.
 
 ## Retry Logic
 
-- **Automatic retries**: 3 attempts with exponential backoff
-- **Failed locations**: Are marked and can be retried
-- **Resume support**: Resume where you left off with `--resume`
+- **Automatische retries**: 3 pogingen met exponential backoff
+- **Mislukte locaties**: Worden gemarkeerd en kunnen opnieuw worden geprobeerd
+- **Hervat ondersteuning**: Hervat waar je was gebleven met `--resume`
 
-## What is Retrieved?
+## Wat wordt opgehaald?
 
-Per facility:
-- Google CID (for reviews fetching)
+Per loodgieter:
+- Google CID (voor reviews ophalen)
 - Google Place ID
-- Name and address
-- GPS coordinates
-- Phone and website
-- Rating and review count
-- Opening hours
+- Naam en adres
+- GPS coordinaten
+- Telefoon en website
+- Beoordeling en aantal reviews
+- Openingstijden
 - Top reviews (max 10)
-- Business type
+- Type bedrijf
+- Service types (lekkage, cv, etc.)
+- Spoed service indicator
+
+## Zoekquery's
+
+De volgende zoekquery's worden gebruikt per locatie:
+- loodgieter
+- loodgietersbedrijf
+- sanitair installateur
+- cv installateur
+- spoed loodgieter
+- lekkage reparatie
+- riool ontstopping
+- rioolservice
+- cv monteur
+- cv ketel installatie
+- badkamer installateur
+- waterleiding reparatie
+- gasinstallateur
+- warmtepomp installateur
+- vloerverwarming installateur
 
 ## Environment Variables
 
-Ensure these are in `.env.local`:
+Zorg dat deze in `.env.local` staan:
 
 ```env
 BRIGHTDATA_API_KEY=your_api_key_here
-# or
-BRIGHTDATA_API_TOKEN=your_api_key_here
+# of
+BRIGHTDATA_SERP_API_KEY=your_api_key_here
+
+DATABASE_URL=your_neon_database_url  # Optioneel voor real-time DB writes
 ```
 
 ## Tips
 
-1. **Start small**: Test first with one state (`--state "Delaware"`)
-2. **Monitor progress**: Check `progress.json` for statistics
-3. **Batch runs**: Use `--batch 100` for controlled runs
-4. **Dry run first**: Use `--dry-run` to see what happens
+1. **Start klein**: Test eerst met een provincie (`--provincie "Zeeland"`)
+2. **Monitor voortgang**: Check `progress.json` voor statistieken
+3. **Batch runs**: Gebruik `--batch 20` voor gecontroleerde runs
+4. **Dry run eerst**: Gebruik `--dry-run` om te zien wat er gebeurt
 
-## Example Output
+## Voorbeeld Output
 
 ```
-🔍 Facility Discovery Script
+🔧 Loodgieter Discovery Script - Nederland
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Database connection initialized
 📊 Status:
-   Total locations: 456
-   To process: 456
-   Already found: 0 facilities
-   Unique CIDs: 0
+   Totaal locaties: 85
+   Te verwerken: 85
+   Al gevonden: 0 loodgieters
+   Unieke CIDs: 0
 
-🚀 Starting processing of 456 locations...
+   Per provincie:
+   - NH: 8 plaatsen
+   - ZH: 12 plaatsen
+   - NB: 15 plaatsen
+   - LI: 10 plaatsen
+   ...
 
-📍 Los Angeles (Los Angeles, California)
-   🔎 Searching: "rehab center Los Angeles"...
-   ✓ 12 found (12 new)
-   🔎 Searching: "addiction treatment Los Angeles"...
-   ✓ 5 found (3 new)
-   💾 Saved (1/456)
+🚀 Starting discovery voor 85 locaties...
+💾 Real-time database writes ENABLED - data wordt direct opgeslagen
+
+🔧 Amsterdam, NH
+   🔎 Zoeken: "loodgieter Amsterdam"...
+   ✓ 20 CIDs gevonden (20 nieuw)
+   🔎 Zoeken: "spoed loodgieter Amsterdam"...
+   ✓ 15 CIDs gevonden (8 nieuw)
+   ...
+   💾 Opgeslagen (1/85) - Totaal: 45 nieuwe loodgieters | DB: 45/45
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 SUMMARY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Processed: 456/456 locations
-🆕 Newly found: 2847 facilities
-📦 Total in database: 2847
-🔢 Unique CIDs: 2847
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 Discovery Voltooid!
+   Locaties verwerkt: 85
+   Nieuwe loodgieters gevonden: 1247
+   Totaal loodgieters: 1247
+   Unieke CIDs: 1247
+
+   💾 Database Status:
+      Succesvolle inserts: 1247
+      Success rate: 100.0%
 ```
+
+## Database Schema
+
+De loodgieters worden opgeslagen met de volgende belangrijke velden:
+- `service_types`: Array van diensten (lekkage-reparatie, cv-ketel, etc.)
+- `spoed_service`: Boolean voor 24/7 beschikbaarheid
+- `provincie` / `provincie_code`: Nederlandse provincie
+- `gemeente`: Gemeente naam
+- `postcode`: Nederlandse postcode (1234 AB)

@@ -1,227 +1,278 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Building2, Heart, Users, Clock, Shield, Brain, Pill, Activity, ChevronRight } from 'lucide-react';
+import { Wrench, Droplets, AlertTriangle, ThermometerSun, Home, Shield, ChevronRight, ArrowRight, Phone } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 export const metadata: Metadata = {
-  title: 'Treatment Types - Find by Category | RehabNearMe.com',
-  description: 'Browse treatment centers by type: inpatient rehab, outpatient programs, detox centers, sober living, and more across the United States.',
+  title: 'Loodgieter Diensten - Zoek op Type | VindLoodgieter.nl',
+  description: 'Vind loodgieters per type dienst: spoed lekkage, sanitair, CV-installatie, riool ontstoppen, badkamer renovatie en meer in heel Nederland.',
   openGraph: {
-    title: 'Treatment Types - Find by Category',
-    description: 'Find the right type of treatment center for your needs.',
+    title: 'Loodgieter Diensten - Zoek op Type',
+    description: 'Vind de juiste loodgieter voor uw specifieke klus.',
   }
 };
 
 const categoryIcons: Record<string, any> = {
-  'inpatient-rehab': Building2,
-  'outpatient-program': Clock,
-  'detox-center': Activity,
-  'sober-living': Heart,
-  'dual-diagnosis': Brain,
-  'luxury-rehab': Shield,
-  'veterans-program': Shield,
-  'adolescent-program': Users,
+  'spoed-lekkage': AlertTriangle,
+  'sanitair': Droplets,
+  'cv-installatie': ThermometerSun,
+  'riool-afvoer': Wrench,
+  'badkamer': Home,
+  'waterleiding': Droplets,
+  'gas-warmte': ThermometerSun,
+  'ketel-onderhoud': ThermometerSun,
+  'vloerverwarming': ThermometerSun,
 };
 
 const categories = [
   {
-    title: 'Residential Treatment',
-    types: ['inpatient-rehab', 'residential-treatment', 'luxury-rehab', 'long-term-rehab']
+    title: 'Spoed & Noodgevallen',
+    description: '24/7 beschikbaar voor urgente problemen',
+    types: ['spoed-lekkage', 'lekkage-opsporing', 'wateroverlast', 'leidingbreuk']
   },
   {
-    title: 'Outpatient Programs',
-    types: ['outpatient-program', 'intensive-outpatient', 'partial-hospitalization', 'day-treatment']
+    title: 'Sanitair & Installatie',
+    description: 'Alles voor badkamer, keuken en toilet',
+    types: ['sanitair', 'badkamer', 'toilet-installatie', 'kranen-reparatie']
   },
   {
-    title: 'Detox & Medical',
-    types: ['detox-center', 'medical-detox', 'medication-assisted-treatment', 'hospital-based']
+    title: 'Verwarming & CV',
+    description: 'CV-ketel, vloerverwarming en warmtepompen',
+    types: ['cv-installatie', 'ketel-onderhoud', 'vloerverwarming', 'warmtepomp']
   },
   {
-    title: 'Specialized Programs',
-    types: ['dual-diagnosis', 'mental-health', 'trauma-informed', 'holistic-treatment']
+    title: 'Riool & Afvoer',
+    description: 'Ontstoppen, reinigen en inspectie',
+    types: ['riool-afvoer', 'afvoer-ontstoppen', 'rioolinspectie', 'vetafscheider']
   },
   {
-    title: 'Demographics',
-    types: ['veterans-program', 'adolescent-program', 'womens-program', 'mens-program', 'lgbtq-friendly']
+    title: 'Gas & Installatie',
+    description: 'Gasinstallatie door erkende installateurs',
+    types: ['gas-warmte', 'gasleiding', 'gaskachel', 'gasmeter']
   },
   {
-    title: 'Addiction Types',
-    types: ['alcohol-rehab', 'drug-rehab', 'opioid-treatment', 'cocaine-treatment', 'meth-treatment']
-  },
-  {
-    title: 'Aftercare & Support',
-    types: ['sober-living', 'halfway-house', 'aftercare-program', 'support-groups']
+    title: 'Waterleiding',
+    description: 'Aanleg, reparatie en vervanging',
+    types: ['waterleiding', 'waterdruk', 'watermeter', 'leidingwerk']
   }
 ];
 
-// Treatment type definitions
-const treatmentTypes: Record<string, { name: string; description: string }> = {
-  'inpatient-rehab': {
-    name: 'Inpatient Rehabilitation',
-    description: 'Residential treatment programs where patients live at the facility while receiving intensive care.'
+// Service type definitions
+const serviceTypes: Record<string, { name: string; description: string }> = {
+  'spoed-lekkage': {
+    name: 'Spoed Lekkage',
+    description: '24/7 beschikbaar voor waterlekkages, gesprongen leidingen en overstromingen. Snelle responstijd.'
   },
-  'residential-treatment': {
-    name: 'Residential Treatment',
-    description: 'Long-term live-in programs providing structured recovery environments.'
+  'lekkage-opsporing': {
+    name: 'Lekkage Opsporing',
+    description: 'Professionele detectie van verborgen lekkages met moderne apparatuur.'
   },
-  'luxury-rehab': {
-    name: 'Luxury Rehab Centers',
-    description: 'High-end treatment facilities offering premium amenities and personalized care.'
+  'wateroverlast': {
+    name: 'Wateroverlast',
+    description: 'Hulp bij wateroverlast door lekkage, overstroming of grondwater.'
   },
-  'long-term-rehab': {
-    name: 'Long-Term Rehab',
-    description: 'Extended treatment programs lasting 90 days or more for comprehensive recovery.'
+  'leidingbreuk': {
+    name: 'Leidingbreuk',
+    description: 'Spoedservice voor gesprongen of gebarsten waterleidingen.'
   },
-  'outpatient-program': {
-    name: 'Outpatient Programs',
-    description: 'Treatment programs allowing patients to live at home while attending scheduled sessions.'
+  'sanitair': {
+    name: 'Sanitair',
+    description: 'Installatie en reparatie van alle sanitaire voorzieningen: toiletten, wastafels, kranen en douches.'
   },
-  'intensive-outpatient': {
-    name: 'Intensive Outpatient (IOP)',
-    description: 'Structured outpatient programs with multiple weekly sessions.'
+  'badkamer': {
+    name: 'Badkamer Renovatie',
+    description: 'Complete badkamer renovatie inclusief sanitair, tegels en installatie.'
   },
-  'partial-hospitalization': {
-    name: 'Partial Hospitalization (PHP)',
-    description: 'Day programs providing hospital-level care without overnight stays.'
+  'toilet-installatie': {
+    name: 'Toilet Installatie',
+    description: 'Plaatsing en vervanging van toiletten, inbouwreservoirs en spoelmechanismen.'
   },
-  'day-treatment': {
-    name: 'Day Treatment Programs',
-    description: 'Full-day treatment programs that allow patients to return home each evening.'
+  'kranen-reparatie': {
+    name: 'Kranen Reparatie',
+    description: 'Reparatie en vervanging van lekkende of defecte kranen en mengkranen.'
   },
-  'detox-center': {
-    name: 'Detox Centers',
-    description: 'Medical facilities specializing in safe withdrawal management.'
+  'cv-installatie': {
+    name: 'CV Installatie',
+    description: 'CV-ketel installatie, vervanging en aanleg van centrale verwarming.'
   },
-  'medical-detox': {
-    name: 'Medical Detox',
-    description: 'Medically supervised detoxification with 24/7 medical support.'
+  'ketel-onderhoud': {
+    name: 'Ketel Onderhoud',
+    description: 'Jaarlijks onderhoud van CV-ketels voor optimale werking en veiligheid.'
   },
-  'medication-assisted-treatment': {
-    name: 'Medication-Assisted Treatment',
-    description: 'Programs combining medications with counseling for opioid and alcohol addiction.'
+  'vloerverwarming': {
+    name: 'Vloerverwarming',
+    description: 'Aanleg en onderhoud van vloerverwarmingssystemen.'
   },
-  'hospital-based': {
-    name: 'Hospital-Based Treatment',
-    description: 'Treatment programs within hospital settings for complex medical needs.'
+  'warmtepomp': {
+    name: 'Warmtepomp',
+    description: 'Installatie en onderhoud van warmtepompen voor duurzame verwarming.'
   },
-  'dual-diagnosis': {
-    name: 'Dual Diagnosis Treatment',
-    description: 'Programs treating both addiction and co-occurring mental health disorders.'
+  'riool-afvoer': {
+    name: 'Riool & Afvoer',
+    description: 'Riool ontstoppen, afvoer reinigen en rioolproblemen verhelpen.'
   },
-  'mental-health': {
-    name: 'Mental Health Programs',
-    description: 'Integrated treatment addressing mental health alongside addiction.'
+  'afvoer-ontstoppen': {
+    name: 'Afvoer Ontstoppen',
+    description: 'Professioneel ontstoppen van verstopte afvoeren, gootstenen en toiletten.'
   },
-  'trauma-informed': {
-    name: 'Trauma-Informed Care',
-    description: 'Treatment approaches that recognize and address trauma in recovery.'
+  'rioolinspectie': {
+    name: 'Rioolinspectie',
+    description: 'Camera-inspectie van rioleringen om problemen op te sporen.'
   },
-  'holistic-treatment': {
-    name: 'Holistic Treatment',
-    description: 'Programs incorporating alternative therapies like yoga, meditation, and nutrition.'
+  'vetafscheider': {
+    name: 'Vetafscheider',
+    description: 'Installatie en onderhoud van vetafscheiders voor horeca en industrie.'
   },
-  'veterans-program': {
-    name: 'Veterans Programs',
-    description: 'Specialized treatment programs designed for military veterans.'
+  'gas-warmte': {
+    name: 'Gas & Warmte',
+    description: 'Gasinstallatie en aansluiting van gastoestellen door erkende installateurs.'
   },
-  'adolescent-program': {
-    name: 'Adolescent Programs',
-    description: 'Age-appropriate treatment programs for teens and young adults.'
+  'gasleiding': {
+    name: 'Gasleiding',
+    description: 'Aanleg, controle en reparatie van gasleidingen.'
   },
-  'womens-program': {
-    name: "Women's Programs",
-    description: 'Gender-specific treatment addressing unique needs of women in recovery.'
+  'gaskachel': {
+    name: 'Gaskachel',
+    description: 'Installatie en onderhoud van gaskachels en gashaarden.'
   },
-  'mens-program': {
-    name: "Men's Programs",
-    description: 'Gender-specific treatment programs designed for men.'
+  'gasmeter': {
+    name: 'Gasmeter',
+    description: 'Verplaatsing en aansluiting van gasmeters.'
   },
-  'lgbtq-friendly': {
-    name: 'LGBTQ+ Friendly Programs',
-    description: 'Inclusive treatment programs welcoming LGBTQ+ individuals.'
+  'waterleiding': {
+    name: 'Waterleiding',
+    description: 'Aanleg, reparatie en vervanging van waterleidingen.'
   },
-  'alcohol-rehab': {
-    name: 'Alcohol Rehabilitation',
-    description: 'Treatment programs specializing in alcohol use disorder recovery.'
+  'waterdruk': {
+    name: 'Waterdruk Problemen',
+    description: 'Diagnose en oplossing van waterdrukproblemen.'
   },
-  'drug-rehab': {
-    name: 'Drug Rehabilitation',
-    description: 'Comprehensive treatment for various substance use disorders.'
+  'watermeter': {
+    name: 'Watermeter',
+    description: 'Verplaatsing en aansluiting van watermeters.'
   },
-  'opioid-treatment': {
-    name: 'Opioid Treatment',
-    description: 'Specialized programs for opioid and heroin addiction recovery.'
-  },
-  'cocaine-treatment': {
-    name: 'Cocaine Treatment',
-    description: 'Treatment programs focused on cocaine and stimulant addiction.'
-  },
-  'meth-treatment': {
-    name: 'Methamphetamine Treatment',
-    description: 'Specialized treatment for methamphetamine addiction recovery.'
-  },
-  'sober-living': {
-    name: 'Sober Living Homes',
-    description: 'Transitional housing providing structured, substance-free living environments.'
-  },
-  'halfway-house': {
-    name: 'Halfway Houses',
-    description: 'Transitional residences bridging treatment and independent living.'
-  },
-  'aftercare-program': {
-    name: 'Aftercare Programs',
-    description: 'Ongoing support services following primary treatment completion.'
-  },
-  'support-groups': {
-    name: 'Support Groups',
-    description: 'Peer-based recovery groups and 12-step programs.'
+  'leidingwerk': {
+    name: 'Leidingwerk',
+    description: 'Aanleg en renovatie van leidingwerk voor nieuwbouw en verbouwing.'
   },
 };
 
-export default function TreatmentTypesPage() {
+export default function ServiceTypesPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-teal-800 to-teal-900 text-white py-12">
+      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-serif font-bold mb-2">
-            Treatment Types
+          {/* Breadcrumb */}
+          <nav className="mb-6">
+            <ol className="flex items-center space-x-2 text-sm text-white/70">
+              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+              <li>/</li>
+              <li className="text-white">Diensten</li>
+            </ol>
+          </nav>
+
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4">
+            Loodgieter Diensten
           </h1>
           <p className="text-white/80 text-lg max-w-2xl">
-            Find the right treatment program for your needs. We categorize treatment centers by type,
-            from inpatient rehab to outpatient programs and specialized care.
+            Vind de juiste loodgieter voor uw specifieke klus. Van spoed lekkage tot badkamer renovatie,
+            wij helpen u de perfecte vakman te vinden.
           </p>
+
+          {/* Emergency Banner */}
+          <div className="mt-8 inline-flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="w-5 h-5 text-red-300" />
+              <span className="font-medium">Spoed lekkage?</span>
+            </div>
+            <Link
+              href="/type/spoed-lekkage"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg text-sm font-medium transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Vind 24/7 Service
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-12">
+        {/* Featured Services */}
+        <section className="mb-12">
+          <h2 className="font-serif text-2xl font-bold text-foreground mb-6">
+            Populaire Diensten
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {['spoed-lekkage', 'sanitair', 'cv-installatie', 'riool-afvoer', 'badkamer', 'waterleiding'].map((typeSlug) => {
+              const type = serviceTypes[typeSlug];
+              if (!type) return null;
+              const Icon = categoryIcons[typeSlug] || Wrench;
+
+              return (
+                <Link key={typeSlug} href={`/type/${typeSlug}`} className="group">
+                  <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full border-2 border-transparent hover:border-blue-300">
+                    <div className="flex items-start gap-4">
+                      <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                        typeSlug === 'spoed-lekkage' ? 'bg-red-100 text-red-600' : 'bg-blue-100 text-blue-600'
+                      } group-hover:scale-110 transition-transform`}>
+                        <Icon className="w-7 h-7" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-serif font-semibold text-lg text-foreground mb-2 group-hover:text-blue-600 transition-colors">
+                          {type.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground line-clamp-2">
+                          {type.description}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t">
+                      <span className="text-sm font-medium text-blue-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Vind loodgieters
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Categories */}
         {categories.map((category) => (
           <section key={category.title} className="mb-12">
-            <h2 className="font-serif text-2xl font-bold text-foreground mb-6">
-              {category.title}
-            </h2>
+            <div className="mb-6">
+              <h2 className="font-serif text-2xl font-bold text-foreground">
+                {category.title}
+              </h2>
+              <p className="text-muted-foreground">{category.description}</p>
+            </div>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {category.types.map((typeSlug) => {
-                const type = treatmentTypes[typeSlug];
+                const type = serviceTypes[typeSlug];
                 if (!type) return null;
-                const Icon = categoryIcons[typeSlug] || Building2;
+                const Icon = categoryIcons[typeSlug] || Wrench;
 
                 return (
-                  <Link key={typeSlug} href={`/type/${typeSlug}`}>
-                    <Card className="p-5 hover:shadow-hover transition-all duration-300 hover:-translate-y-1 h-full">
+                  <Link key={typeSlug} href={`/type/${typeSlug}`} className="group">
+                    <Card className="p-5 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full border-2 border-transparent hover:border-blue-200">
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0">
-                          <Icon className="w-5 h-5 text-teal-700" />
+                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                          typeSlug === 'spoed-lekkage' ? 'bg-red-100 text-red-600' : 'bg-blue-100 text-blue-600'
+                        }`}>
+                          <Icon className="w-5 h-5" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-foreground mb-1 truncate">
+                          <h3 className="font-semibold text-foreground mb-1 group-hover:text-blue-600 transition-colors">
                             {type.name}
                           </h3>
                           <p className="text-xs text-muted-foreground line-clamp-2">
                             {type.description.substring(0, 80)}...
                           </p>
                         </div>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                        <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                       </div>
                     </Card>
                   </Link>
@@ -232,22 +283,39 @@ export default function TreatmentTypesPage() {
         ))}
 
         {/* Full List */}
-        <section className="mt-12 bg-secondary/50 rounded-xl p-6">
+        <section className="mt-12 bg-blue-50 rounded-xl p-8">
           <h2 className="font-serif text-xl font-bold text-foreground mb-4">
-            All Treatment Types
+            Alle Diensten
           </h2>
           <div className="flex flex-wrap gap-2">
-            {Object.entries(treatmentTypes).map(([slug, type]) => (
+            {Object.entries(serviceTypes).map(([slug, type]) => (
               <Link
                 key={slug}
                 href={`/type/${slug}`}
-                className="px-3 py-1 bg-white rounded-full text-sm hover:bg-accent hover:text-white transition-colors"
+                className="px-4 py-2 bg-white rounded-full text-sm hover:bg-blue-600 hover:text-white transition-colors border border-blue-100 hover:border-blue-600"
               >
                 {type.name}
               </Link>
             ))}
           </div>
         </section>
+
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <h2 className="font-serif text-2xl font-semibold mb-4">
+            Niet zeker welke dienst u nodig heeft?
+          </h2>
+          <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
+            Gebruik onze zoekfunctie om loodgieters te vinden op basis van uw locatie of specifieke probleem.
+          </p>
+          <Link
+            href="/search"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+          >
+            Zoek Loodgieters
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,129 @@
+{
+  "provincies": [
+    {
+      "name": "Drenthe",
+      "code": "DR",
+      "slug": "drenthe",
+      "gemeentes": 12,
+      "hoofdstad": "Assen",
+      "grote_steden": ["Assen", "Emmen", "Hoogeveen", "Meppel", "Coevorden"],
+      "inwoners": 495000
+    },
+    {
+      "name": "Flevoland",
+      "code": "FL",
+      "slug": "flevoland",
+      "gemeentes": 6,
+      "hoofdstad": "Lelystad",
+      "grote_steden": ["Almere", "Lelystad", "Dronten", "Noordoostpolder", "Zeewolde"],
+      "inwoners": 435000
+    },
+    {
+      "name": "Friesland",
+      "code": "FR",
+      "slug": "friesland",
+      "gemeentes": 18,
+      "hoofdstad": "Leeuwarden",
+      "grote_steden": ["Leeuwarden", "Drachten", "Sneek", "Heerenveen", "Harlingen"],
+      "inwoners": 660000
+    },
+    {
+      "name": "Gelderland",
+      "code": "GE",
+      "slug": "gelderland",
+      "gemeentes": 51,
+      "hoofdstad": "Arnhem",
+      "grote_steden": ["Arnhem", "Nijmegen", "Apeldoorn", "Ede", "Doetinchem", "Harderwijk", "Zutphen", "Tiel"],
+      "inwoners": 2120000
+    },
+    {
+      "name": "Groningen",
+      "code": "GR",
+      "slug": "groningen",
+      "gemeentes": 10,
+      "hoofdstad": "Groningen",
+      "grote_steden": ["Groningen", "Veendam", "Stadskanaal", "Hoogezand", "Winschoten"],
+      "inwoners": 590000
+    },
+    {
+      "name": "Limburg",
+      "code": "LI",
+      "slug": "limburg",
+      "gemeentes": 31,
+      "hoofdstad": "Maastricht",
+      "grote_steden": ["Maastricht", "Heerlen", "Venlo", "Sittard-Geleen", "Roermond", "Weert", "Kerkrade"],
+      "inwoners": 1120000
+    },
+    {
+      "name": "Noord-Brabant",
+      "code": "NB",
+      "slug": "noord-brabant",
+      "gemeentes": 61,
+      "hoofdstad": "'s-Hertogenbosch",
+      "grote_steden": ["Eindhoven", "Tilburg", "Breda", "'s-Hertogenbosch", "Helmond", "Roosendaal", "Oss", "Bergen op Zoom"],
+      "inwoners": 2590000
+    },
+    {
+      "name": "Noord-Holland",
+      "code": "NH",
+      "slug": "noord-holland",
+      "gemeentes": 44,
+      "hoofdstad": "Haarlem",
+      "grote_steden": ["Amsterdam", "Haarlem", "Zaanstad", "Haarlemmermeer", "Amstelveen", "Alkmaar", "Hilversum", "Purmerend"],
+      "inwoners": 2940000
+    },
+    {
+      "name": "Overijssel",
+      "code": "OV",
+      "slug": "overijssel",
+      "gemeentes": 25,
+      "hoofdstad": "Zwolle",
+      "grote_steden": ["Zwolle", "Enschede", "Deventer", "Hengelo", "Almelo", "Kampen"],
+      "inwoners": 1180000
+    },
+    {
+      "name": "Utrecht",
+      "code": "UT",
+      "slug": "utrecht",
+      "gemeentes": 26,
+      "hoofdstad": "Utrecht",
+      "grote_steden": ["Utrecht", "Amersfoort", "Veenendaal", "Zeist", "Nieuwegein", "Houten", "IJsselstein"],
+      "inwoners": 1380000
+    },
+    {
+      "name": "Zeeland",
+      "code": "ZE",
+      "slug": "zeeland",
+      "gemeentes": 13,
+      "hoofdstad": "Middelburg",
+      "grote_steden": ["Middelburg", "Vlissingen", "Goes", "Terneuzen", "Hulst"],
+      "inwoners": 390000
+    },
+    {
+      "name": "Zuid-Holland",
+      "code": "ZH",
+      "slug": "zuid-holland",
+      "gemeentes": 50,
+      "hoofdstad": "Den Haag",
+      "grote_steden": ["Rotterdam", "Den Haag", "Leiden", "Dordrecht", "Zoetermeer", "Delft", "Schiedam", "Gouda", "Vlaardingen"],
+      "inwoners": 3750000
+    }
+  ],
+  "total_provincies": 12,
+  "total_gemeentes": 342,
+  "service_types": [
+    { "slug": "lekkage-reparatie", "name": "Lekkage reparatie", "search_terms": ["lekkage", "waterlekkage", "lek", "lekkende kraan", "lekkende leiding"] },
+    { "slug": "ontstopping", "name": "Ontstopping", "search_terms": ["ontstoppen", "verstopping", "afvoer verstopt", "riool verstopt", "wc verstopt"] },
+    { "slug": "cv-ketel", "name": "CV-ketel installatie & onderhoud", "search_terms": ["cv ketel", "cv installatie", "cv onderhoud", "cv monteur", "centrale verwarming"] },
+    { "slug": "badkamer-installatie", "name": "Badkamer installatie", "search_terms": ["badkamer", "sanitair", "douche", "bad", "badkamer verbouwing"] },
+    { "slug": "toilet-installatie", "name": "Toilet installatie", "search_terms": ["toilet", "wc", "toilet plaatsen", "wc installeren"] },
+    { "slug": "kraan-reparatie", "name": "Kraan reparatie & installatie", "search_terms": ["kraan", "mengkraan", "kraan repareren", "lekkende kraan"] },
+    { "slug": "gas-installatie", "name": "Gas installatie", "search_terms": ["gas", "gasleiding", "gas aansluiting", "gasinstallateur"] },
+    { "slug": "waterleiding", "name": "Waterleiding aanleg & reparatie", "search_terms": ["waterleiding", "waterleiding aanleggen", "leiding vervangen"] },
+    { "slug": "rioolservice", "name": "Rioolservice", "search_terms": ["riool", "riolering", "riool ontstoppen", "rioolreiniging"] },
+    { "slug": "vloerverwarming", "name": "Vloerverwarming", "search_terms": ["vloerverwarming", "vloerverwarming installeren", "vloerverwarming aanleggen"] },
+    { "slug": "warmtepomp", "name": "Warmtepomp installatie", "search_terms": ["warmtepomp", "warmtepomp installeren", "hybride warmtepomp"] },
+    { "slug": "boiler", "name": "Boiler installatie & onderhoud", "search_terms": ["boiler", "boiler installeren", "boiler vervangen", "elektrische boiler"] },
+    { "slug": "spoed-loodgieter", "name": "Spoed loodgieter (24/7)", "search_terms": ["spoed", "noodgeval", "24 uur", "spoedservice", "nacht loodgieter"] }
+  ]
+}

@@ -1,10 +1,10 @@
-# CLAUDE.md - RehabNearByMe.com Project Guide
+# CLAUDE.md - VindLoodgieter.nl Project Guide
 
-This file provides guidance to Claude Code when working with the RehabNearByMe.com project.
+Dit bestand biedt richtlijnen aan Claude Code voor het werken met het VindLoodgieter.nl project.
 
-## Project Overview
+## Project Overzicht
 
-RehabNearByMe.com is a comprehensive directory of rehabilitation and addiction treatment centers in the United States.
+VindLoodgieter.nl is een uitgebreide directory van loodgieters en sanitair specialisten in Nederland. De website helpt consumenten om snel een betrouwbare loodgieter te vinden voor spoedeisende lekkages, CV-installatie, badkamerrenovatie en andere loodgietersdiensten.
 
 ### Tech Stack
 - **Framework**: Next.js 16 with App Router
@@ -16,37 +16,38 @@ RehabNearByMe.com is a comprehensive directory of rehabilitation and addiction t
 
 ## Key Features
 
-### 1. Geographic Structure
-- `/state/[state]` - State-level listings (e.g., California)
-- `/county/[county]` - County-level listings
-- `/city/[city]` - City-level listings
-- `/facility/[slug]` - Individual facility detail pages
+### 1. Geografische Structuur
+- `/provincie/[provincie]` - Provincie-niveau overzichten (bijv. Noord-Holland)
+- `/gemeente/[gemeente]` - Gemeente-niveau overzichten
+- `/plaats/[plaats]` - Plaatsniveau overzichten
+- `/loodgieter/[slug]` - Individuele loodgieter profielpagina's
 
-### 2. Facility Types
-- Inpatient Rehabilitation Centers
-- Outpatient Treatment Programs
-- Detox Centers
-- Sober Living Homes
-- Dual Diagnosis Treatment
-- Luxury Rehab Centers
+### 2. Dienst Types
+- Spoed Lekkage (24/7 service)
+- CV-installatie & Onderhoud
+- Sanitair Installatie
+- Riool Ontstopping
+- Waterleiding Reparatie
+- Badkamer Renovatie
+- Vloerverwarming
 
-### 3. Treatment Specializations
-- Alcohol Addiction
-- Drug Addiction (Opioids, Cocaine, Meth, etc.)
-- Prescription Drug Abuse
-- Mental Health & Co-occurring Disorders
-- Adolescent Programs
-- Veterans Programs
+### 3. Specialisaties
+- Lekkage Opsporing
+- Gasleiding Installatie
+- Warmtepomp Installatie
+- Duurzame Installaties
+- Nieuwbouw Projecten
+- Renovatie Projecten
 
-### 4. Search & Filter
-- Search by location, facility name
-- Filter by treatment type
-- Filter by insurance accepted
-- Filter by amenities
+### 4. Zoeken & Filteren
+- Zoeken op locatie, bedrijfsnaam
+- Filteren op dienst type
+- Filteren op beschikbaarheid (24/7 spoed)
+- Filteren op reviews/beoordelingen
 
-## Data Structure
+## Data Structuur
 
-### Facility Data Format
+### Loodgieter Data Format
 ```typescript
 {
   id: string;
@@ -54,10 +55,10 @@ RehabNearByMe.com is a comprehensive directory of rehabilitation and addiction t
   slug: string;
   address: string;
   city: string;
-  state: string;
-  state_abbr: string;
-  county: string;
-  zip: string;
+  province: string;
+  province_abbr: string;
+  municipality: string;
+  postcode: string;
   phone?: string;
   website?: string;
   lat?: number;
@@ -65,32 +66,32 @@ RehabNearByMe.com is a comprehensive directory of rehabilitation and addiction t
   rating?: number;
   review_count?: number;
   photo?: string;
-  facility_types: string[];
-  treatment_types: string[];
-  insurance_accepted: string[];
-  amenities: string[];
+  service_types: string[];  // spoed-lekkage, cv-installatie, sanitair, etc.
+  specializations: string[];
+  availability: string[];   // 24/7, weekends, avonden
+  certifications: string[]; // erkend installateur, etc.
   description?: string;
 }
 ```
 
-## Important URLs and Routes
+## Belangrijke URLs en Routes
 
-### Public Pages
-- `/` - Homepage with search
-- `/search` - Search results page
-- `/state/[state]` - State listings
-- `/county/[county]` - County listings
-- `/city/[city]` - City listings
-- `/facility/[slug]` - Facility detail page
-- `/compare` - Compare facilities
-- `/guide` - Treatment guides
-- `/about` - About page
-- `/contact` - Contact page
+### Publieke Pagina's
+- `/` - Homepage met zoekfunctie
+- `/zoeken` - Zoekresultaten pagina
+- `/provincie/[provincie]` - Provincie overzichten
+- `/gemeente/[gemeente]` - Gemeente overzichten
+- `/plaats/[plaats]` - Plaats overzichten
+- `/loodgieter/[slug]` - Loodgieter profiel pagina
+- `/vergelijk` - Vergelijk loodgieters
+- `/gids` - Loodgieter gidsen en tips
+- `/over-ons` - Over ons pagina
+- `/contact` - Contact pagina
 
 ### API Routes
-- `/api/search` - Search facilities
-- `/api/facility/[slug]` - Get facility data
-- `/api/facilities/nearby` - Get nearby facilities
+- `/api/search` - Zoek loodgieters
+- `/api/loodgieter/[slug]` - Haal loodgieter data op
+- `/api/loodgieters/nearby` - Vind loodgieters in de buurt
 
 ## Development Commands
 
@@ -104,9 +105,9 @@ npm run build
 # Type checking
 npm run typecheck
 
-# Discover facilities (scraping)
+# Discover loodgieters (scraping)
 npm run discover:test
-npm run discover:state
+npm run discover:province
 npm run discover:full
 ```
 
@@ -120,32 +121,55 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
 GOOGLE_PLACES_API_KEY=
 ```
 
-## Content Guidelines
+## Content Richtlijnen
 
-### Target Audience
-- People seeking addiction treatment
-- Family members looking for help
-- Healthcare professionals
-- Insurance providers
+### Doelgroep
+- Huiseigenaren met lekkage of sanitair problemen
+- Mensen die een badkamer willen renoveren
+- Bedrijven die loodgieter diensten nodig hebben
+- Mensen die CV-ketel onderhoud nodig hebben
 
-### Tone
-- Compassionate and supportive
-- Professional and informative
-- Non-judgmental
-- Hopeful
+### Toon
+- Professioneel en betrouwbaar
+- Direct en duidelijk
+- Behulpzaam en informatief
+- Urgentie bij spoedsituaties
 
-### SEO Focus Keywords
-- rehab near me
-- addiction treatment centers
-- drug rehab [city]
-- alcohol rehab [state]
-- inpatient rehab
-- outpatient treatment
-- detox centers near me
+### SEO Focus Keywords (NL)
+- loodgieter in de buurt
+- spoed loodgieter [plaats]
+- lekkage reparatie
+- cv ketel installatie
+- riool ontstoppen
+- badkamer renovatie [plaats]
+- sanitair installateur
+
+## Kleurschema
+
+- **Primary (Blauw)**: #2563EB - Vertrouwen, water, professionaliteit
+- **Accent (Oranje)**: #F97316 - Urgentie, actie, warmte
+- **Background**: Lichtgrijs/wit
+- **Text**: Donkergrijs
+
+## Nederlandse Provincies
+
+1. Drenthe
+2. Flevoland
+3. Friesland
+4. Gelderland
+5. Groningen
+6. Limburg
+7. Noord-Brabant
+8. Noord-Holland
+9. Overijssel
+10. Utrecht
+11. Zeeland
+12. Zuid-Holland
 
 ## Notes
 
-- This project follows a directory website architecture
-- Facility data will be scraped from Google Places API
-- Focus on US market initially
-- HIPAA compliance considerations for any user data
+- Dit project volgt een directory website architectuur
+- Loodgieter data wordt verzameld via Google Places API
+- Focus op Nederlandse markt
+- Let op: Nederlandse taal voor alle content
+- Spoed diensten prominent weergeven (24/7)
