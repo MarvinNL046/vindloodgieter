@@ -179,8 +179,8 @@ export default function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold text-green-700">Rehab</span>
-              <span className="text-xl font-bold text-gray-700">NearMe</span>
+              <span className="text-xl font-bold text-blue-600">Vind</span>
+              <span className="text-xl font-bold text-gray-700">Loodgieter</span>
             </Link>
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-600 hidden sm:block">{user.email}</span>
@@ -351,7 +351,7 @@ export default function DashboardPage() {
                     No saved locations
                   </h3>
                   <p className="text-gray-500 mb-6 max-w-sm mx-auto">
-                    Save treatment centers you want to remember or compare later.
+                    Bewaar loodgieters die u wilt onthouden of later vergelijken.
                   </p>
                   <Link
                     href="/search"

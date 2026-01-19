@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Offline | RehabNearMe.com',
-  description: 'You are currently offline. Please check your internet connection.',
+  title: 'Offline | VindLoodgieter.nl',
+  description: 'U bent momenteel offline. Controleer uw internetverbinding.',
   robots: {
     index: false,
     follow: false,

@@ -1,6 +1,6 @@
 #!/usr/bin/env npx tsx
 /**
- * Health Check Script for RehabNearByMe
+ * Health Check Script for VindLoodgieter.nl
  *
  * Checks for:
  * 1. Broken internal links (404s)
@@ -656,7 +656,7 @@ function printSummary() {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('RehabNearByMe Health Check');
+  console.log('VindLoodgieter.nl Health Check');
   console.log('='.repeat(60));
   console.log(`\nProject Root: ${PROJECT_ROOT}`);
   console.log(`Running at: ${new Date().toISOString()}\n`);

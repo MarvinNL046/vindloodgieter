@@ -2,39 +2,39 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import chalk from 'chalk';
 
-interface Facility {
+interface Loodgieter {
   name: string;
   city: string;
-  state: string;
-  state_abbr: string;
-  county: string;
+  province: string;
+  province_abbr: string;
+  municipality: string;
   slug: string;
-  facility_types: string[];
-  treatment_types: string[];
+  service_types: string[];
+  specializations: string[];
   website?: string;
   phone?: string;
   address?: string;
 }
 
 async function analyzeDataQuality() {
-  console.log(chalk.bold.blue('\n🔍 Facility Data Quality Analysis\n'));
+  console.log(chalk.bold.blue('\n🔍 Loodgieter Data Quality Analysis\n'));
 
   // Load data
-  const dataFile = path.join(__dirname, '..', 'public', 'data', 'facilities.json');
-  let facilities: Facility[];
+  const dataFile = path.join(__dirname, '..', 'public', 'data', 'loodgieters.json');
+  let loodgieters: Loodgieter[];
 
   try {
-    facilities = JSON.parse(await fs.readFile(dataFile, 'utf-8'));
+    loodgieters = JSON.parse(await fs.readFile(dataFile, 'utf-8'));
   } catch (error) {
-    console.error(chalk.red('❌ Could not load facilities.json'));
+    console.error(chalk.red('❌ Could not load loodgieters.json'));
     process.exit(1);
   }
 
-  console.log(chalk.cyan(`Total entries: ${facilities.length}`));
+  console.log(chalk.cyan(`Total entries: ${loodgieters.length}`));
 
   // Analyze generic names
-  const genericNames = ['rehab', 'treatment center', 'recovery center', 'rehabilitation'];
-  const genericEntries = facilities.filter(f =>
+  const genericNames = ['loodgieter', 'installateur', 'sanitair', 'loodgieters'];
+  const genericEntries = loodgieters.filter(f =>
     genericNames.some(g => f.name.toLowerCase().trim() === g)
   );
 
@@ -42,7 +42,7 @@ async function analyzeDataQuality() {
   if (genericEntries.length > 0) {
     console.log(chalk.gray('\nGeneric entries by city:'));
     genericEntries.forEach(entry => {
-      console.log(chalk.gray(`  - "${entry.name}" in ${entry.city}, ${entry.state}`));
+      console.log(chalk.gray(`  - "${entry.name}" in ${entry.city}, ${entry.province}`));
     });
   }
 
@@ -50,75 +50,75 @@ async function analyzeDataQuality() {
   console.log(chalk.yellow('\n🚨 Suspicious patterns:'));
 
   // Entries without proper names
-  const shortNames = facilities.filter(f => f.name.length < 5);
+  const shortNames = loodgieters.filter(f => f.name.length < 5);
   console.log(chalk.gray(`\nVery short names (< 5 chars): ${shortNames.length}`));
   shortNames.slice(0, 10).forEach(entry => {
-    console.log(chalk.gray(`  - "${entry.name}" in ${entry.city}, ${entry.state}`));
+    console.log(chalk.gray(`  - "${entry.name}" in ${entry.city}, ${entry.province}`));
   });
 
   // Entries missing key data
-  const missingPhone = facilities.filter(f => !f.phone);
-  const missingAddress = facilities.filter(f => !f.address);
-  const missingWebsite = facilities.filter(f => !f.website);
+  const missingPhone = loodgieters.filter(f => !f.phone);
+  const missingAddress = loodgieters.filter(f => !f.address);
+  const missingWebsite = loodgieters.filter(f => !f.website);
 
   console.log(chalk.gray(`\nMissing phone: ${missingPhone.length}`));
   console.log(chalk.gray(`Missing address: ${missingAddress.length}`));
   console.log(chalk.gray(`Missing website: ${missingWebsite.length}`));
 
   // Analyze duplicates
-  const nameStatePairs = facilities.map(f => `${f.name}|${f.city}|${f.state}`);
-  const duplicates = nameStatePairs.filter((item, index) => nameStatePairs.indexOf(item) !== index);
+  const nameCityPairs = loodgieters.map(f => `${f.name}|${f.city}|${f.province}`);
+  const duplicates = nameCityPairs.filter((item, index) => nameCityPairs.indexOf(item) !== index);
   console.log(chalk.gray(`\nDuplicate entries: ${duplicates.length}`));
 
-  // State analysis
-  console.log(chalk.cyan('\n📍 State distribution:'));
-  const stateCounts: Record<string, number> = {};
-  facilities.forEach(f => {
-    stateCounts[f.state] = (stateCounts[f.state] || 0) + 1;
+  // Province analysis
+  console.log(chalk.cyan('\n📍 Province distribution:'));
+  const provinceCounts: Record<string, number> = {};
+  loodgieters.forEach(f => {
+    provinceCounts[f.province] = (provinceCounts[f.province] || 0) + 1;
   });
 
-  Object.entries(stateCounts)
+  Object.entries(provinceCounts)
     .sort(([, a], [, b]) => b - a)
-    .forEach(([state, count]) => {
-      console.log(chalk.gray(`  - ${state}: ${count} entries`));
+    .forEach(([province, count]) => {
+      console.log(chalk.gray(`  - ${province}: ${count} entries`));
     });
 
-  // Facility type analysis
-  console.log(chalk.cyan('\n🏥 Facility types:'));
-  const typeCounts: Record<string, number> = {};
-  facilities.forEach(f => {
-    (f.facility_types || []).forEach(type => {
-      typeCounts[type] = (typeCounts[type] || 0) + 1;
-    });
-  });
-
-  Object.entries(typeCounts)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 15)
-    .forEach(([type, count]) => {
-      console.log(chalk.gray(`  - ${type}: ${count} entries`));
-    });
-
-  // Treatment type analysis
-  console.log(chalk.cyan('\n💊 Treatment types:'));
-  const treatmentCounts: Record<string, number> = {};
-  facilities.forEach(f => {
-    (f.treatment_types || []).forEach(type => {
-      treatmentCounts[type] = (treatmentCounts[type] || 0) + 1;
+  // Service type analysis
+  console.log(chalk.cyan('\n🔧 Service types:'));
+  const serviceCounts: Record<string, number> = {};
+  loodgieters.forEach(f => {
+    (f.service_types || []).forEach(type => {
+      serviceCounts[type] = (serviceCounts[type] || 0) + 1;
     });
   });
 
-  Object.entries(treatmentCounts)
+  Object.entries(serviceCounts)
     .sort(([, a], [, b]) => b - a)
     .slice(0, 15)
     .forEach(([type, count]) => {
       console.log(chalk.gray(`  - ${type}: ${count} entries`));
+    });
+
+  // Specialization analysis
+  console.log(chalk.cyan('\n⭐ Specializations:'));
+  const specCounts: Record<string, number> = {};
+  loodgieters.forEach(f => {
+    (f.specializations || []).forEach(spec => {
+      specCounts[spec] = (specCounts[spec] || 0) + 1;
+    });
+  });
+
+  Object.entries(specCounts)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 15)
+    .forEach(([spec, count]) => {
+      console.log(chalk.gray(`  - ${spec}: ${count} entries`));
     });
 
   // Recommendations
   console.log(chalk.bold.green('\n✅ Recommendations:'));
   console.log('1. Filter out entries with generic names');
-  console.log('2. Verify state assignments for edge cases');
+  console.log('2. Verify province assignments for edge cases');
   console.log('3. Remove or merge duplicate entries');
   console.log(`4. Consider removing ${genericEntries.length} generic entries before enrichment`);
   console.log(`5. Enrich ${missingPhone.length} entries missing phone numbers`);
@@ -133,8 +133,8 @@ async function analyzeDataQuality() {
       address: missingAddress.length,
       website: missingWebsite.length,
     },
-    totalEntries: facilities.length,
-    cleanEntries: facilities.length - genericEntries.length
+    totalEntries: loodgieters.length,
+    cleanEntries: loodgieters.length - genericEntries.length
   };
 
   const outputFile = path.join(__dirname, '..', 'data', 'data-quality-report.json');

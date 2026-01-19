@@ -152,7 +152,7 @@ export default function AdminLayout({
                   </svg>
                 </div>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-white truncate">Rehab</p>
+                  <p className="text-sm font-semibold text-white truncate">VindLoodgieter</p>
                   <p className="text-xs text-coral-300">Admin Panel</p>
                 </div>
               </Link>

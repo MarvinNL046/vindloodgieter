@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Rehab Near Me Guides',
-    default: 'Treatment Guides & Resources | Rehab Near Me',
+    template: '%s | VindLoodgieter.nl Gids',
+    default: 'Loodgieter Gidsen & Tips | VindLoodgieter.nl',
   },
-  description: 'Expert guides on addiction treatment types, rehab options, insurance coverage, and recovery resources across America.',
+  description: 'Praktische gidsen over loodgietersdiensten, tips voor onderhoud, kosten en het kiezen van de juiste loodgieter in Nederland.',
 };
 
 export default function GuideLayout({

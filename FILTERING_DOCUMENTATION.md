@@ -1,75 +1,75 @@
-# Facility Data Filtering Documentation
+# Loodgieter Data Filtering Documentatie
 
-## Overview
-This document explains the filtering process implemented to ensure only actual rehabilitation facilities are included in the dataset, removing non-facility businesses that appeared in the raw data.
+## Overzicht
+Dit document beschrijft het filterproces dat is geimplementeerd om ervoor te zorgen dat alleen daadwerkelijke loodgieters en sanitair specialisten worden opgenomen in de dataset.
 
-## Problem
-The original dataset may contain entries that are not actual rehab facilities. These could include:
-- Medical practices that don't offer addiction treatment
-- General hospitals without specialized rehab programs
-- Non-treatment businesses with rehab-related words in their names
-- Wellness spas or fitness centers
+## Probleem
+De originele dataset kan bedrijven bevatten die geen loodgieters zijn. Dit kunnen zijn:
+- Algemene aannemers zonder loodgieter specialisatie
+- Bouwmarkten of sanitairwinkels
+- Verwarmingsbedrijven zonder loodgieter diensten
+- Andere niet-relevante bedrijven
 
-## Solution
-We implemented a comprehensive filtering system that:
-1. Identifies and excludes non-facility businesses based on keywords
-2. Identifies and excludes non-treatment services
-3. Preserves actual rehabilitation and treatment facilities
-4. Uses positive identification for facility-related keywords
+## Oplossing
+We hebben een uitgebreid filtersysteem geimplementeerd dat:
+1. Niet-loodgieter bedrijven identificeert en uitsluit op basis van keywords
+2. Niet-relevante diensten identificeert en uitsluit
+3. Daadwerkelijke loodgieters en sanitair specialisten behoudt
+4. Positieve identificatie gebruikt voor loodgieter-gerelateerde keywords
 
-## Filtering Rules
+## Filter Regels
 
-### Excluded Keywords (Non-Facility Businesses)
-- **Non-treatment medical**: general hospital, urgent care, primary care, dental
-- **Wellness/fitness**: spa, gym, fitness, yoga studio, meditation center
-- **General businesses**: hotel, motel, restaurant, cafe
+### Uitgesloten Keywords (Niet-Loodgieter Bedrijven)
+- **Geen sanitair diensten**: bouwmarkt, sanitairwinkel, groothandel
+- **Algemene bouw**: aannemer, timmerman, metselaar (zonder loodgieter)
+- **Andere installateurs**: elektricien, schilder, stukadoor
 
-### Included Facility Keywords
-- rehab, rehabilitation, treatment center, recovery
-- Specific types: inpatient, outpatient, detox
-- Programs: addiction, substance abuse, mental health
-- General: treatment facility, recovery center
+### Opgenomen Loodgieter Keywords
+- loodgieter, installateur, sanitair
+- Specifieke diensten: lekkage, ontstopping, CV-installatie
+- Specialisaties: vloerverwarming, warmtepomp, gasleiding
+- Algemeen: riool, waterleiding, badkamer
 
-### Special Handling
-- **Treatment Centers**: Included by default
-- **Mixed names**: If a business name contains both excluded and facility keywords, facility keywords take precedence
+### Speciale Behandeling
+- **Loodgieters**: Standaard opgenomen
+- **Gemengde namen**: Als een bedrijfsnaam zowel uitgesloten als loodgieter keywords bevat, hebben loodgieter keywords voorrang
 
-## Results
-- **Original entries**: 6,548
-- **Filtered entries**: 3,861 (actual facilities)
-- **Removed entries**: 2,687 (non-facility businesses)
+## Resultaten
+- **Originele entries**: [aantal]
+- **Gefilterde entries**: [aantal] (daadwerkelijke loodgieters)
+- **Verwijderde entries**: [aantal] (niet-loodgieter bedrijven)
 
-## Implementation
+## Implementatie
 
 ### Standalone Filter Script
-`scripts/filter-non-facilities.ts` - Can be run independently to filter data
+`scripts/filter-non-plumbers.ts` - Kan onafhankelijk worden uitgevoerd om data te filteren
 
-### Integrated Filtering
-The filtering logic is integrated into:
-- `scripts/process-facility-data.ts`
+### Geintegreerde Filtering
+De filterlogica is geintegreerd in:
+- `scripts/process-plumber-data.ts`
 - `scripts/process-all-data.ts`
 
-### Usage
+### Gebruik
 ```bash
 # Run standalone filter
-npx tsx scripts/filter-non-facilities.ts
+npx tsx scripts/filter-non-plumbers.ts
 
-# Process facility data with filtering
-npx tsx scripts/process-all-data.ts facility data/facilities.csv
+# Verwerk loodgieter data met filtering
+npx tsx scripts/process-all-data.ts loodgieter data/loodgieters.csv
 
-# Build production data
+# Build productie data
 npm run build-data
 ```
 
-## Files Created
-- `data/facilities-filtered.csv` - Filtered facility data
-- `data/removed-entries.json` - List of removed entries for review
-- `data/facilities-processed.json` - Processed facility data
-- `public/data/facilities.json` - Production-ready data
+## Bestanden Aangemaakt
+- `data/loodgieters-filtered.csv` - Gefilterde loodgieter data
+- `data/removed-entries.json` - Lijst van verwijderde entries voor review
+- `data/loodgieters-processed.json` - Verwerkte loodgieter data
+- `public/data/loodgieters.json` - Productie-klare data
 
-## Maintenance
-To update filtering rules:
-1. Edit the keyword arrays in the filter functions
-2. Test with sample data to ensure no valid facilities are excluded
-3. Review `removed-entries.json` to verify filtering accuracy
-4. Update this documentation with any changes
+## Onderhoud
+Om filter regels bij te werken:
+1. Bewerk de keyword arrays in de filter functies
+2. Test met voorbeelddata om te verzekeren dat geen geldige loodgieters worden uitgesloten
+3. Review `removed-entries.json` om filternauwkeurigheid te verifieren
+4. Update deze documentatie met eventuele wijzigingen
