@@ -33,11 +33,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `Rehab Centers in ${state.name} | Treatment Centers Near You`,
-    description: `Find addiction treatment centers and rehab facilities in ${state.name}. View locations, treatment types, insurance accepted, and reviews of rehab centers near you.`,
+    title: `Loodgieters in ${state.name} | VindLoodgieter.nl`,
+    description: `Vind loodgieters en installatiebedrijven in ${state.name}. Bekijk locaties, diensten, reviews en contactgegevens van loodgieters bij u in de buurt.`,
     openGraph: {
-      title: `Rehab & Treatment Centers in ${state.name}`,
-      description: `Directory of all addiction treatment and rehabilitation centers in ${state.name}`,
+      title: `Loodgieters in ${state.name}`,
+      description: `Overzicht van alle loodgieters en installatiebedrijven in ${state.name}`,
       type: 'website',
     },
   };
@@ -88,13 +88,13 @@ export default async function StatePage({ params }: PageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://www.rehabnearbyme.com'
+        item: 'https://www.vindloodgieter.nl'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: state.name,
-        item: `https://www.rehabnearbyme.com/state/${stateSlug}`
+        item: `https://www.vindloodgieter.nl/provincie/${stateSlug}`
       }
     ]
   };
@@ -145,25 +145,25 @@ export default async function StatePage({ params }: PageProps) {
             </nav>
 
             <h1 className="font-serif text-4xl sm:text-5xl font-bold mb-4">
-              Rehab Centers in {state.name}
+              Loodgieters in {state.name}
             </h1>
             <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
-              Find addiction treatment centers and rehabilitation facilities in {state.name}. Select a county to view treatment centers in that area.
+              Vind loodgieters en installatiebedrijven in {state.name}. Selecteer een gemeente om loodgieters in dat gebied te bekijken.
             </p>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-8">
               <div>
                 <div className="text-3xl font-bold text-coral-300">{facilities.length}</div>
-                <div className="text-primary-foreground/70 text-sm">Treatment Centers</div>
+                <div className="text-primary-foreground/70 text-sm">Loodgieters</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-coral-300">{counties.length}</div>
-                <div className="text-primary-foreground/70 text-sm">Counties</div>
+                <div className="text-primary-foreground/70 text-sm">Gemeenten</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-coral-300">{cities.length}</div>
-                <div className="text-primary-foreground/70 text-sm">Cities</div>
+                <div className="text-primary-foreground/70 text-sm">Plaatsen</div>
               </div>
             </div>
           </div>
@@ -179,12 +179,12 @@ export default async function StatePage({ params }: PageProps) {
             {/* Section Header */}
             <div className="mb-8">
               <h2 className="font-serif text-2xl font-bold mb-2">
-                {showCities ? `Cities in ${state.name}` : `Counties in ${state.name}`}
+                {showCities ? `Plaatsen in ${state.name}` : `Gemeenten in ${state.name}`}
               </h2>
               <p className="text-muted-foreground">
                 {showCities
-                  ? 'Click on a city to view all treatment centers in that area.'
-                  : 'Click on a county to view all treatment centers in that area.'}
+                  ? 'Klik op een plaats om alle loodgieters in dat gebied te bekijken.'
+                  : 'Klik op een gemeente om alle loodgieters in dat gebied te bekijken.'}
               </p>
             </div>
 
@@ -273,13 +273,13 @@ export default async function StatePage({ params }: PageProps) {
             ) : (
               <Card className="p-8 text-center">
                 <p className="text-muted-foreground mb-4">
-                  No treatment centers found in {state.name} yet. We are continuously adding new facilities.
+                  Nog geen loodgieters gevonden in {state.name}. We voegen continu nieuwe locaties toe.
                 </p>
                 <Link
-                  href="/search"
+                  href="/zoeken"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors"
                 >
-                  Search All Treatment Centers
+                  Zoek Alle Loodgieters
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Card>
@@ -297,12 +297,11 @@ export default async function StatePage({ params }: PageProps) {
                   <Heart className="w-6 h-6 text-teal-700 dark:text-teal-400" />
                 </div>
                 <div>
-                  <h2 className="font-serif text-xl font-semibold mb-3">About addiction treatment in {state.name}</h2>
+                  <h2 className="font-serif text-xl font-semibold mb-3">Over loodgieters in {state.name}</h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    The state of {state.name} offers comprehensive addiction treatment services and rehabilitation facilities.
-                    From inpatient detox centers to outpatient counseling programs, each facility provides specialized care
-                    and evidence-based treatment approaches. Many centers accept various insurance plans and offer programs
-                    tailored to specific needs including dual diagnosis, adolescent care, and luxury treatment options. {state.capital && `The state capital is ${state.capital}.`}
+                    De provincie {state.name} heeft een breed aanbod aan loodgieters en installatiebedrijven.
+                    Van spoed loodgieters voor lekkages tot CV-installateurs en sanitair specialisten - er is voor
+                    elke klus een vakman beschikbaar. Veel bedrijven bieden 24-uurs service en gratis offertes aan. {state.capital && `De hoofdstad is ${state.capital}.`}
                   </p>
                 </div>
               </div>
@@ -311,16 +310,16 @@ export default async function StatePage({ params }: PageProps) {
             {/* CTA Section */}
             <div className="mt-16 text-center">
               <h2 className="font-serif text-2xl font-semibold mb-4">
-                Looking for a specific treatment center?
+                Op zoek naar een specifieke loodgieter?
               </h2>
               <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                Use our search feature to find rehab centers by name, city, treatment type, or insurance accepted.
+                Gebruik onze zoekfunctie om loodgieters te vinden op naam, plaats of dienst.
               </p>
               <Link
-                href="/search"
+                href="/zoeken"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors"
               >
-                Search Treatment Centers
+                Zoek Loodgieters
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

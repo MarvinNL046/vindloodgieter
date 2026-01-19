@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllCounties, getFacilitiesByCounty, createCountySlug, createCitySlug, createStateSlug, Facility } from '@/lib/data';
 import { notFound } from 'next/navigation';
-import { MapPin, Building2, Trees, Users, Calendar, ChevronRight, ArrowRight, Lightbulb } from 'lucide-react';
+import { MapPin, Building2, Wrench, Users, Calendar, ChevronRight, ArrowRight, Lightbulb } from 'lucide-react';
 import FacilityCard from '@/components/FacilityCard';
 import SidebarAd from '@/components/ads/SidebarAd';
 import LeaderboardAd from '@/components/ads/LeaderboardAd';
@@ -39,17 +39,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!matchedCounty) {
     return {
-      title: 'County not found',
-      description: 'The requested county could not be found.',
+      title: 'Gemeente niet gevonden',
+      description: 'De gevraagde gemeente kon niet worden gevonden.',
     };
   }
 
   return {
-    title: `Rehab Centers in ${matchedCounty} County | RehabNearByMe`,
-    description: `Find all rehab and addiction treatment centers in ${matchedCounty} County. View facilities, treatment types, insurance accepted, and contact information.`,
+    title: `Loodgieters in gemeente ${matchedCounty} | VindLoodgieter.nl`,
+    description: `Vind alle loodgieters en installatiebedrijven in gemeente ${matchedCounty}. Bekijk bedrijven, diensten, reviews en contactgegevens.`,
     openGraph: {
-      title: `Rehab Centers in ${matchedCounty} County`,
-      description: `Directory of all rehab and treatment centers in ${matchedCounty} County`,
+      title: `Loodgieters in gemeente ${matchedCounty}`,
+      description: `Overzicht van alle loodgieters in gemeente ${matchedCounty}`,
       type: 'website',
     },
   };
@@ -81,11 +81,10 @@ export default async function CountyPage({ params }: PageProps) {
   // Calculate statistics
   const stats = {
     total: facilities.length,
-    inpatient: facilities.filter((f: Facility) => f.facility_types?.some((type: string) => type.toLowerCase().includes('inpatient'))).length,
-    outpatient: facilities.filter((f: Facility) => f.facility_types?.some((type: string) => type.toLowerCase().includes('outpatient'))).length,
-    detox: facilities.filter((f: Facility) => f.facility_types?.some((type: string) => type.toLowerCase().includes('detox'))).length,
-    dualDiagnosis: facilities.filter((f: Facility) => f.treatment_types?.some((type: string) => type.toLowerCase().includes('dual') || type.toLowerCase().includes('mental'))).length,
-    luxury: facilities.filter((f: Facility) => f.facility_types?.some((type: string) => type.toLowerCase().includes('luxury'))).length,
+    spoedService: facilities.filter((f: Facility) => f.facility_types?.some((type: string) => type.toLowerCase().includes('spoed'))).length,
+    cvInstallatie: facilities.filter((f: Facility) => f.facility_types?.some((type: string) => type.toLowerCase().includes('cv') || type.toLowerCase().includes('verwarming'))).length,
+    sanitair: facilities.filter((f: Facility) => f.facility_types?.some((type: string) => type.toLowerCase().includes('sanitair') || type.toLowerCase().includes('badkamer'))).length,
+    riool: facilities.filter((f: Facility) => f.treatment_types?.some((type: string) => type.toLowerCase().includes('riool') || type.toLowerCase().includes('ontstopping'))).length,
   };
 
   // Breadcrumb structured data
@@ -97,19 +96,19 @@ export default async function CountyPage({ params }: PageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://www.rehabnearbyme.com'
+        item: 'https://www.vindloodgieter.nl'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: state,
-        item: `https://www.rehabnearbyme.com/state/${createStateSlug(state)}`
+        item: `https://www.vindloodgieter.nl/provincie/${createStateSlug(state)}`
       },
       {
         '@type': 'ListItem',
         position: 3,
-        name: `${matchedCounty} County`,
-        item: `https://www.rehabnearbyme.com/county/${countySlug}`
+        name: `Gemeente ${matchedCounty}`,
+        item: `https://www.vindloodgieter.nl/gemeente/${countySlug}`
       }
     ]
   };
@@ -132,33 +131,33 @@ export default async function CountyPage({ params }: PageProps) {
                 <li>/</li>
                 <li>
                   <Link
-                    href={`/state/${createStateSlug(state)}`}
+                    href={`/provincie/${createStateSlug(state)}`}
                     className="hover:text-white transition-colors"
                   >
                     {state}
                   </Link>
                 </li>
                 <li>/</li>
-                <li className="text-white">{matchedCounty} County</li>
+                <li className="text-white">Gemeente {matchedCounty}</li>
               </ol>
             </nav>
 
             <h1 className="font-serif text-4xl sm:text-5xl font-bold mb-4">
-              Rehab Centers in {matchedCounty} County
+              Loodgieters in gemeente {matchedCounty}
             </h1>
 
             {/* Author byline */}
             <div className="flex items-center gap-4 text-sm text-primary-foreground/70 mb-8">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="text-xs font-semibold">RN</span>
+                  <span className="text-xs font-semibold">VL</span>
                 </div>
-                <span>By Rehab Near By Me</span>
+                <span>Door VindLoodgieter.nl</span>
               </div>
-              <span>•</span>
+              <span>-</span>
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                <span>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span>Laatst bijgewerkt: {new Date().toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
               </div>
             </div>
 
@@ -166,22 +165,22 @@ export default async function CountyPage({ params }: PageProps) {
             <div className="flex flex-wrap gap-8">
               <div>
                 <div className="text-3xl font-bold text-coral-300">{stats.total}</div>
-                <div className="text-primary-foreground/70 text-sm">Treatment Centers</div>
+                <div className="text-primary-foreground/70 text-sm">Loodgieters</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-coral-300">{cities.length}</div>
-                <div className="text-primary-foreground/70 text-sm">Cities</div>
+                <div className="text-primary-foreground/70 text-sm">Plaatsen</div>
               </div>
-              {stats.inpatient > 0 && (
+              {stats.spoedService > 0 && (
                 <div>
-                  <div className="text-3xl font-bold text-coral-300">{stats.inpatient}</div>
-                  <div className="text-primary-foreground/70 text-sm">Inpatient</div>
+                  <div className="text-3xl font-bold text-coral-300">{stats.spoedService}</div>
+                  <div className="text-primary-foreground/70 text-sm">Spoed Service</div>
                 </div>
               )}
-              {stats.detox > 0 && (
+              {stats.cvInstallatie > 0 && (
                 <div>
-                  <div className="text-3xl font-bold text-coral-300">{stats.detox}</div>
-                  <div className="text-primary-foreground/70 text-sm">Detox Centers</div>
+                  <div className="text-3xl font-bold text-coral-300">{stats.cvInstallatie}</div>
+                  <div className="text-primary-foreground/70 text-sm">CV Installateurs</div>
                 </div>
               )}
             </div>
@@ -201,57 +200,57 @@ export default async function CountyPage({ params }: PageProps) {
               <Card className="p-6 bg-gradient-to-r from-teal-50 to-coral-50/30 dark:from-teal-900/20 dark:to-coral-900/10 border-teal-100 dark:border-teal-800">
                 <h2 className="font-serif text-xl font-semibold mb-4 flex items-center gap-2">
                   <Lightbulb className="w-5 h-5 text-accent" />
-                  Tips for Choosing a Treatment Center
+                  Tips voor het kiezen van een loodgieter
                 </h2>
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-start gap-3">
                     <ChevronRight className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Compare multiple facilities to find the best fit for your specific needs</span>
+                    <span>Vergelijk meerdere loodgieters om de beste prijs-kwaliteitverhouding te vinden</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <ChevronRight className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Verify that the facility accepts your insurance and ask about payment options</span>
+                    <span>Vraag altijd vooraf een offerte en check of er voorrijkosten zijn</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <ChevronRight className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Look for facilities with evidence-based treatment programs and licensed staff</span>
+                    <span>Kies bij voorkeur een erkend installateur met goede reviews</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <ChevronRight className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Consider the level of care needed: detox, inpatient, outpatient, or sober living</span>
+                    <span>Bij spoed: let op 24-uurs service en reactietijd</span>
                   </li>
                 </ul>
               </Card>
 
-              {/* Facility Type Cards */}
+              {/* Service Type Cards */}
               <div>
-                <h2 className="font-serif text-2xl font-semibold mb-6">Types of Treatment Centers</h2>
+                <h2 className="font-serif text-2xl font-semibold mb-6">Soorten loodgietersdiensten</h2>
                 <div className="grid md:grid-cols-3 gap-4">
                   <Card className="p-5 hover:shadow-hover transition-all duration-300 border-2 border-transparent hover:border-accent/30">
                     <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
                       <Building2 className="w-5 h-5 text-teal-700" />
                     </div>
-                    <h3 className="font-semibold mb-2">Inpatient Rehab</h3>
+                    <h3 className="font-semibold mb-2">Spoed Loodgieter</h3>
                     <p className="text-sm text-muted-foreground">
-                      Residential treatment with 24/7 medical supervision. Intensive programs for severe addiction cases.
+                      24/7 beschikbaar voor noodgevallen zoals lekkages, verstoppingen en gesprongen leidingen.
                     </p>
                   </Card>
                   <Card className="p-5 hover:shadow-hover transition-all duration-300 border-2 border-transparent hover:border-accent/30">
                     <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
-                      <Trees className="w-5 h-5 text-teal-700" />
+                      <Wrench className="w-5 h-5 text-teal-700" />
                     </div>
-                    <h3 className="font-semibold mb-2">Outpatient Treatment</h3>
+                    <h3 className="font-semibold mb-2">CV Installatie</h3>
                     <p className="text-sm text-muted-foreground">
-                      Flexible treatment schedule allowing you to live at home while receiving therapy and support.
+                      Installatie, onderhoud en reparatie van CV-ketels en verwarmingssystemen.
                     </p>
                   </Card>
                   <Card className="p-5 hover:shadow-hover transition-all duration-300 border-2 border-transparent hover:border-accent/30">
                     <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
                       <Users className="w-5 h-5 text-teal-700" />
                     </div>
-                    <h3 className="font-semibold mb-2">Detox Centers</h3>
+                    <h3 className="font-semibold mb-2">Sanitair & Badkamer</h3>
                     <p className="text-sm text-muted-foreground">
-                      Medical detoxification services with supervision to safely manage withdrawal symptoms.
+                      Installatie en renovatie van badkamers, toiletten, kranen en sanitair.
                     </p>
                   </Card>
                 </div>
@@ -260,7 +259,7 @@ export default async function CountyPage({ params }: PageProps) {
               {/* All Facilities */}
               <div>
                 <h2 className="font-serif text-2xl font-semibold mb-6">
-                  All {facilities.length} {facilities.length !== 1 ? 'Treatment Centers' : 'Treatment Center'}
+                  Alle {facilities.length} {facilities.length !== 1 ? 'loodgieters' : 'loodgieter'}
                 </h2>
                 <div className="grid gap-6 md:grid-cols-2">
                   {facilities.map((facility: Facility) => (
@@ -277,14 +276,14 @@ export default async function CountyPage({ params }: PageProps) {
               {/* Cities Grid */}
               {cities.length > 1 && (
                 <div>
-                  <h2 className="font-serif text-2xl font-semibold mb-6">Treatment Centers by City</h2>
+                  <h2 className="font-serif text-2xl font-semibold mb-6">Loodgieters per plaats</h2>
                   <div className="grid gap-4 grid-cols-2 md:grid-cols-3">
                     {cities.map((city) => {
                       const cityFacilities = facilities.filter((f: Facility) => f.city === city);
                       return (
                         <Link
                           key={city}
-                          href={`/city/${createCitySlug(city)}`}
+                          href={`/plaats/${createCitySlug(city)}`}
                           className="group"
                         >
                           <Card className="h-full p-4 border-2 border-transparent hover:border-accent/30 transition-all duration-300">
@@ -297,7 +296,7 @@ export default async function CountyPage({ params }: PageProps) {
                                   {city}
                                 </h3>
                                 <p className="text-sm text-muted-foreground">
-                                  {cityFacilities.length} {cityFacilities.length !== 1 ? 'centers' : 'center'}
+                                  {cityFacilities.length} {cityFacilities.length !== 1 ? 'loodgieters' : 'loodgieter'}
                                 </p>
                               </div>
                             </div>
@@ -311,29 +310,29 @@ export default async function CountyPage({ params }: PageProps) {
 
               {/* Informational Content */}
               <Card className="p-6">
-                <h2 className="font-serif text-2xl font-semibold mb-4">Finding Addiction Treatment in {matchedCounty} County</h2>
+                <h2 className="font-serif text-2xl font-semibold mb-4">Loodgieter vinden in gemeente {matchedCounty}</h2>
                 <div className="prose prose-lg max-w-none text-muted-foreground">
                   <p>
-                    In {matchedCounty} County, {state} you&apos;ll find {stats.total} {stats.total !== 1 ? 'treatment centers' : 'treatment center'},
-                    including {stats.inpatient > 0 ? `${stats.inpatient} inpatient ${stats.inpatient !== 1 ? 'facilities' : 'facility'}` : ''}
-                    {stats.outpatient > 0 ? `, ${stats.outpatient} outpatient ${stats.outpatient !== 1 ? 'programs' : 'program'}` : ''}
-                    {stats.detox > 0 ? `, and ${stats.detox} detox ${stats.detox !== 1 ? 'centers' : 'center'}` : ''}.
-                    Each facility offers different treatment approaches and specializations.
+                    In gemeente {matchedCounty}, {state} vindt u {stats.total} {stats.total !== 1 ? 'loodgieters' : 'loodgieter'},
+                    waaronder {stats.spoedService > 0 ? `${stats.spoedService} met spoed service` : ''}
+                    {stats.cvInstallatie > 0 ? `, ${stats.cvInstallatie} CV ${stats.cvInstallatie !== 1 ? 'installateurs' : 'installateur'}` : ''}
+                    {stats.sanitair > 0 ? `, en ${stats.sanitair} gespecialiseerd in sanitair` : ''}.
+                    Elk bedrijf biedt verschillende diensten en specialisaties.
                   </p>
 
-                  <h3 className="font-serif text-xl font-semibold text-foreground mt-6 mb-3">Choosing the Right Treatment</h3>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mt-6 mb-3">De juiste loodgieter kiezen</h3>
                   <p>
-                    When selecting a treatment center, several factors are important:
-                    the level of care needed (detox, inpatient, or outpatient), insurance coverage and payment options,
-                    treatment approaches and therapies offered, and the facility&apos;s success rates and accreditation.
-                    Many centers in {matchedCounty} County offer specialized programs for different substances and co-occurring mental health disorders.
+                    Bij het selecteren van een loodgieter zijn verschillende factoren belangrijk:
+                    de beschikbaarheid (vooral bij spoed), prijstransparantie en offertes vooraf,
+                    vakmanschap en certificeringen, en reviews van eerdere klanten.
+                    Veel loodgieters in gemeente {matchedCounty} bieden gratis offertes en zijn gespecialiseerd in specifieke diensten.
                   </p>
 
-                  <h3 className="font-serif text-xl font-semibold text-foreground mt-6 mb-3">Getting Started</h3>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mt-6 mb-3">Direct hulp nodig?</h3>
                   <p>
-                    Taking the first step toward recovery can be challenging, but help is available.
-                    Most treatment centers offer free consultations to discuss your needs and determine the best treatment plan.
-                    Don&apos;t hesitate to contact multiple facilities to compare programs and find the right fit for your recovery journey.
+                    Bij een lekkage of ander loodgietersprobleem is snel handelen belangrijk.
+                    Neem direct contact op met een van de loodgieters op deze pagina voor hulp en advies.
+                    Veel bedrijven bieden 24-uurs spoedservice voor noodgevallen.
                   </p>
                 </div>
               </Card>
@@ -343,51 +342,51 @@ export default async function CountyPage({ params }: PageProps) {
             <div className="lg:col-span-1 space-y-6">
               {/* Quick Links */}
               <Card className="p-6 shadow-soft">
-                <h3 className="font-serif text-lg font-semibold mb-4">Related Pages</h3>
+                <h3 className="font-serif text-lg font-semibold mb-4">Gerelateerde paginas</h3>
                 <ul className="space-y-3">
                   <li>
                     <Link
-                      href={`/state/${createStateSlug(state)}`}
+                      href={`/provincie/${createStateSlug(state)}`}
                       className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
                     >
                       <ChevronRight className="w-4 h-4" />
-                      All treatment centers in {state}
+                      Alle loodgieters in {state}
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/type/inpatient"
+                      href="/dienst/spoed-loodgieter"
                       className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
                     >
                       <ChevronRight className="w-4 h-4" />
-                      Inpatient Rehab Centers
+                      Spoed Loodgieters
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/type/outpatient"
+                      href="/dienst/cv-installatie"
                       className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
                     >
                       <ChevronRight className="w-4 h-4" />
-                      Outpatient Programs
+                      CV Installateurs
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/search"
+                      href="/zoeken"
                       className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
                     >
                       <ChevronRight className="w-4 h-4" />
-                      Search Treatment Centers
+                      Zoek loodgieters
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/guide"
+                      href="/gids"
                       className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
                     >
                       <ChevronRight className="w-4 h-4" />
-                      Treatment Guide
+                      Loodgieter gids
                     </Link>
                   </li>
                 </ul>
@@ -395,15 +394,15 @@ export default async function CountyPage({ params }: PageProps) {
 
               {/* Contact Info */}
               <Card className="p-6 shadow-soft bg-gradient-to-br from-teal-50 to-coral-50/50 dark:from-teal-900/20 dark:to-coral-900/10 border-teal-200 dark:border-teal-800">
-                <h3 className="font-serif text-lg font-semibold mb-3">Need Help?</h3>
+                <h3 className="font-serif text-lg font-semibold mb-3">Hulp nodig?</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  We can help you find the right treatment center in {matchedCounty} County.
+                  Wij helpen u de juiste loodgieter te vinden in gemeente {matchedCounty}.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors text-sm font-medium"
                 >
-                  Get Help Now
+                  Neem contact op
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Card>
@@ -411,18 +410,18 @@ export default async function CountyPage({ params }: PageProps) {
               {/* Sidebar Ad */}
               <SidebarAd />
 
-              {/* State Stats */}
+              {/* Province Stats */}
               <Card className="p-6 shadow-soft">
-                <h3 className="font-serif text-lg font-semibold mb-4">About {state}</h3>
+                <h3 className="font-serif text-lg font-semibold mb-4">Over {state}</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  {matchedCounty} County is located in {state}. View all treatment centers
-                  in this state for more options.
+                  Gemeente {matchedCounty} ligt in {state}. Bekijk alle loodgieters
+                  in deze provincie voor meer opties.
                 </p>
                 <Link
-                  href={`/state/${createStateSlug(state)}`}
+                  href={`/provincie/${createStateSlug(state)}`}
                   className="text-accent hover:text-accent/80 text-sm font-medium flex items-center gap-1"
                 >
-                  View {state} Centers
+                  Bekijk {state}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Card>

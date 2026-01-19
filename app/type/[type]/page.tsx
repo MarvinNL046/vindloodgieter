@@ -12,18 +12,18 @@ interface PageProps {
 }
 
 const typeDescriptions: Record<string, string> = {
-  'inpatient': 'Inpatient rehabilitation centers provide 24/7 medical supervision and structured treatment programs. Patients reside at the facility for the duration of treatment, typically 30-90 days.',
-  'outpatient': 'Outpatient treatment programs allow patients to receive therapy and support while living at home. These programs offer flexible scheduling for those who cannot commit to inpatient care.',
-  'detox': 'Detoxification centers provide medical supervision during the withdrawal process. Staff monitor vital signs and provide medication to safely manage withdrawal symptoms.',
-  'residential': 'Residential treatment facilities offer long-term care in a home-like environment. These programs focus on building life skills and sustainable recovery habits.',
-  'intensive-outpatient': 'Intensive outpatient programs (IOP) provide structured treatment several hours per day while allowing patients to maintain work and family responsibilities.',
-  'partial-hospitalization': 'Partial hospitalization programs (PHP) offer hospital-level care during the day with patients returning home at night. This provides intensive treatment without full hospitalization.',
-  'sober-living': 'Sober living homes provide structured, substance-free housing for individuals in recovery. These homes offer peer support and accountability in a community setting.',
-  'luxury-rehab': 'Luxury rehabilitation centers offer high-end amenities and personalized treatment in resort-like settings. These facilities provide privacy and comfort alongside clinical excellence.',
-  'dual-diagnosis': 'Dual diagnosis treatment centers specialize in treating both substance abuse and co-occurring mental health disorders. Integrated care addresses all aspects of patient wellbeing.',
-  'adolescent': 'Adolescent treatment programs are specifically designed for teenagers struggling with addiction. These programs address the unique developmental and psychological needs of young people.',
-  'veterans': 'Veterans-specific treatment programs understand the unique challenges faced by those who served. These facilities often specialize in PTSD and combat-related trauma alongside addiction treatment.',
-  'holistic': 'Holistic treatment centers integrate alternative therapies like yoga, meditation, and acupuncture with traditional addiction treatment approaches.',
+  'spoed-loodgieter': 'Spoed loodgieters zijn 24/7 beschikbaar voor noodgevallen zoals lekkages, verstoppingen en gesprongen leidingen. Ze kunnen meestal binnen 30-60 minuten ter plaatse zijn.',
+  'cv-installatie': 'CV-installateurs zijn gespecialiseerd in de installatie, het onderhoud en de reparatie van centrale verwarmingssystemen en CV-ketels.',
+  'sanitair': 'Sanitair installateurs verzorgen de installatie en reparatie van wastafels, toiletten, douches, badkuipen en alle bijbehorende leidingwerk.',
+  'riool-ontstopping': 'Rioolspecialisten helpen bij verstopte riolen en afvoeren. Ze beschikken over professionele apparatuur zoals hogedrukspuiten en camera-inspectie.',
+  'lekkage-opsporing': 'Lekkage-opsporingsdiensten gebruiken geavanceerde technologie om verborgen lekkages te detecteren zonder onnodige breekwerkzaamheden.',
+  'badkamer-renovatie': 'Badkamerspecialisten verzorgen complete badkamerrenovaties, van ontwerp en installatie tot het eindresultaat.',
+  'vloerverwarming': 'Vloerverwarmingsinstallateurs zijn gespecialiseerd in de aanleg en het onderhoud van vloerverwarmingssystemen.',
+  'warmtepomp': 'Warmtepompinstallateurs adviseren over en installeren duurzame verwarmingsoplossingen zoals lucht-water en bodem-water warmtepompen.',
+  'gasleiding': 'Gasleidinginstallateurs zijn gecertificeerd voor werkzaamheden aan gasleidingen en gastoestellen. Veiligheid staat hierbij voorop.',
+  'waterleiding': 'Waterleidingspecialisten verzorgen de aanleg, reparatie en vervanging van waterleidingen in woningen en bedrijfspanden.',
+  'boiler': 'Boilerspecialisten installeren en onderhouden warmwaterboilers en -systemen voor optimaal comfort.',
+  'duurzaam': 'Duurzame installateurs adviseren over en installeren milieuvriendelijke oplossingen zoals zonneboilers, warmtepompen en energiezuinige systemen.',
 };
 
 export async function generateStaticParams() {
@@ -41,15 +41,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const type = await getFacilityTypeBySlug(typeSlug);
 
   if (!type) {
-    return { title: 'Treatment Type Not Found' };
+    return { title: 'Dienst Type Niet Gevonden' };
   }
 
   return {
-    title: `${type.name} Treatment Centers in the USA | Rehab Near Me`,
-    description: `Find ${type.name.toLowerCase()} treatment centers across the United States. View locations, services, and insurance accepted.`,
+    title: `${type.name} in Nederland | VindLoodgieter.nl`,
+    description: `Vind ${type.name.toLowerCase()} in heel Nederland. Bekijk locaties, diensten en contactgegevens.`,
     openGraph: {
-      title: `${type.name} Treatment Centers`,
-      description: `All ${type.name.toLowerCase()} facilities in the USA`,
+      title: `${type.name} in Nederland`,
+      description: `Alle ${type.name.toLowerCase()} in Nederland`,
       type: 'website',
     },
   };
@@ -66,17 +66,17 @@ export default async function TypePage({ params }: PageProps) {
   const facilities = await getFacilitiesByFacilityType(type.slug);
   const description = typeDescriptions[typeSlug] || type.description;
 
-  // Group by state
-  const facilitiesByState = facilities.reduce((acc, facility) => {
-    const state = facility.state || 'Unknown';
-    if (!acc[state]) {
-      acc[state] = [];
+  // Group by province
+  const facilitiesByProvince = facilities.reduce((acc, facility) => {
+    const province = facility.state || 'Onbekend';
+    if (!acc[province]) {
+      acc[province] = [];
     }
-    acc[state].push(facility);
+    acc[province].push(facility);
     return acc;
   }, {} as Record<string, Facility[]>);
 
-  const stateCount = Object.keys(facilitiesByState).length;
+  const provinceCount = Object.keys(facilitiesByProvince).length;
 
   return (
     <div className="min-h-screen bg-background">
@@ -88,14 +88,14 @@ export default async function TypePage({ params }: PageProps) {
             <ol className="flex items-center space-x-2 text-sm text-primary-foreground/70">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li>/</li>
-              <li><Link href="/type" className="hover:text-white transition-colors">Types</Link></li>
+              <li><Link href="/diensten" className="hover:text-white transition-colors">Diensten</Link></li>
               <li>/</li>
               <li className="text-white">{type.name}</li>
             </ol>
           </nav>
 
           <h1 className="font-serif text-4xl sm:text-5xl font-bold mb-4">
-            {type.name} Treatment Centers
+            {type.name} in Nederland
           </h1>
 
           {description && (
@@ -108,11 +108,11 @@ export default async function TypePage({ params }: PageProps) {
           <div className="flex flex-wrap gap-8">
             <div>
               <div className="text-3xl font-bold text-coral-300">{facilities.length}</div>
-              <div className="text-primary-foreground/70 text-sm">Treatment Centers</div>
+              <div className="text-primary-foreground/70 text-sm">Loodgieters</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-coral-300">{stateCount}</div>
-              <div className="text-primary-foreground/70 text-sm">States</div>
+              <div className="text-3xl font-bold text-coral-300">{provinceCount}</div>
+              <div className="text-primary-foreground/70 text-sm">Provincies</div>
             </div>
           </div>
         </div>
@@ -122,26 +122,26 @@ export default async function TypePage({ params }: PageProps) {
         <div className="max-w-6xl mx-auto">
           {facilities.length > 0 ? (
             <div className="space-y-12">
-              {Object.entries(facilitiesByState)
+              {Object.entries(facilitiesByProvince)
                 .sort(([a], [b]) => a.localeCompare(b))
-                .map(([state, stateFacilities]) => (
-                  <div key={state}>
+                .map(([province, provinceFacilities]) => (
+                  <div key={province}>
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-10 h-10 rounded-lg bg-accent text-accent-foreground flex items-center justify-center">
                         <MapPin className="w-5 h-5" />
                       </div>
                       <div>
-                        <h2 className="font-serif text-2xl font-bold">{state}</h2>
+                        <h2 className="font-serif text-2xl font-bold">{province}</h2>
                         <p className="text-sm text-muted-foreground">
-                          {stateFacilities.length} {stateFacilities.length !== 1 ? 'treatment centers' : 'treatment center'}
+                          {provinceFacilities.length} {provinceFacilities.length !== 1 ? 'loodgieters' : 'loodgieter'}
                         </p>
                       </div>
                     </div>
                     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                      {stateFacilities.map((facility) => (
+                      {provinceFacilities.map((facility) => (
                         <Link
                           key={facility.slug}
-                          href={`/facility/${facility.slug}`}
+                          href={`/loodgieter/${facility.slug}`}
                           className="group"
                         >
                           <Card className="h-full p-4 border-2 border-transparent hover:border-accent/30 transition-all duration-300">
@@ -151,14 +151,14 @@ export default async function TypePage({ params }: PageProps) {
                             <div className="space-y-1 text-sm text-muted-foreground">
                               <p className="flex items-center gap-2">
                                 <Building className="w-4 h-4 text-teal-600" />
-                                <span>{facility.city}{facility.county ? `, ${facility.county}` : ''}</span>
+                                <span>{facility.city}{facility.county ? `, gemeente ${facility.county}` : ''}</span>
                               </p>
                               {facility.phone && (
                                 <p className="text-xs">{facility.phone}</p>
                               )}
                             </div>
                             <div className="mt-3 flex items-center gap-1 text-sm font-medium text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                              View
+                              Bekijken
                               <ChevronRight className="w-4 h-4" />
                             </div>
                           </Card>
@@ -171,13 +171,13 @@ export default async function TypePage({ params }: PageProps) {
           ) : (
             <Card className="p-8 text-center">
               <p className="text-muted-foreground mb-4">
-                No {type.name.toLowerCase()} treatment centers found yet. We are continuously adding new locations.
+                Nog geen {type.name.toLowerCase()} gevonden. We voegen continu nieuwe locaties toe.
               </p>
               <Link
-                href="/search"
+                href="/zoeken"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors"
               >
-                Search All Treatment Centers
+                Zoek Alle Loodgieters
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Card>
@@ -189,30 +189,30 @@ export default async function TypePage({ params }: PageProps) {
               <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                 <Clock className="w-5 h-5 text-teal-700" />
               </div>
-              <h3 className="font-serif text-lg font-semibold mb-2">24/7 Support</h3>
+              <h3 className="font-serif text-lg font-semibold mb-2">24/7 Service</h3>
               <p className="text-sm text-muted-foreground">
-                Many treatment centers offer 24/7 admissions support.
-                Call directly to speak with an intake specialist about immediate availability.
+                Veel loodgieters bieden 24-uurs spoedservice.
+                Bel direct voor hulp bij noodgevallen zoals lekkages.
               </p>
             </Card>
             <Card className="p-6 shadow-soft">
               <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                 <Info className="w-5 h-5 text-teal-700" />
               </div>
-              <h3 className="font-serif text-lg font-semibold mb-2">Insurance Coverage</h3>
+              <h3 className="font-serif text-lg font-semibold mb-2">Gratis Offerte</h3>
               <p className="text-sm text-muted-foreground">
-                Most facilities accept major insurance plans including Medicare and Medicaid.
-                Contact the center to verify your specific coverage.
+                De meeste loodgieters bieden gratis offertes aan.
+                Vraag altijd vooraf naar kosten en voorrijkosten.
               </p>
             </Card>
             <Card className="p-6 shadow-soft">
               <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-5 h-5 text-teal-700" />
               </div>
-              <h3 className="font-serif text-lg font-semibold mb-2">Confidential Care</h3>
+              <h3 className="font-serif text-lg font-semibold mb-2">Erkende Vakmannen</h3>
               <p className="text-sm text-muted-foreground">
-                All treatment centers maintain strict confidentiality and comply with HIPAA
-                regulations to protect your privacy.
+                Kies voor erkende installateurs met goede reviews
+                en vraag naar certificeringen en garanties.
               </p>
             </Card>
           </div>
@@ -220,16 +220,16 @@ export default async function TypePage({ params }: PageProps) {
           {/* CTA Section */}
           <div className="mt-16 text-center">
             <h2 className="font-serif text-2xl font-semibold mb-4">
-              Looking for a specific treatment center?
+              Op zoek naar een specifieke loodgieter?
             </h2>
             <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-              Use our search feature to find treatment centers by name, location, or insurance accepted.
+              Gebruik onze zoekfunctie om loodgieters te vinden op naam, locatie of dienst.
             </p>
             <Link
-              href="/search"
+              href="/zoeken"
               className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors"
             >
-              Search Treatment Centers
+              Zoek Loodgieters
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

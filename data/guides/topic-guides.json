@@ -1,322 +1,267 @@
 {
   "topics": [
     {
-      "slug": "treatment-etiquette",
-      "title": "Treatment Etiquette: A Guide to Respectful Visits and Support",
-      "description": "Learn proper etiquette for visiting someone in treatment, supporting a loved one's recovery, and understanding boundaries in addiction treatment settings.",
-      "excerpt": "Understanding treatment etiquette helps you support loved ones in recovery while respecting their healing process and facility guidelines.",
-      "category": "Visitor Guide",
-      "author": "Rehab Near Me Editorial Team",
-      "datePublished": "2024-12-20",
-      "dateModified": "2024-12-26",
+      "slug": "loodgieter-kiezen",
+      "title": "De Juiste Loodgieter Kiezen: Een Complete Gids",
+      "description": "Stap-voor-stap gids voor het selecteren van een betrouwbare loodgieter, inclusief tips voor het vergelijken van offertes en het checken van reviews.",
+      "excerpt": "Leer hoe u de beste loodgieter selecteert voor uw project. Tips voor het vergelijken van offertes, controleren van certificeringen en het beoordelen van reviews.",
+      "category": "Keuze Gids",
+      "author": "VindLoodgieter.nl Redactie",
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-01-18",
+      "readTime": "10 min",
+      "keywords": ["loodgieter kiezen", "betrouwbare loodgieter", "offertes vergelijken", "loodgieter reviews", "erkend installateur"],
+      "sections": [
+        {
+          "id": "waarom-belangrijk",
+          "title": "Waarom de Juiste Keuze Belangrijk Is",
+          "anchor": "waarom-de-juiste-keuze-belangrijk-is"
+        },
+        {
+          "id": "certificeringen",
+          "title": "Certificeringen en Keurmerken",
+          "anchor": "certificeringen-en-keurmerken"
+        },
+        {
+          "id": "offertes",
+          "title": "Offertes Vergelijken",
+          "anchor": "offertes-vergelijken"
+        },
+        {
+          "id": "reviews",
+          "title": "Reviews Beoordelen",
+          "anchor": "reviews-beoordelen"
+        },
+        {
+          "id": "vragen-stellen",
+          "title": "Vragen om te Stellen",
+          "anchor": "vragen-om-te-stellen"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Hoe vind ik een betrouwbare loodgieter?",
+          "answer": "Kies een loodgieter met goede online reviews, vraag naar certificeringen zoals erkend installateur, vergelijk meerdere offertes en informeer naar garantie op het werk. Betrouwbare loodgieters werken transparant met duidelijke prijsafspraken vooraf."
+        },
+        {
+          "question": "Moet een loodgieter gecertificeerd zijn?",
+          "answer": "Voor bepaalde werkzaamheden zoals gasinstallaties is certificering verplicht. Een erkend installateur biedt extra zekerheid over vakmanschap. Vraag altijd naar relevante certificeringen voor het type werk dat u nodig heeft."
+        },
+        {
+          "question": "Hoeveel offertes moet ik opvragen?",
+          "answer": "Voor grotere projecten is het verstandig minimaal drie offertes te vergelijken. Dit geeft u inzicht in de gangbare prijzen en helpt u een geïnformeerde keuze te maken. Let niet alleen op prijs maar ook op wat er wel en niet is inbegrepen."
+        }
+      ]
+    },
+    {
+      "slug": "kosten-loodgieter",
+      "title": "Loodgieter Kosten: Tarieven en Prijzen in 2025",
+      "description": "Uitgebreid overzicht van loodgieterstarieven in Nederland, van uurtarieven tot vaste prijzen voor veelvoorkomende werkzaamheden.",
+      "excerpt": "Wat kost een loodgieter in 2025? Overzicht van uurtarieven, voorrijkosten en vaste prijzen voor verschillende werkzaamheden.",
+      "category": "Kosten Gids",
+      "author": "VindLoodgieter.nl Redactie",
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-01-18",
       "readTime": "12 min",
-      "keywords": ["treatment etiquette", "visiting rehab", "supporting recovery", "addiction support", "family visitation", "treatment facility rules"],
+      "keywords": ["loodgieter kosten", "loodgieter tarieven", "loodgieter prijs per uur", "voorrijkosten loodgieter", "loodgieter prijzen"],
       "sections": [
         {
-          "id": "visiting-hours",
-          "title": "Visiting Hours and Rules",
-          "anchor": "visiting-hours-and-rules"
+          "id": "uurtarieven",
+          "title": "Gemiddelde Uurtarieven",
+          "anchor": "gemiddelde-uurtarieven"
         },
         {
-          "id": "what-to-bring",
-          "title": "What to Bring",
-          "anchor": "what-to-bring"
+          "id": "voorrijkosten",
+          "title": "Voorrijkosten",
+          "anchor": "voorrijkosten"
         },
         {
-          "id": "communication",
-          "title": "Communication Guidelines",
-          "anchor": "communication-guidelines"
+          "id": "vaste-prijzen",
+          "title": "Vaste Prijzen per Klus",
+          "anchor": "vaste-prijzen-per-klus"
         },
         {
-          "id": "support-tips",
-          "title": "How to Be Supportive",
-          "anchor": "how-to-be-supportive"
+          "id": "spoedtarieven",
+          "title": "Spoedtarieven",
+          "anchor": "spoedtarieven"
         },
         {
-          "id": "boundaries",
-          "title": "Understanding Boundaries",
-          "anchor": "understanding-boundaries"
-        },
-        {
-          "id": "children",
-          "title": "Bringing Children to Visits",
-          "anchor": "bringing-children-to-visits"
+          "id": "besparen",
+          "title": "Tips om Kosten te Besparen",
+          "anchor": "tips-om-kosten-te-besparen"
         }
       ],
       "faqs": [
         {
-          "question": "Can I visit someone in rehab?",
-          "answer": "Most treatment facilities have scheduled visiting hours, typically on weekends. Some facilities restrict visits during the first week or two to allow patients to focus on initial treatment. Always check with the specific facility about their visitation policies."
+          "question": "Wat kost een loodgieter per uur?",
+          "answer": "Een loodgieter rekent gemiddeld tussen de 45 en 65 euro per uur, exclusief BTW en materiaalkosten. Bij spoedwerk of avond- en weekendwerk kunnen de tarieven 50-100% hoger liggen."
         },
         {
-          "question": "What should I bring when visiting?",
-          "answer": "Bring only approved items—most facilities have restricted item lists. Typically allowed: comfortable clothes, approved toiletries, books without drug/alcohol themes, family photos, and encouraging letters. Not allowed: outside food, medications, electronics, or anything containing alcohol."
+          "question": "Zijn er voorrijkosten?",
+          "answer": "De meeste loodgieters rekenen voorrijkosten, meestal tussen de 25 en 50 euro. Sommige bedrijven rekenen geen voorrijkosten als u ook de werkzaamheden laat uitvoeren. Vraag hier altijd vooraf naar."
         },
         {
-          "question": "Can I bring my phone when visiting?",
-          "answer": "Policies vary by facility. Many allow visitors to keep phones but restrict photography or recording. Some facilities ask visitors to leave phones in lockers. Check the specific facility's policy before your visit."
-        },
-        {
-          "question": "What if my loved one doesn't want visitors?",
-          "answer": "Respect their wishes. Some people need space during early recovery to focus on treatment without outside pressures. Continue showing support through approved methods like letters, and let them know you're ready to visit when they are."
-        },
-        {
-          "question": "How do I talk to someone in treatment?",
-          "answer": "Focus on their progress and well-being rather than outside problems. Avoid discussing stressful topics, especially family conflicts or financial issues. Be encouraging but avoid making promises you can't keep. Let them guide the conversation about their treatment."
+          "question": "Wat kost een spoed loodgieter?",
+          "answer": "Spoedtarieven liggen hoger dan reguliere tarieven. Reken op een toeslag van 50-100% in avonden en weekenden. De exacte kosten hangen af van het tijdstip en de urgentie van de situatie."
         }
       ]
     },
     {
-      "slug": "finding-treatment",
-      "title": "Finding the Right Treatment Center: A Complete Guide",
-      "description": "Step-by-step guide to finding addiction treatment including insurance verification, assessing needs, evaluating facilities, and making informed decisions.",
-      "excerpt": "Finding the right treatment center can feel overwhelming. This guide walks you through the process of identifying your needs and evaluating options.",
-      "category": "Planning Guide",
-      "author": "Rehab Near Me Editorial Team",
-      "datePublished": "2024-12-20",
-      "dateModified": "2024-12-26",
+      "slug": "cv-ketel-onderhoud",
+      "title": "CV-ketel Onderhoud: Wat U Moet Weten",
+      "description": "Alles over het onderhoud van uw CV-ketel, van jaarlijkse controles tot storingen herkennen en wanneer vervanging nodig is.",
+      "excerpt": "Waarom is jaarlijks CV-ketel onderhoud belangrijk? Leer over kosten, wat er gecontroleerd wordt, en hoe u storingen kunt voorkomen.",
+      "category": "Onderhoud Gids",
+      "author": "VindLoodgieter.nl Redactie",
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-01-18",
       "readTime": "14 min",
-      "keywords": ["finding treatment", "choosing rehab", "treatment center selection", "addiction treatment options", "rehab research", "treatment planning"],
+      "keywords": ["cv ketel onderhoud", "cv ketel service", "cv ketel storing", "cv ketel vervanging", "jaarlijks onderhoud"],
       "sections": [
         {
-          "id": "assess-needs",
-          "title": "Assessing Treatment Needs",
-          "anchor": "assessing-treatment-needs"
+          "id": "waarom-onderhoud",
+          "title": "Waarom Jaarlijks Onderhoud",
+          "anchor": "waarom-jaarlijks-onderhoud"
         },
         {
-          "id": "treatment-levels",
-          "title": "Understanding Levels of Care",
-          "anchor": "understanding-levels-of-care"
+          "id": "wat-wordt-gecontroleerd",
+          "title": "Wat Wordt Gecontroleerd",
+          "anchor": "wat-wordt-gecontroleerd"
         },
         {
-          "id": "insurance",
-          "title": "Insurance and Payment Options",
-          "anchor": "insurance-and-payment-options"
+          "id": "kosten",
+          "title": "Kosten CV-onderhoud",
+          "anchor": "kosten-cv-onderhoud"
         },
         {
-          "id": "evaluating",
-          "title": "Evaluating Facilities",
-          "anchor": "evaluating-facilities"
+          "id": "storingen",
+          "title": "Veelvoorkomende Storingen",
+          "anchor": "veelvoorkomende-storingen"
         },
         {
-          "id": "questions",
-          "title": "Questions to Ask",
-          "anchor": "questions-to-ask"
+          "id": "vervanging",
+          "title": "Wanneer Vervangen",
+          "anchor": "wanneer-vervangen"
         }
       ],
       "faqs": [
         {
-          "question": "How do I know what type of treatment is needed?",
-          "answer": "A professional assessment can determine the appropriate level of care based on substance use history, medical needs, mental health status, and support system. Most facilities offer free phone assessments. Factors include severity of addiction, history of withdrawal, and presence of co-occurring disorders."
+          "question": "Hoe vaak moet een CV-ketel onderhoud krijgen?",
+          "answer": "Een CV-ketel moet jaarlijks onderhoud krijgen voor optimale werking en veiligheid. Tijdens onderhoud wordt de ketel schoongemaakt, de verbranding gecontroleerd en onderdelen gecontroleerd."
         },
         {
-          "question": "How much does rehab cost?",
-          "answer": "Costs vary widely: outpatient programs may cost $5,000-$10,000, standard inpatient $20,000-$30,000 for 30 days, and luxury facilities $30,000-$100,000+. Many insurance plans cover treatment under mental health parity laws. Free and sliding-scale options exist for those without coverage."
+          "question": "Wat kost CV-ketel onderhoud?",
+          "answer": "Jaarlijks onderhoud kost gemiddeld tussen de 80 en 150 euro, afhankelijk van het type ketel en de installateur. Een onderhoudscontract kan voordeliger uitpakken en biedt vaak prioriteit bij storingen."
         },
         {
-          "question": "Does insurance cover addiction treatment?",
-          "answer": "The Mental Health Parity and Addiction Equity Act requires most insurance plans to cover addiction treatment similar to other medical conditions. Coverage varies by plan—verify your specific benefits with your insurance provider or have the treatment facility check for you."
-        },
-        {
-          "question": "How do I know if a treatment center is legitimate?",
-          "answer": "Look for accreditation from organizations like The Joint Commission or CARF. Verify licensing with your state's health department. Check for licensed medical and clinical staff. Be wary of facilities that guarantee outcomes or pressure you into immediate decisions."
-        },
-        {
-          "question": "Should I choose a local facility or travel for treatment?",
-          "answer": "Both have advantages. Local facilities allow family involvement and easier aftercare transitions. Traveling removes you from triggers and negative influences. The best choice depends on your specific situation, support system, and treatment needs."
+          "question": "Hoe lang gaat een CV-ketel mee?",
+          "answer": "Een CV-ketel gaat gemiddeld 15-20 jaar mee bij goed onderhoud. Na 15 jaar neemt het rendement vaak af en is vervanging economisch verstandiger dan reparatie."
         }
       ]
     },
     {
-      "slug": "treatment-costs",
-      "title": "Understanding Treatment Costs: A Complete Price Guide",
-      "description": "Comprehensive breakdown of addiction treatment costs including insurance coverage, payment options, free resources, and how to get help affording treatment.",
-      "excerpt": "Understanding treatment costs helps you make informed decisions and access the care you need. This guide breaks down all expenses and funding options.",
-      "category": "Planning Guide",
-      "author": "Rehab Near Me Editorial Team",
-      "datePublished": "2024-12-20",
-      "dateModified": "2024-12-26",
-      "readTime": "15 min",
-      "keywords": ["treatment costs", "rehab expenses", "addiction treatment cost", "insurance coverage", "payment options", "affordable treatment"],
+      "slug": "lekkage-voorkomen",
+      "title": "Lekkages Voorkomen en Verhelpen",
+      "description": "Praktische tips voor het voorkomen van waterlekkages en wat te doen bij een acute lekkage in uw woning.",
+      "excerpt": "Hoe voorkomt u waterlekkages en wat doet u bij een lekkage? Tips voor preventie, eerste hulp bij lekkages en wanneer u een loodgieter moet bellen.",
+      "category": "Preventie Gids",
+      "author": "VindLoodgieter.nl Redactie",
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-01-18",
+      "readTime": "11 min",
+      "keywords": ["lekkage voorkomen", "waterlekkage", "lekkage repareren", "leidingbreuk", "waterschade voorkomen"],
       "sections": [
         {
-          "id": "cost-breakdown",
-          "title": "Average Costs by Treatment Type",
-          "anchor": "average-costs-by-treatment-type"
+          "id": "preventie",
+          "title": "Preventietips",
+          "anchor": "preventietips"
         },
         {
-          "id": "insurance",
-          "title": "Insurance Coverage",
-          "anchor": "insurance-coverage"
+          "id": "herkennen",
+          "title": "Lekkages Herkennen",
+          "anchor": "lekkages-herkennen"
         },
         {
-          "id": "payment-options",
-          "title": "Payment Options",
-          "anchor": "payment-options"
+          "id": "eerste-hulp",
+          "title": "Eerste Hulp bij Lekkage",
+          "anchor": "eerste-hulp-bij-lekkage"
         },
         {
-          "id": "free-resources",
-          "title": "Free and Low-Cost Options",
-          "anchor": "free-and-low-cost-options"
+          "id": "wanneer-bellen",
+          "title": "Wanneer een Loodgieter Bellen",
+          "anchor": "wanneer-een-loodgieter-bellen"
         },
         {
-          "id": "financial-assistance",
-          "title": "Financial Assistance Programs",
-          "anchor": "financial-assistance-programs"
-        },
-        {
-          "id": "cost-comparison",
-          "title": "Cost Comparison Table",
-          "anchor": "cost-comparison-table"
+          "id": "verzekering",
+          "title": "Verzekering en Schade",
+          "anchor": "verzekering-en-schade"
         }
       ],
       "faqs": [
         {
-          "question": "What is the average cost of rehab?",
-          "answer": "Costs vary significantly: Outpatient programs average $5,000-$10,000 for a full program. Standard inpatient (30 days) averages $20,000-$30,000. Luxury facilities range from $30,000-$100,000+ per month. Many people pay far less than these amounts due to insurance coverage."
+          "question": "Hoe herken ik een verborgen lekkage?",
+          "answer": "Let op onverklaarbaar hoog waterverbruik, vochtige plekken op muren of plafonds, schimmelvorming, en een muffe geur. Ook een warm plekje op de vloer kan duiden op een lekkage in de vloerverwarming."
         },
         {
-          "question": "Is there free addiction treatment?",
-          "answer": "Yes, free and low-cost treatment exists. SAMHSA's treatment locator can help find state-funded programs. Salvation Army, faith-based organizations, and some nonprofits offer free treatment. Medicaid covers treatment for eligible individuals in many states."
+          "question": "Wat moet ik doen bij een lekkage?",
+          "answer": "Draai direct de hoofdkraan dicht om verdere waterschade te beperken. Vang het water op met emmers en handdoeken. Bel vervolgens een loodgieter, bij ernstige lekkages een spoed loodgieter."
         },
         {
-          "question": "What does insurance typically cover?",
-          "answer": "Most insurance covers detox, inpatient rehabilitation, and outpatient treatment. Coverage details vary by plan—some cover 30 days inpatient, others may cover 60-90 days. Verify your specific benefits and any prior authorization requirements."
-        },
-        {
-          "question": "Can I finance addiction treatment?",
-          "answer": "Many facilities offer payment plans or work with healthcare financing companies. Options include medical credit cards, personal loans, and facility payment plans. Some facilities offer sliding scale fees based on income."
-        },
-        {
-          "question": "Is treatment worth the cost?",
-          "answer": "Studies show addiction treatment is cost-effective compared to untreated addiction. The cost of addiction—medical care, legal issues, lost productivity, family impact—far exceeds treatment costs. Treatment is an investment in health and future."
+          "question": "Vergoedt mijn verzekering waterschade?",
+          "answer": "De meeste inboedel- en opstalverzekeringen dekken waterschade door lekkages. Check uw polisvoorwaarden voor specifieke dekkingen en eigen risico. Maak altijd foto's van de schade voor de claim."
         }
       ]
     },
     {
-      "slug": "inpatient-vs-outpatient",
-      "title": "Inpatient vs Outpatient Treatment: Making the Right Choice",
-      "description": "Compare inpatient and outpatient addiction treatment options including effectiveness, costs, time requirements, and factors to consider when choosing.",
-      "excerpt": "Choosing between inpatient and outpatient treatment is a crucial decision. This comprehensive comparison helps you make an informed choice.",
-      "category": "Planning Guide",
-      "author": "Rehab Near Me Editorial Team",
-      "datePublished": "2024-12-20",
-      "dateModified": "2024-12-26",
-      "readTime": "13 min",
-      "keywords": ["inpatient vs outpatient", "residential treatment", "outpatient treatment", "treatment comparison", "level of care", "choosing treatment"],
-      "sections": [
-        {
-          "id": "pros-cons",
-          "title": "Pros and Cons Comparison",
-          "anchor": "pros-and-cons-comparison"
-        },
-        {
-          "id": "who-needs-what",
-          "title": "Who Needs Which Level",
-          "anchor": "who-needs-which-level"
-        },
-        {
-          "id": "effectiveness",
-          "title": "Treatment Effectiveness",
-          "anchor": "treatment-effectiveness"
-        },
-        {
-          "id": "cost-comparison",
-          "title": "Cost Comparison",
-          "anchor": "cost-comparison"
-        },
-        {
-          "id": "hybrid-options",
-          "title": "Hybrid and Step-Down Options",
-          "anchor": "hybrid-and-step-down-options"
-        }
-      ],
-      "faqs": [
-        {
-          "question": "Is inpatient treatment more effective than outpatient?",
-          "answer": "Effectiveness depends on matching the level of care to individual needs. Inpatient is more effective for severe addictions, those needing medical detox, or lacking stable support systems. Outpatient works well for less severe cases with strong support. The right level of care matters more than inpatient vs outpatient."
-        },
-        {
-          "question": "Can I work during outpatient treatment?",
-          "answer": "Yes, outpatient treatment is designed to allow work and family responsibilities. Intensive outpatient (IOP) requires more hours but often offers evening sessions. Standard outpatient is highly compatible with work schedules."
-        },
-        {
-          "question": "How do I know which level I need?",
-          "answer": "Factors include: severity of addiction, need for medical detox, presence of co-occurring mental health issues, stability of home environment, previous treatment attempts, and family/work obligations. A professional assessment provides personalized recommendations."
-        },
-        {
-          "question": "What if I fail outpatient treatment?",
-          "answer": "Struggling in outpatient may indicate need for a higher level of care. This isn't failure—it's valuable information. Many people start with outpatient and step up to inpatient if needed. Honest assessment and adjustment is part of the process."
-        },
-        {
-          "question": "Is there something between inpatient and outpatient?",
-          "answer": "Yes, Partial Hospitalization Programs (PHP) bridge the gap with full-day treatment (5-7 days/week) while returning home at night. This provides intensive care without full residential stay. Many use PHP as a step-down from inpatient."
-        }
-      ]
-    },
-    {
-      "slug": "family-support",
-      "title": "Supporting a Loved One Through Addiction: A Family Guide",
-      "description": "Guide for families of people struggling with addiction covering how to help, setting boundaries, intervention approaches, and self-care for family members.",
-      "excerpt": "Supporting a loved one through addiction is challenging. This guide helps families navigate recovery, set healthy boundaries, and care for themselves.",
-      "category": "Family Guide",
-      "author": "Rehab Near Me Editorial Team",
-      "datePublished": "2024-12-20",
-      "dateModified": "2024-12-26",
+      "slug": "badkamer-renovatie",
+      "title": "Badkamerrenovatie: Van Plan tot Resultaat",
+      "description": "Complete gids voor het plannen en uitvoeren van uw badkamerrenovatie, inclusief budget, tijdslijn en tips voor het kiezen van materialen.",
+      "excerpt": "Alles wat u moet weten over badkamerrenovatie. Van planning en budget tot het kiezen van materialen en de juiste vakmensen.",
+      "category": "Renovatie Gids",
+      "author": "VindLoodgieter.nl Redactie",
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-01-18",
       "readTime": "16 min",
-      "keywords": ["family support addiction", "helping addicted loved one", "family intervention", "addiction family guide", "codependency", "family recovery"],
+      "keywords": ["badkamer renovatie", "badkamer verbouwen", "nieuwe badkamer", "badkamer kosten", "badkamer ontwerp"],
       "sections": [
         {
-          "id": "understanding",
-          "title": "Understanding Addiction as a Disease",
-          "anchor": "understanding-addiction-as-disease"
+          "id": "planning",
+          "title": "Renovatie Plannen",
+          "anchor": "renovatie-plannen"
         },
         {
-          "id": "communication",
-          "title": "Effective Communication",
-          "anchor": "effective-communication"
+          "id": "budget",
+          "title": "Budget en Kosten",
+          "anchor": "budget-en-kosten"
         },
         {
-          "id": "boundaries",
-          "title": "Setting Healthy Boundaries",
-          "anchor": "setting-healthy-boundaries"
+          "id": "materialen",
+          "title": "Materialen Kiezen",
+          "anchor": "materialen-kiezen"
         },
         {
-          "id": "intervention",
-          "title": "Intervention Approaches",
-          "anchor": "intervention-approaches"
+          "id": "vakmensen",
+          "title": "De Juiste Vakmensen",
+          "anchor": "de-juiste-vakmensen"
         },
         {
-          "id": "self-care",
-          "title": "Family Self-Care",
-          "anchor": "family-self-care"
-        },
-        {
-          "id": "resources",
-          "title": "Family Support Resources",
-          "anchor": "family-support-resources"
+          "id": "tijdslijn",
+          "title": "Tijdslijn en Planning",
+          "anchor": "tijdslijn-en-planning"
         }
       ],
       "faqs": [
         {
-          "question": "How do I talk to someone about their addiction?",
-          "answer": "Choose a calm, private moment when they're sober. Use 'I' statements to express concern without blame ('I'm worried about you' rather than 'You have a problem'). Be specific about behaviors you've observed. Express love and offer support without ultimatums in initial conversations."
+          "question": "Hoeveel kost een badkamerrenovatie?",
+          "answer": "Een complete badkamerrenovatie kost gemiddeld tussen de 5.000 en 15.000 euro, afhankelijk van grootte, kwaliteit van materialen en complexiteit. Alleen het vervangen van sanitair is goedkoper."
         },
         {
-          "question": "What is enabling and how do I stop?",
-          "answer": "Enabling is protecting someone from the consequences of their addiction—paying their bills, making excuses, providing housing without conditions. Stopping enabling means allowing natural consequences while still loving the person. It's painful but often necessary for them to recognize the need for help."
+          "question": "Hoe lang duurt een badkamerrenovatie?",
+          "answer": "Een gemiddelde badkamerrenovatie duurt 2-4 weken, afhankelijk van de omvang van het werk. Een simpele opknapbeurt kan in een week, terwijl een complete verplaatsing van leidingen langer duurt."
         },
         {
-          "question": "Should I do an intervention?",
-          "answer": "Interventions can be effective when done properly with professional guidance. They work best when the family is unified, prepared with treatment options, and ready to follow through on stated consequences. Working with a professional interventionist improves success rates."
-        },
-        {
-          "question": "How do I take care of myself?",
-          "answer": "Join a family support group like Al-Anon or Nar-Anon. Consider your own therapy to process emotions and learn healthy coping. Set boundaries to protect your wellbeing. Remember that your loved one's recovery is their responsibility—you can support but not control it."
-        },
-        {
-          "question": "What if they refuse treatment?",
-          "answer": "You cannot force an adult into treatment (except in some emergency situations). Continue expressing love and concern while maintaining boundaries. Let them know treatment options are available when they're ready. Sometimes reaching 'rock bottom' is necessary before someone seeks help."
+          "question": "Welke vakmensen heb ik nodig?",
+          "answer": "Voor een complete badkamerrenovatie heeft u meestal een loodgieter, tegelzetter en elektricien nodig. Sommige bedrijven bieden complete badkamerrenovaties aan waarbij alles gecoördineerd wordt."
         }
       ]
     }

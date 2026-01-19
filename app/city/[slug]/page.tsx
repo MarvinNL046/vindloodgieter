@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!city) {
     return {
-      title: 'City not found',
+      title: 'Plaats niet gevonden',
     };
   }
 
@@ -46,11 +46,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const state = facilities[0]?.state || '';
 
   return {
-    title: `Rehab & Treatment Centers in ${city} | Rehab Near By Me`,
-    description: `Find all ${facilities.length} addiction treatment centers and rehab facilities in ${city}, ${county ? `${county} County, ` : ''}${state}. View locations, services, and contact information for local treatment centers.`,
+    title: `Loodgieters in ${city} | VindLoodgieter.nl`,
+    description: `Vind alle ${facilities.length} loodgieters en installatiebedrijven in ${city}${county ? `, gemeente ${county}` : ''}, ${state}. Bekijk contactgegevens, diensten en reviews van lokale loodgieters.`,
     openGraph: {
-      title: `Treatment Centers in ${city}`,
-      description: `All rehab facilities in ${city}${county ? `, ${county} County` : ''}`,
+      title: `Loodgieters in ${city}`,
+      description: `Alle loodgieters in ${city}${county ? `, gemeente ${county}` : ''}`,
       type: 'website',
     },
   };
@@ -77,7 +77,7 @@ export default async function CityPage({ params }: PageProps) {
 
   // Count facility types
   const typeCount = facilities.reduce((acc: Record<string, number>, facility: Facility) => {
-    const typeName = facility.type || 'Treatment Center';
+    const typeName = facility.type || 'Loodgieter';
     acc[typeName] = (acc[typeName] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);
@@ -85,8 +85,8 @@ export default async function CityPage({ params }: PageProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: `Treatment Centers in ${city}`,
-    description: `Directory of all addiction treatment centers and rehab facilities in ${city}${county ? `, ${county} County` : ''}`,
+    name: `Loodgieters in ${city}`,
+    description: `Overzicht van alle loodgieters en installatiebedrijven in ${city}${county ? `, gemeente ${county}` : ''}`,
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -94,25 +94,25 @@ export default async function CityPage({ params }: PageProps) {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://www.rehabnearbyme.com'
+          item: 'https://www.vindloodgieter.nl'
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: state,
-          item: `https://www.rehabnearbyme.com/state/${createStateSlug(state)}`
+          item: `https://www.vindloodgieter.nl/provincie/${createStateSlug(state)}`
         },
         ...(county ? [{
           '@type': 'ListItem',
           position: 3,
-          name: `${county} County`,
-          item: `https://www.rehabnearbyme.com/county/${createCountySlug(county)}`
+          name: `Gemeente ${county}`,
+          item: `https://www.vindloodgieter.nl/gemeente/${createCountySlug(county)}`
         }] : []),
         {
           '@type': 'ListItem',
           position: county ? 4 : 3,
           name: city,
-          item: `https://www.rehabnearbyme.com/city/${slug}`
+          item: `https://www.vindloodgieter.nl/plaats/${slug}`
         }
       ]
     },
@@ -122,7 +122,7 @@ export default async function CityPage({ params }: PageProps) {
       itemListElement: facilities.map((facility, index) => ({
         '@type': 'ListItem',
         position: index + 1,
-        url: `https://www.rehabnearbyme.com/facility/${facility.slug}`
+        url: `https://www.vindloodgieter.nl/loodgieter/${facility.slug}`
       }))
     }
   };
@@ -145,7 +145,7 @@ export default async function CityPage({ params }: PageProps) {
             <li>/</li>
             <li>
               <Link
-                href={`/state/${createStateSlug(state)}`}
+                href={`/provincie/${createStateSlug(state)}`}
                 className="hover:text-foreground"
               >
                 {state}
@@ -156,10 +156,10 @@ export default async function CityPage({ params }: PageProps) {
                 <li>/</li>
                 <li>
                   <Link
-                    href={`/county/${createCountySlug(county)}`}
+                    href={`/gemeente/${createCountySlug(county)}`}
                     className="hover:text-foreground"
                   >
-                    {county} County
+                    Gemeente {county}
                   </Link>
                 </li>
               </>
@@ -172,10 +172,10 @@ export default async function CityPage({ params }: PageProps) {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-4">
-            Treatment Centers in {city}
+            Loodgieters in {city}
           </h1>
           <p className="text-lg text-muted-foreground">
-            There {facilities.length === 1 ? 'is' : 'are'} {facilities.length} {facilities.length === 1 ? 'treatment center' : 'treatment centers'} in {city}{county ? `, ${county} County` : ''}, {state}.
+            Er {facilities.length === 1 ? 'is' : 'zijn'} {facilities.length} {facilities.length === 1 ? 'loodgieter' : 'loodgieters'} in {city}{county ? `, gemeente ${county}` : ''}, {state}.
           </p>
         </div>
 
@@ -186,7 +186,7 @@ export default async function CityPage({ params }: PageProps) {
               <Building className="w-5 h-5 text-muted-foreground" />
               <div>
                 <p className="text-2xl font-bold">{facilities.length}</p>
-                <p className="text-sm text-muted-foreground">Total</p>
+                <p className="text-sm text-muted-foreground">Totaal</p>
               </div>
             </div>
           </div>
@@ -232,24 +232,24 @@ export default async function CityPage({ params }: PageProps) {
 
               {/* Related Links */}
               <div className="bg-card rounded-lg p-6 shadow-sm border">
-                <h3 className="text-lg font-semibold mb-4">Related Pages</h3>
+                <h3 className="text-lg font-semibold mb-4">Gerelateerde paginas</h3>
                 <ul className="space-y-2">
                   {county && (
                     <li>
                       <Link
-                        href={`/county/${createCountySlug(county)}`}
+                        href={`/gemeente/${createCountySlug(county)}`}
                         className="text-sm text-muted-foreground hover:text-foreground"
                       >
-                        All treatment centers in {county} County
+                        Alle loodgieters in gemeente {county}
                       </Link>
                     </li>
                   )}
                   <li>
                     <Link
-                      href={`/state/${createStateSlug(state)}`}
+                      href={`/provincie/${createStateSlug(state)}`}
                       className="text-sm text-muted-foreground hover:text-foreground"
                     >
-                      All treatment centers in {state}
+                      Alle loodgieters in {state}
                     </Link>
                   </li>
                 </ul>
@@ -257,10 +257,10 @@ export default async function CityPage({ params }: PageProps) {
 
               {/* Info Box */}
               <div className="bg-muted rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-2">About {city}</h3>
+                <h3 className="text-lg font-semibold mb-2">Over {city}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {city} is located in {county ? `${county} County, ` : ''}{state}.
-                  This page provides an overview of all addiction treatment centers and rehab facilities in this area.
+                  {city} ligt in {county ? `gemeente ${county}, ` : ''}{state}.
+                  Deze pagina biedt een overzicht van alle loodgieters en installatiebedrijven in dit gebied.
                 </p>
               </div>
             </div>
@@ -269,36 +269,36 @@ export default async function CityPage({ params }: PageProps) {
 
         {/* SEO Content */}
         <div className="mt-12 prose prose-lg max-w-none">
-          <h2>Treatment Centers and Rehab Facilities in {city}</h2>
+          <h2>Loodgieters en Installatiebedrijven in {city}</h2>
           <p>
-            In {city} you&apos;ll find various types of treatment centers, from inpatient rehabilitation facilities to
-            outpatient programs and sober living homes. Each facility offers specialized care and support for those seeking recovery.
+            In {city} vindt u diverse loodgieters en installatiebedrijven voor al uw sanitaire werkzaamheden,
+            CV-installaties en spoedreparaties. Elk bedrijf biedt gespecialiseerde diensten en ondersteuning voor uw loodgieterswerk.
           </p>
 
-          {typeCount['Inpatient Rehabilitation'] > 0 && (
+          {typeCount['Spoed Loodgieter'] > 0 && (
             <>
-              <h3>Inpatient Rehabilitation Centers</h3>
+              <h3>Spoed Loodgieters</h3>
               <p>
-                {city} has {typeCount['Inpatient Rehabilitation']} inpatient {typeCount['Inpatient Rehabilitation'] > 1 ? 'facilities' : 'facility'}.
-                These programs provide 24/7 care and support in a residential setting for those beginning their recovery journey.
+                {city} heeft {typeCount['Spoed Loodgieter']} spoed {typeCount['Spoed Loodgieter'] > 1 ? 'loodgieters' : 'loodgieter'}.
+                Deze bedrijven bieden 24/7 service voor noodgevallen zoals lekkages, verstopte riolen en kapotte leidingen.
               </p>
             </>
           )}
 
-          {typeCount['Outpatient Treatment'] > 0 && (
+          {typeCount['CV Installateur'] > 0 && (
             <>
-              <h3>Outpatient Treatment Programs</h3>
+              <h3>CV Installateurs</h3>
               <p>
-                There {typeCount['Outpatient Treatment'] > 1 ? 'are' : 'is'} {typeCount['Outpatient Treatment']} outpatient
-                {typeCount['Outpatient Treatment'] > 1 ? ' programs' : ' program'} in {city}, offering flexible treatment options for those who need to maintain work or family commitments.
+                Er {typeCount['CV Installateur'] > 1 ? 'zijn' : 'is'} {typeCount['CV Installateur']}
+                {typeCount['CV Installateur'] > 1 ? ' CV-installateurs' : ' CV-installateur'} in {city}, gespecialiseerd in installatie, onderhoud en reparatie van verwarmingssystemen.
               </p>
             </>
           )}
 
-          <h3>Getting Help Information</h3>
+          <h3>Contact opnemen</h3>
           <p>
-            For more information about a specific treatment center in {city}, click on the facility
-            above. There you will find contact details, services offered, insurance information, and how to get started with treatment.
+            Voor meer informatie over een specifieke loodgieter in {city}, klik op het bedrijf
+            hierboven. Daar vindt u contactgegevens, aangeboden diensten, en hoe u een afspraak kunt maken.
           </p>
         </div>
       </div>

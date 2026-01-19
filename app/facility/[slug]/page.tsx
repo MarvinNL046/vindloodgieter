@@ -53,9 +53,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: facility.seoTitle || `${facility.name} in ${facility.city}, ${facility.state} | Rehab Near By Me`,
+    title: facility.seoTitle || `${facility.name} in ${facility.city}, ${facility.state} | VindLoodgieter.nl`,
     description: facility.seoDescription || facility.generated?.summary ||
-      `Information about ${facility.name} in ${facility.city}, ${facility.state}. View hours, treatment programs, and contact details.`,
+      `Informatie over ${facility.name} in ${facility.city}, ${facility.state}. Bekijk openingstijden, diensten en contactgegevens.`,
     openGraph: {
       title: facility.seoTitle || facility.name,
       description: facility.seoDescription || facility.generated?.summary || `${facility.type} in ${facility.city}`,
@@ -100,22 +100,20 @@ function getFacilityIcon(facility: string): React.ReactNode {
 function generateFAQs(facility: FacilityWithContent) {
   return [
     {
-      question: `What are the admission hours at ${facility.name}?`,
-      answer: facility.opening_hours || 'Admission hours may vary. Please contact the facility for current hours and intake information.'
+      question: `Wat zijn de openingstijden van ${facility.name}?`,
+      answer: facility.opening_hours || 'Openingstijden kunnen varieren. Neem contact op met het bedrijf voor actuele openingstijden.'
     },
     {
-      question: `How do I get to ${facility.name}?`,
-      answer: facility.generated?.directions || `${facility.name} is located in ${facility.city}, ${facility.state}. ${facility.address ? `The address is ${facility.address}.` : 'Use the directions feature for navigation.'}`
+      question: `Hoe kom ik bij ${facility.name}?`,
+      answer: facility.generated?.directions || `${facility.name} is gevestigd in ${facility.city}, ${facility.state}. ${facility.address ? `Het adres is ${facility.address}.` : 'Gebruik de routefunctie voor navigatie.'}`
     },
     {
-      question: `What treatment programs does ${facility.name} offer?`,
-      answer: facility.treatment_types?.join(', ') || facility.generated?.amenities?.join(', ') || 'Please contact the facility for information about available treatment programs.'
+      question: `Welke diensten biedt ${facility.name} aan?`,
+      answer: facility.treatment_types?.join(', ') || facility.generated?.amenities?.join(', ') || 'Neem contact op met het bedrijf voor informatie over beschikbare diensten.'
     },
     {
-      question: `What insurance does ${facility.name} accept?`,
-      answer: facility.insurance_accepted && facility.insurance_accepted.length > 0
-        ? `${facility.name} accepts the following insurance: ${facility.insurance_accepted.join(', ')}.`
-        : 'Please contact the facility directly for information about accepted insurance plans.'
+      question: `Kan ik een offerte aanvragen bij ${facility.name}?`,
+      answer: 'Ja, u kunt via het contactformulier of telefonisch een offerte aanvragen. Veel loodgieters bieden gratis offertes aan voor grotere projecten.'
     }
   ];
 }
@@ -187,7 +185,7 @@ export default async function FacilityPage({ params }: PageProps) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'MedicalClinic',
+    '@type': 'LocalBusiness',
     name: facility.name,
     description: facility.generated?.summary || facility.description || `${facility.type} in ${facility.city}, ${facility.state}`,
     address: {
@@ -195,7 +193,7 @@ export default async function FacilityPage({ params }: PageProps) {
       streetAddress: facility.address || '',
       addressLocality: facility.city,
       addressRegion: facility.state,
-      addressCountry: 'US',
+      addressCountry: 'NL',
       postalCode: facility.zipCode || '',
     },
     ...(lat && lon && {
@@ -616,16 +614,16 @@ export default async function FacilityPage({ params }: PageProps) {
                 <Card className="p-4 sm:p-6 shadow-soft bg-gradient-to-br from-teal-50 to-coral-50/50 dark:from-teal-900/20 dark:to-coral-900/10 border-teal-200 dark:border-teal-800">
                   <div className="flex items-center gap-2 mb-3">
                     <Heart className="w-5 h-5 text-accent" />
-                    <span className="font-semibold">Recovery Support</span>
+                    <span className="font-semibold">Direct Contact</span>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Find the right treatment program and start your recovery journey today.
+                    Heeft u vragen over dit bedrijf? Neem direct contact op voor meer informatie.
                   </p>
                   <a
                     href="#contact-form"
                     className="inline-flex items-center justify-center w-full gap-2 px-4 py-2.5 bg-accent text-accent-foreground font-medium rounded-lg hover:bg-accent/90 transition-colors"
                   >
-                    Get Help Now
+                    Neem Contact Op
                     <ArrowRight className="w-4 h-4" />
                   </a>
                 </Card>

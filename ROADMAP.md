@@ -1,194 +1,142 @@
-# RehabNearMe.com - Project Roadmap
+# VindLoodgieter.nl Roadmap
 
-**Repository:** https://github.com/MarvinNL046/rehabnearbyme
-**Last Updated:** 18-01-2026 18:45u
-**Status:** Development Phase
+## Visie
 
----
+VindLoodgieter.nl wordt de meest betrouwbare en complete loodgietersdirectory van Nederland, waar consumenten snel de juiste loodgieter vinden voor hun specifieke behoeften.
 
-## Project Overview
+## Q1 2025 - Fundament
 
-RehabNearMe.com is a comprehensive directory of addiction treatment and rehabilitation centers across the United States. The platform helps individuals and families find appropriate treatment facilities based on location, treatment type, and insurance coverage.
+### Data & Content
+- [x] Basis directory structuur
+- [x] Provinciale en gemeentelijke paginas
+- [x] Loodgieter profielpaginas
+- [x] Zoekfunctionaliteit
+- [ ] Uitbreiden loodgietersdatabase via Google Places API
+- [ ] Handmatige verificatie topbedrijven
+- [ ] Content gidsen (kosten, tips, diensten)
 
----
+### SEO & Performance
+- [x] Technische SEO basis
+- [x] Schema.org structured data
+- [ ] Sitemap optimalisatie
+- [ ] Core Web Vitals optimalisatie
+- [ ] Mobile performance verbetering
 
-## Completed Tasks
+### Design & UX
+- [x] Responsive design
+- [x] Zoekfilters
+- [ ] Verbeterde kaartweergave
+- [ ] Vergelijkingsfunctie loodgieters
 
-### Phase 1: Site Transformation (Completed)
-- [x] Transform codebase from cemetery directory to rehab directory
-- [x] Update all components, pages, and APIs for rehab context
-- [x] Remove all Dutch content and cemetery references
-- [x] Create new drizzle schema with facilities table
-- [x] Add indexes and relations to database schema
+## Q2 2025 - Groei
 
-### Phase 2: Design Overhaul (Completed)
-- [x] Update color theme: forest green/gold → teal/coral
-- [x] Update Logo component with Heart icon
-- [x] Redesign homepage hero section
-- [x] Update all components with new color scheme
-- [x] Update Header and Footer for rehab branding
-- [x] Add SAMHSA helpline banner (verified: 1-800-662-4357)
+### Functionaliteiten
+- [ ] Offerte aanvraagsysteem
+- [ ] Review systeem voor loodgieters
+- [ ] Gebruikersaccounts (optioneel)
+- [ ] Notificaties voor nieuwe reviews
 
-### Phase 3: Content & Pages (Completed)
-- [x] Create /guide/insurance page
-- [x] Create /guide/what-to-expect page
-- [x] Update affiliate and premium content components
-- [x] Fix broken internal links
-- [x] Fix missing image references
+### Content Uitbreiding
+- [ ] Video content (hoe-to tutorials)
+- [ ] FAQ uitbreiding per diensttype
+- [ ] Lokale gidsen per grote stad
+- [ ] Seizoensgebonden content (CV-onderhoud, vorstschade)
 
-### Phase 4: Developer Tooling (Completed)
-- [x] Create health check script (scripts/check-health.ts)
-- [x] Install missing dependencies (sharp, chalk, openai, etc.)
+### Monetisatie
+- [ ] Premium vermeldingen lanceren
+- [ ] Display advertising optimaliseren
+- [ ] Affiliate programmas starten
 
----
+## Q3 2025 - Verdieping
 
-## Pending Tasks
+### Diensten
+- [ ] Lead generatie systeem
+- [ ] Instant offertes via platform
+- [ ] SMS/WhatsApp notificaties
+- [ ] Agenda-integratie voor loodgieters
 
-### Phase 5: Data & Scraping (High Priority)
-- [ ] **Set up Neon PostgreSQL database**
-  - Create new database instance
-  - Configure DATABASE_URL in .env.local
-  - Run drizzle migrations
+### Partnerships
+- [ ] Samenwerking brancheverenigingen
+- [ ] Integratie met installateurssoftware
+- [ ] Partnerships met sanitairleveranciers
 
-- [ ] **Facility Data Collection**
-  - [ ] Update discovery script for SAMHSA API integration
-  - [ ] Scrape treatment facilities from Google Places
-  - [ ] Import SAMHSA treatment locator data
-  - [ ] Enrich facility data with GPT (descriptions, features)
-  - [ ] Add facility photos from Google Places
+### Analytics
+- [ ] Dashboard voor loodgieters
+- [ ] Conversie tracking per profiel
+- [ ] ROI rapportages premium klanten
 
-- [ ] **Data Quality**
-  - [ ] Verify facility contact information
-  - [ ] Add insurance acceptance data
-  - [ ] Add treatment type classifications
-  - [ ] Generate SEO content for each facility
+## Q4 2025 - Schaal
 
-### Phase 6: Core Features (Medium Priority)
-- [ ] **Search & Filtering**
-  - [ ] Implement location-based search (city, state, zip)
-  - [ ] Add treatment type filters
-  - [ ] Add insurance filter
-  - [ ] Add amenity filters
-  - [ ] Implement sorting (rating, distance, name)
+### Platform
+- [ ] API voor derden
+- [ ] Widget voor externe websites
+- [ ] White-label oplossingen
+- [ ] Multi-taal ondersteuning (start met Engels)
 
-- [ ] **User Features**
-  - [ ] Enable user authentication (currently disabled)
-  - [ ] User reviews and ratings
-  - [ ] Save/bookmark facilities
-  - [ ] Contact facility form
-  - [ ] Insurance verification requests
+### Community
+- [ ] Blog met branche nieuws
+- [ ] Nieuwsbrief voor consumenten
+- [ ] Social media presence versterken
 
-- [ ] **Facility Owner Features**
-  - [ ] Claim listing functionality
-  - [ ] Dashboard for facility owners
-  - [ ] Edit facility information
-  - [ ] Respond to reviews
-  - [ ] Upload photos
+### Innovatie
+- [ ] AI-gestuurde matching loodgieter-klant
+- [ ] Prijsvergelijking tool
+- [ ] Chatbot voor eerste hulp
 
-### Phase 7: SEO & Marketing (Medium Priority)
-- [ ] **SEO Optimization**
-  - [ ] Generate state landing pages with content
-  - [ ] Generate city landing pages
-  - [ ] Generate treatment type landing pages
-  - [ ] Create blog content about addiction/recovery
-  - [ ] Submit sitemap to Google Search Console
-  - [ ] Set up Google Analytics
+## 2026 - Expansie
 
-- [ ] **Schema Markup**
-  - [ ] Add LocalBusiness schema to facility pages
-  - [ ] Add BreadcrumbList schema
-  - [ ] Add FAQPage schema to guide pages
-  - [ ] Add Review schema
+### Geografisch
+- [ ] Belgie uitrol (Vlaanderen)
+- [ ] Duitsland verkenning
 
-### Phase 8: Monetization (Low Priority)
-- [ ] **Advertising**
-  - [ ] Set up Google AdSense
-  - [ ] Configure ad placements
-  - [ ] Add affiliate partnerships (insurance, interventionists)
+### Verticaal
+- [ ] Gerelateerde vakgebieden:
+  - Elektriciens
+  - Schilders
+  - Dakdekkers
+  - Tuinmannen
 
-- [ ] **Premium Features**
-  - [ ] Featured listing upgrades
-  - [ ] Lead generation for facilities
-  - [ ] Premium facility profiles
+### B2B
+- [ ] Zakelijke offertes
+- [ ] Onderhoudscontracten beheer
+- [ ] Fleet management voor installatiebedrijven
 
-### Phase 9: Deployment & Launch (High Priority)
-- [ ] **Vercel Deployment**
-  - [ ] Connect GitHub repository
-  - [ ] Configure environment variables
-  - [ ] Set up custom domain (rehabnearme.com)
-  - [ ] Configure SSL certificate
-  - [ ] Set up preview deployments
+## Technische Debt & Onderhoud
 
-- [ ] **Post-Launch**
-  - [ ] Monitor error tracking (Sentry)
-  - [ ] Set up uptime monitoring
-  - [ ] Performance optimization
-  - [ ] Mobile responsiveness testing
+### Lopend
+- Performance monitoring
+- Security updates
+- Dependency updates
+- Database optimalisatie
+- Backup procedures
 
----
+### Gepland
+- Migratie naar edge functions
+- Image CDN optimalisatie
+- Zoekindex verbetering
+- Caching strategie herziening
 
-## Technical Debt
+## Metrics & KPIs
 
-- [ ] Fix npm audit vulnerabilities (7 found)
-- [ ] Update Node.js to v22+ (required by @react-email packages)
-- [ ] Review and remove unused exports (111 flagged)
-- [ ] Add TypeScript strict mode
-- [ ] Add unit tests for critical functions
-- [ ] Add E2E tests with Playwright
+### Groei
+- Maandelijkse bezoekers
+- Aantal geregistreerde loodgieters
+- Aantal offerteaanvragen
+- Premium conversie rate
 
----
+### Engagement
+- Gemiddelde sessieduur
+- Paginas per sessie
+- Terugkerende bezoekers
+- Review submissions
 
-## Environment Setup
-
-### Required Environment Variables
-```env
-# Database
-DATABASE_URL=postgresql://...
-
-# Authentication
-JWT_SECRET=your-secret-key
-
-# Google APIs
-GOOGLE_PLACES_API_KEY=your-api-key
-
-# OpenAI (for content enrichment)
-OPENAI_API_KEY=your-api-key
-
-# Email (Resend)
-RESEND_API_KEY=your-api-key
-
-# Analytics
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-```
+### Financieel
+- MRR (Monthly Recurring Revenue)
+- CAC (Customer Acquisition Cost)
+- LTV (Lifetime Value)
+- Churn rate premium klanten
 
 ---
 
-## Quick Start
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev -- -p 3003
-
-# Run health check
-npx tsx scripts/check-health.ts
-
-# Run TypeScript check
-npx tsc --noEmit
-
-# Build for production
-npm run build
-```
-
----
-
-## Contact
-
-For questions or contributions, please open an issue on GitHub:
-https://github.com/MarvinNL046/rehabnearbyme/issues
-
----
-
-*This roadmap is a living document and will be updated as the project progresses.*
+*Laatste update: Januari 2025*
+*Status: In uitvoering*
