@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Calendar, ClipboardList, Heart, Users, Clock, ArrowRight, CheckCircle, Brain, Pill, Home, Phone, AlertCircle, Sun, Moon, Coffee, Dumbbell, BookOpen, MessageCircle } from 'lucide-react';
+import { Calendar, ClipboardList, Wrench, Users, Clock, ArrowRight, CheckCircle, Phone, Home, AlertCircle, Euro, FileText, ShieldCheck, ThermometerSun } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import InlineAd from '@/components/ads/InlineAd';
@@ -8,269 +8,217 @@ import LeaderboardAd from '@/components/ads/LeaderboardAd';
 import { SITE_STATS } from '@/lib/stats-config';
 
 export const metadata: Metadata = {
-  title: 'What to Expect During Rehab Treatment: Complete Guide | RehabNearMe',
-  description: 'Learn what happens during addiction treatment including intake, detox, therapy types, daily schedules, and aftercare planning. Prepare for your recovery journey.',
-  keywords: 'what to expect in rehab, addiction treatment process, detox timeline, rehab daily schedule, therapy in rehab, aftercare planning, recovery journey',
+  title: 'Wat te Verwachten bij een Loodgieter: Complete Gids | VindLoodgieter.nl',
+  description: 'Leer wat u kunt verwachten wanneer u een loodgieter inhuurt. Van eerste contact tot afronding, inclusief prijzen, garantie en tips.',
+  keywords: 'loodgieter inhuren, wat te verwachten, loodgieter kosten, loodgieter offerte, sanitair reparatie, lekkage reparatie',
   openGraph: {
-    title: 'What to Expect During Rehab Treatment: Complete Guide',
-    description: 'Everything you need to know about what happens during addiction treatment from intake to aftercare.',
+    title: 'Wat te Verwachten bij een Loodgieter: Complete Gids',
+    description: 'Alles wat u moet weten over het inhuren van een loodgieter.',
     type: 'article',
-    siteName: 'RehabNearMe',
+    siteName: 'VindLoodgieter.nl',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'What to Expect During Addiction Treatment',
-    description: 'Complete guide to the treatment process from start to finish.',
+    title: 'Wat te Verwachten bij een Loodgieter',
+    description: 'Complete gids voor het inhuren van een loodgieter.',
   },
   alternates: {
-    canonical: 'https://www.rehabnearbyme.com/guide/what-to-expect',
+    canonical: 'https://www.vindloodgieter.nl/guide/what-to-expect',
   },
 };
 
-const treatmentPhases = [
+const serviceSteps = [
   {
     phase: 1,
-    title: 'Intake & Assessment',
-    duration: '1-2 days',
-    icon: <ClipboardList className="w-6 h-6" />,
-    description: 'Your treatment begins with a comprehensive evaluation to create your personalized care plan.',
+    title: 'Eerste Contact & Offerte',
+    duration: 'Dezelfde dag',
+    icon: <Phone className="w-6 h-6" />,
+    description: 'Het proces begint met uw telefoontje of online aanvraag voor een offerte.',
     details: [
-      'Medical history and physical examination',
-      'Mental health and substance use assessment',
-      'Insurance verification and financial arrangements',
-      'Personal belongings check and orientation',
-      'Introduction to staff and facility rules',
-      'Initial treatment goal setting',
+      'Beschrijf het probleem duidelijk',
+      'Vraag naar beschikbaarheid en voorrijkosten',
+      'Ontvang een prijsindicatie of gratis offerte',
+      'Maak een afspraak op een geschikt moment',
+      'Vraag naar KvK-nummer en verzekering',
+      'Bespreek eventuele spoedtoeslag',
     ],
   },
   {
     phase: 2,
-    title: 'Medical Detoxification',
-    duration: '3-10 days',
-    icon: <Pill className="w-6 h-6" />,
-    description: 'If needed, medical detox safely manages withdrawal symptoms under 24/7 supervision.',
+    title: 'Inspectie & Diagnose',
+    duration: '15-60 minuten',
+    icon: <ClipboardList className="w-6 h-6" />,
+    description: 'De loodgieter komt langs om het probleem te inspecteren en een diagnose te stellen.',
     details: [
-      'Continuous vital sign monitoring',
-      'Medication to manage withdrawal symptoms',
-      'Nutritional support and hydration',
-      'Emotional support from clinical staff',
-      'Sleep monitoring and comfort measures',
-      'Gradual stabilization process',
+      'Visuele inspectie van het probleem',
+      'Camera-inspectie bij rioolproblemen',
+      'Lekdetectie bij verborgen lekkages',
+      'Uitleg over oorzaak en oplossing',
+      'Definitieve offerte met exacte kosten',
+      'Akkoord voor start werkzaamheden',
     ],
   },
   {
     phase: 3,
-    title: 'Active Treatment',
-    duration: '21-90+ days',
-    icon: <Brain className="w-6 h-6" />,
-    description: 'The core of treatment focuses on understanding addiction and developing recovery skills.',
+    title: 'Uitvoering Werkzaamheden',
+    duration: 'Afhankelijk van klus',
+    icon: <Wrench className="w-6 h-6" />,
+    description: 'De loodgieter voert de reparatie of installatie uit volgens afspraak.',
     details: [
-      'Individual therapy sessions',
-      'Group therapy and peer support',
-      'Family therapy (if applicable)',
-      'Educational workshops on addiction',
-      'Skill-building activities',
-      'Holistic therapies and wellness activities',
+      'Professioneel gereedschap en materialen',
+      'Zorgvuldig werken met bescherming',
+      'Tussentijdse updates bij grote klussen',
+      'Mogelijkheid tot meerwerk na overleg',
+      'Netjes achterlaten van werkplek',
+      'Testen van uitgevoerde werkzaamheden',
     ],
   },
   {
     phase: 4,
-    title: 'Aftercare Planning',
-    duration: 'Final 1-2 weeks',
-    icon: <Home className="w-6 h-6" />,
-    description: 'Preparing for life after treatment with a comprehensive continuing care plan.',
+    title: 'Oplevering & Garantie',
+    duration: 'Direct na afronding',
+    icon: <ShieldCheck className="w-6 h-6" />,
+    description: 'Na afronding krijgt u uitleg en documentatie over het uitgevoerde werk.',
     details: [
-      'Relapse prevention planning',
-      'Outpatient treatment referrals',
-      'Support group connections (AA, NA, etc.)',
-      'Sober living arrangements if needed',
-      'Employment and education resources',
-      'Ongoing therapy scheduling',
+      'Demonstratie van uitgevoerd werk',
+      'Uitleg over onderhoud en preventie',
+      'Schriftelijke garantie op werk',
+      'Factuur met specificatie',
+      'Contactgegevens voor nazorg',
+      'Advies voor toekomstig onderhoud',
     ],
   },
 ];
 
-const therapyTypes = [
+const serviceTypes = [
   {
-    name: 'Cognitive Behavioral Therapy (CBT)',
-    description: 'Helps identify and change negative thought patterns and behaviors that contribute to addiction.',
-    benefits: ['Identifies triggers', 'Develops coping skills', 'Changes negative thinking'],
+    name: 'Spoed Lekkage Reparatie',
+    description: '24/7 service voor urgente lekkages, wateroverlast en gesprongen leidingen.',
+    details: ['Directe hulp binnen 30-60 min', 'Spoedtoeslag mogelijk', 'Schadebeperking'],
   },
   {
-    name: 'Dialectical Behavior Therapy (DBT)',
-    description: 'Combines CBT with mindfulness to help manage emotions and improve relationships.',
-    benefits: ['Emotional regulation', 'Distress tolerance', 'Interpersonal skills'],
+    name: 'Sanitair Installatie',
+    description: 'Installatie van toiletten, kranen, douches, wastafels en badkuipen.',
+    details: ['Nieuwe installatie', 'Vervanging oude sanitair', 'Aansluitingen'],
   },
   {
-    name: 'Motivational Interviewing (MI)',
-    description: 'A collaborative approach that strengthens your motivation and commitment to change.',
-    benefits: ['Resolves ambivalence', 'Builds motivation', 'Supports autonomy'],
+    name: 'CV-Ketel Onderhoud',
+    description: 'Jaarlijks onderhoud, storingen verhelpen en ketel vervangen.',
+    details: ['Verplicht onderhoud', 'Storingen oplossen', 'Ketel installatie'],
   },
   {
-    name: 'Group Therapy',
-    description: 'Provides peer support, shared experiences, and accountability in a safe environment.',
-    benefits: ['Peer connection', 'Shared learning', 'Social skills'],
+    name: 'Riool Ontstopping',
+    description: 'Verstopte afvoeren, rioolproblemen en camera-inspecties.',
+    details: ['Mechanisch ontstoppen', 'Hogedrukreiniging', 'Wortelverwijdering'],
   },
   {
-    name: 'Family Therapy',
-    description: 'Addresses family dynamics, improves communication, and rebuilds relationships.',
-    benefits: ['Heals relationships', 'Improves communication', 'Creates support system'],
+    name: 'Waterleiding Werk',
+    description: 'Aanleg, reparatie en vervanging van waterleidingen.',
+    details: ['Leidingaanleg', 'Leidingvervanging', 'Lekdetectie'],
   },
   {
-    name: 'Trauma-Informed Care',
-    description: 'Addresses underlying trauma that often contributes to substance use disorders.',
-    benefits: ['Processes trauma', 'Reduces triggers', 'Promotes healing'],
+    name: 'Badkamer Renovatie',
+    description: 'Complete badkamer renovatie inclusief sanitair en leidingwerk.',
+    details: ['Ontwerp tot oplevering', 'Alle sanitair werk', 'Tegelwerk aansluitingen'],
   },
 ];
 
-const dailyScheduleItems = [
-  { time: '6:30 AM', activity: 'Wake up and personal hygiene', icon: <Sun className="w-4 h-4" /> },
-  { time: '7:00 AM', activity: 'Morning meditation or yoga', icon: <Heart className="w-4 h-4" /> },
-  { time: '7:30 AM', activity: 'Breakfast', icon: <Coffee className="w-4 h-4" /> },
-  { time: '8:30 AM', activity: 'Morning group therapy', icon: <Users className="w-4 h-4" /> },
-  { time: '10:00 AM', activity: 'Individual therapy session', icon: <MessageCircle className="w-4 h-4" /> },
-  { time: '11:00 AM', activity: 'Educational workshop', icon: <BookOpen className="w-4 h-4" /> },
-  { time: '12:00 PM', activity: 'Lunch', icon: <Coffee className="w-4 h-4" /> },
-  { time: '1:00 PM', activity: 'Rest or quiet time', icon: <Moon className="w-4 h-4" /> },
-  { time: '2:00 PM', activity: 'Specialty group (trauma, anger, etc.)', icon: <Brain className="w-4 h-4" /> },
-  { time: '3:30 PM', activity: 'Recreation or exercise', icon: <Dumbbell className="w-4 h-4" /> },
-  { time: '5:00 PM', activity: 'Dinner', icon: <Coffee className="w-4 h-4" /> },
-  { time: '6:00 PM', activity: '12-step meeting or evening group', icon: <Users className="w-4 h-4" /> },
-  { time: '7:30 PM', activity: 'Free time or journaling', icon: <BookOpen className="w-4 h-4" /> },
-  { time: '9:00 PM', activity: 'Evening check-in', icon: <ClipboardList className="w-4 h-4" /> },
-  { time: '10:00 PM', activity: 'Lights out', icon: <Moon className="w-4 h-4" /> },
+const priceIndications = [
+  { service: 'Voorrijkosten', range: 'EUR 25 - EUR 50', note: 'Soms gratis bij opdracht' },
+  { service: 'Uurtarief', range: 'EUR 45 - EUR 75', note: 'Excl. BTW en materialen' },
+  { service: 'Kraan vervangen', range: 'EUR 75 - EUR 150', note: 'Incl. arbeid, excl. kraan' },
+  { service: 'Toilet ontstoppen', range: 'EUR 75 - EUR 150', note: 'Eenvoudige verstopping' },
+  { service: 'Lekkage reparatie', range: 'EUR 100 - EUR 300', note: 'Afhankelijk van locatie' },
+  { service: 'CV-ketel onderhoud', range: 'EUR 100 - EUR 200', note: 'Jaarlijks onderhoud' },
+  { service: 'Riool ontstoppen', range: 'EUR 150 - EUR 400', note: 'Mechanisch/hogedruk' },
+  { service: 'Spoedtoeslag', range: 'EUR 50 - EUR 100', note: 'Avond/weekend/feestdag' },
 ];
 
-const whatToBring = [
+const whatToCheck = [
   {
-    category: 'Recommended',
+    category: 'Voor de Afspraak',
     items: [
-      'Comfortable, modest clothing for one week',
-      'Toiletries (no alcohol-based products)',
-      'Prescription medications with documentation',
-      'Insurance cards and ID',
-      'Journal and pen',
-      'Photos of loved ones',
-      'Books (recovery-related encouraged)',
-      'Small amount of cash for incidentals',
+      'Controleer KvK-inschrijving',
+      'Vraag naar verzekering (aansprakelijkheid)',
+      'Lees online reviews en beoordelingen',
+      'Vergelijk meerdere offertes',
+      'Vraag naar garantie op werk',
+      'Check of prijzen incl. of excl. BTW zijn',
     ],
   },
   {
-    category: 'Do Not Bring',
+    category: 'Tijdens het Werk',
     items: [
-      'Alcohol or drugs',
-      'Weapons of any kind',
-      'Valuables or expensive jewelry',
-      'Revealing or inappropriate clothing',
-      'Electronics (varies by facility)',
-      'Large amounts of cash',
-      'Outside food or snacks',
-      'Mouthwash or products with alcohol',
+      'Vraag om toelichting bij meerwerk',
+      'Neem foto\'s van verborgen gebreken',
+      'Houd communicatie schriftelijk bij',
+      'Betaal niet vooruit (alleen bij grote projecten)',
+      'Vraag om nota\'s van gebruikte materialen',
+      'Controleer of werk volgens afspraak is',
     ],
-  },
-];
-
-const aftercareComponents = [
-  {
-    title: 'Outpatient Treatment',
-    description: 'Continued therapy sessions while living at home, ranging from intensive outpatient (9+ hours/week) to regular outpatient (1-2 sessions/week).',
-  },
-  {
-    title: 'Support Groups',
-    description: 'Regular attendance at 12-step meetings (AA, NA) or alternative groups (SMART Recovery) provides ongoing peer support.',
-  },
-  {
-    title: 'Sober Living',
-    description: 'Transitional housing that provides a structured, substance-free environment while you rebuild independence.',
-  },
-  {
-    title: 'Individual Therapy',
-    description: 'Continued one-on-one counseling to address ongoing challenges and maintain progress.',
-  },
-  {
-    title: 'Medication Management',
-    description: 'For those on MAT, ongoing medication and monitoring to support long-term recovery.',
-  },
-  {
-    title: 'Alumni Programs',
-    description: 'Many facilities offer alumni groups, events, and check-ins to maintain connections with your recovery community.',
   },
 ];
 
 const faqs = [
   {
-    question: 'How long does rehab treatment last?',
-    answer: 'Treatment length varies based on individual needs and the severity of addiction. Detox typically takes 3-10 days. Inpatient residential programs range from 28 days (short-term) to 60-90 days (long-term). Research shows that treatment lasting at least 90 days produces the best outcomes. Outpatient programs usually run 8-16 weeks. Your treatment team will recommend a duration based on your specific situation.',
+    question: 'Hoeveel kost een loodgieter per uur?',
+    answer: 'Het uurtarief van een loodgieter ligt gemiddeld tussen EUR 45 en EUR 75 exclusief BTW. Daarnaast betaalt u vaak voorrijkosten (EUR 25-50) en materiaalkosten. In het weekend, \'s avonds of op feestdagen geldt meestal een spoedtoeslag van EUR 50-100. Vraag altijd een offerte vooraf.',
   },
   {
-    question: 'Can I leave treatment if I want to?',
-    answer: 'In most cases, treatment is voluntary and you can leave if you choose. However, leaving early significantly increases the risk of relapse. If you feel the urge to leave, talk to your treatment team first - they can address your concerns and adjust your program if needed. Some situations (court-ordered treatment, minors, medical instability) may have different rules.',
+    question: 'Hoe snel kan een loodgieter komen bij spoed?',
+    answer: 'Bij spoedgevallen zoals ernstige lekkages of wateroverlast kan een spoed loodgieter vaak binnen 30-60 minuten ter plaatse zijn. De meeste loodgieters bieden 24/7 spoedservice aan. Houd er rekening mee dat spoedwerk duurder is dan reguliere afspraken.',
   },
   {
-    question: 'What happens during detox?',
-    answer: 'Medical detox involves 24/7 monitoring as your body clears substances. Staff will track vital signs, provide medications to manage withdrawal symptoms (which can include anxiety, nausea, sweating, tremors, and in severe cases, seizures), ensure proper nutrition and hydration, and provide emotional support. The process varies by substance but typically lasts 3-10 days. Detox addresses physical dependence but is just the first step - comprehensive treatment follows.',
+    question: 'Moet ik vooraf betalen?',
+    answer: 'Bij kleine reparaties betaalt u meestal achteraf na oplevering. Bij grotere projecten zoals een badkamerrenovatie is een aanbetaling van 30-50% gebruikelijk. Betaal nooit het volledige bedrag vooruit. Een betrouwbare loodgieter vraagt dit ook niet.',
   },
   {
-    question: 'Will I have access to my phone?',
-    answer: 'Policies vary by facility. Many inpatient programs restrict phone and electronic use, especially during the first weeks, to help you focus on recovery without outside distractions. Some facilities allow scheduled phone calls with approved contacts. Outpatient programs typically do not restrict phone use. Ask the facility about their specific policy before admission.',
+    question: 'Wat als de reparatie niet goed is uitgevoerd?',
+    answer: 'Een erkende loodgieter geeft garantie op het uitgevoerde werk, meestal 1-2 jaar. Bij klachten neemt u eerst contact op met de loodgieter. Komt u er niet uit, dan kunt u terecht bij de Geschillencommissie Installerende Bedrijven of uw rechtsbijstandsverzekering.',
   },
   {
-    question: 'Can my family visit me during treatment?',
-    answer: 'Most facilities encourage family involvement and have designated visiting hours, typically on weekends. Many programs also include family therapy sessions and family education programs. Some facilities restrict visitors during the initial adjustment period (first 1-2 weeks). Family members may need to be pre-approved. Contact the facility for their specific visitation policy.',
+    question: 'Heb ik toestemming nodig van de verhuurder?',
+    answer: 'Bij huurwoningen is de verhuurder verantwoordelijk voor groot onderhoud aan leidingen en CV. Kleine reparaties zoals een verstopte afvoer zijn vaak voor rekening van de huurder. Neem bij twijfel contact op met uw verhuurder voordat u een loodgieter inhuurt.',
   },
   {
-    question: 'What is a typical day like in rehab?',
-    answer: 'Days are structured with a mix of therapy, education, and activities. A typical day includes: wake-up and breakfast, morning meditation or yoga, group therapy, individual counseling, educational workshops, lunch, recreation or exercise, specialty groups, dinner, evening support meetings, and personal time before lights out. The structured schedule helps establish healthy routines and keeps you engaged in recovery.',
+    question: 'Waar moet ik op letten bij het kiezen van een loodgieter?',
+    answer: 'Let op: KvK-inschrijving, aansprakelijkheidsverzekering, reviews en beoordelingen, duidelijke prijsafspraken, garantie op werk, en professionele communicatie. Vergelijk altijd meerdere offertes en kies niet automatisch de goedkoopste.',
   },
   {
-    question: 'What therapies are used in addiction treatment?',
-    answer: 'Evidence-based therapies commonly used include: Cognitive Behavioral Therapy (CBT) to change negative thought patterns, Dialectical Behavior Therapy (DBT) for emotion regulation, Motivational Interviewing to build commitment to change, Group Therapy for peer support, Family Therapy to repair relationships, and trauma-informed approaches like EMDR. Many facilities also offer holistic therapies such as yoga, meditation, art therapy, and equine therapy.',
+    question: 'Is CV-ketel onderhoud verplicht?',
+    answer: 'Jaarlijks CV-ketel onderhoud is niet wettelijk verplicht, maar wel sterk aanbevolen en vaak een voorwaarde voor garantie van de fabrikant. Regelmatig onderhoud voorkomt storingen, verlengt de levensduur en zorgt voor een veilige en efficiente werking.',
   },
   {
-    question: 'What should I pack for rehab?',
-    answer: 'Bring comfortable, modest clothing for about a week, basic toiletries (no alcohol-based products), any prescription medications with documentation, your ID and insurance cards, a journal, and photos of loved ones. Do NOT bring: any substances, weapons, valuables, revealing clothing, or large amounts of cash. Many facilities restrict electronics. Contact the facility for their specific packing list before arrival.',
-  },
-  {
-    question: 'What happens after I complete treatment?',
-    answer: 'Treatment continues after inpatient care through aftercare planning. Your team will help arrange: step-down to outpatient treatment, connections to local support groups (AA, NA, SMART Recovery), sober living housing if needed, ongoing individual therapy, medication management if applicable, and employment or educational resources. A strong aftercare plan is crucial for maintaining long-term sobriety.',
-  },
-  {
-    question: 'Will treatment be confidential?',
-    answer: 'Yes. Federal law (42 CFR Part 2) provides special protections for substance abuse treatment records, which are stronger than standard HIPAA protections. Your treatment cannot be disclosed to employers, law enforcement, or others without your written consent, with very limited exceptions. Facilities take confidentiality seriously to ensure you can focus on recovery without fear.',
+    question: 'Kan ik kleine loodgieterswerkzaamheden zelf doen?',
+    answer: 'Eenvoudige klussen zoals een verstopte afvoer ontstoppen of een kraanpakking vervangen kunt u vaak zelf doen. Voor werkzaamheden aan gasleidingen, CV-ketels of complexe leidingwerk is een erkend installateur verplicht vanwege veiligheidsrisico\'s.',
   },
 ];
 
 export default function WhatToExpectPage() {
-  // JSON-LD structured data
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'What to Expect During Rehab Treatment: Complete Guide',
-    description: 'Comprehensive guide to understanding the addiction treatment process including intake, detox, therapy types, daily schedules, and aftercare planning.',
+    headline: 'Wat te Verwachten bij een Loodgieter: Complete Gids',
+    description: 'Uitgebreide gids over wat u kunt verwachten wanneer u een loodgieter inhuurt.',
     author: {
       '@type': 'Organization',
-      name: 'RehabNearMe',
-      url: 'https://www.rehabnearbyme.com',
+      name: 'VindLoodgieter.nl',
+      url: 'https://www.vindloodgieter.nl',
     },
     publisher: {
       '@type': 'Organization',
-      name: 'RehabNearMe',
+      name: 'VindLoodgieter.nl',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.rehabnearbyme.com/logo.png',
+        url: 'https://www.vindloodgieter.nl/logo.png',
       },
     },
     datePublished: '2025-01-01',
     dateModified: new Date().toISOString().split('T')[0],
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://www.rehabnearbyme.com/guide/what-to-expect',
+      '@id': 'https://www.vindloodgieter.nl/guide/what-to-expect',
     },
-    about: [
-      { '@type': 'Thing', name: 'Addiction treatment process' },
-      { '@type': 'Thing', name: 'Rehab daily schedule' },
-      { '@type': 'Thing', name: 'Recovery journey' },
-    ],
   };
 
   const faqJsonLd = {
@@ -290,80 +238,55 @@ export default function WhatToExpectPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://www.rehabnearbyme.com',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Guide',
-        item: 'https://www.rehabnearbyme.com/guide',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'What to Expect',
-        item: 'https://www.rehabnearbyme.com/guide/what-to-expect',
-      },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.vindloodgieter.nl' },
+      { '@type': 'ListItem', position: 2, name: 'Gids', item: 'https://www.vindloodgieter.nl/guide' },
+      { '@type': 'ListItem', position: 3, name: 'Wat te Verwachten', item: 'https://www.vindloodgieter.nl/guide/what-to-expect' },
     ],
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-teal-800 to-teal-900 text-white py-16">
+        <div className="bg-gradient-to-br from-blue-700 to-blue-800 text-white py-16">
           <div className="container mx-auto px-4">
-            {/* Breadcrumb */}
             <nav className="mb-6">
               <ol className="flex items-center space-x-2 text-sm text-white/70">
                 <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
                 <li>/</li>
-                <li><Link href="/guide" className="hover:text-white transition-colors">Guide</Link></li>
+                <li><Link href="/guide" className="hover:text-white transition-colors">Gids</Link></li>
                 <li>/</li>
-                <li className="text-white">What to Expect</li>
+                <li className="text-white">Wat te Verwachten</li>
               </ol>
             </nav>
 
             <div className="flex items-center gap-3 mb-4">
-              <Calendar className="w-8 h-8 text-coral-400" />
-              <span className="text-coral-400 font-medium">Treatment Guide</span>
+              <Calendar className="w-8 h-8 text-orange-400" />
+              <span className="text-orange-400 font-medium">Loodgieter Gids</span>
             </div>
             <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4 max-w-4xl">
-              What to Expect During Treatment
+              Wat te Verwachten bij een Loodgieter
             </h1>
             <p className="text-white/80 text-lg max-w-3xl mb-6">
-              A comprehensive guide to the addiction treatment process, from your first day through
-              aftercare. Know what to expect so you can focus on your recovery.
+              Een complete gids over het inhuren van een loodgieter, van eerste contact tot afronding.
+              Inclusief prijsindicaties, tips en veelgestelde vragen.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-sm text-white/70">
               <span className="flex items-center gap-2">
                 <ClipboardList className="w-4 h-4" />
-                Step-by-Step Process
+                Stap-voor-stap proces
               </span>
               <span className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                Daily Schedule
+                <Euro className="w-4 h-4" />
+                Prijsindicaties
               </span>
               <span className="flex items-center gap-2">
-                <Brain className="w-4 h-4" />
-                Therapy Types Explained
+                <CheckCircle className="w-4 h-4" />
+                Tips & Checklists
               </span>
             </div>
           </div>
@@ -372,29 +295,22 @@ export default function WhatToExpectPage() {
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-5xl mx-auto">
 
-            {/* Introduction */}
             <div className="prose prose-lg max-w-none mb-12">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Entering addiction treatment is a courageous decision, and knowing what to expect can help
-                ease anxiety about the process. While every facility and individual experience is different,
-                this guide covers the common elements of treatment so you can prepare for your recovery journey.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                From your initial assessment through aftercare planning, understanding each phase of treatment
-                helps you engage fully in the process and get the most out of your time in recovery.
+                Een loodgieter inhuren hoeft geen stressvolle ervaring te zijn. Of u nu te maken heeft met een
+                lekkage, een verstopte afvoer of een CV-ketel storing - met de juiste voorbereiding weet u precies
+                wat u kunt verwachten en voorkomt u verrassingen.
               </p>
             </div>
 
-            {/* Reassurance Banner */}
-            <Card className="p-6 mb-12 bg-teal-50 dark:bg-teal-900/10 border-teal-200 dark:border-teal-800">
+            <Card className="p-6 mb-12 bg-blue-50 border-blue-200">
               <div className="flex items-start gap-4">
-                <Heart className="w-8 h-8 text-teal-600 shrink-0" />
+                <AlertCircle className="w-8 h-8 text-blue-600 shrink-0" />
                 <div>
-                  <h3 className="font-serif font-semibold text-lg mb-2">You Are Not Alone</h3>
+                  <h3 className="font-serif font-semibold text-lg mb-2">Spoed Lekkage?</h3>
                   <p className="text-muted-foreground">
-                    Millions of people have successfully completed addiction treatment and are living fulfilling
-                    lives in recovery. The treatment team is there to support you every step of the way, and
-                    you will be surrounded by others who understand what you are going through.
+                    Bij ernstige lekkages of wateroverlast, sluit eerst de hoofdkraan af en bel direct een
+                    spoed loodgieter. Wacht niet - waterschade kan snel oplopen.
                   </p>
                 </div>
               </div>
@@ -402,24 +318,19 @@ export default function WhatToExpectPage() {
 
             <LeaderboardAd />
 
-            {/* Treatment Phases */}
+            {/* Service Steps */}
             <section className="mb-16">
-              <h2 className="font-serif text-3xl font-bold mb-6">The Treatment Process</h2>
-              <p className="text-muted-foreground mb-8">
-                Treatment typically progresses through several phases, each building on the previous one
-                to create a strong foundation for long-term recovery.
-              </p>
-
+              <h2 className="font-serif text-3xl font-bold mb-6">Het Proces: Van Contact tot Oplevering</h2>
               <div className="space-y-6">
-                {treatmentPhases.map((phase) => (
+                {serviceSteps.map((phase) => (
                   <Card key={phase.phase} className="p-6 hover:shadow-lg transition-shadow">
                     <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 bg-accent text-accent-foreground rounded-xl flex items-center justify-center shrink-0">
+                      <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
                         {phase.icon}
                       </div>
                       <div className="flex-1">
                         <div className="flex flex-wrap items-center gap-3 mb-2">
-                          <span className="text-sm font-bold text-accent">Phase {phase.phase}</span>
+                          <span className="text-sm font-bold text-blue-600">Stap {phase.phase}</span>
                           <h3 className="font-serif font-semibold text-xl">{phase.title}</h3>
                           <span className="text-sm text-muted-foreground bg-secondary px-2 py-0.5 rounded">
                             {phase.duration}
@@ -443,23 +354,18 @@ export default function WhatToExpectPage() {
 
             <InlineAd />
 
-            {/* Types of Therapy */}
+            {/* Service Types */}
             <section className="mb-16">
-              <h2 className="font-serif text-3xl font-bold mb-6">Types of Therapy in Treatment</h2>
-              <p className="text-muted-foreground mb-8">
-                Evidence-based therapies form the core of addiction treatment. You will likely participate
-                in multiple types of therapy during your stay.
-              </p>
-
+              <h2 className="font-serif text-3xl font-bold mb-6">Soorten Loodgieterswerk</h2>
               <div className="grid gap-4 md:grid-cols-2">
-                {therapyTypes.map((therapy) => (
-                  <Card key={therapy.name} className="p-5 border-l-4 border-l-accent">
-                    <h3 className="font-serif font-semibold mb-2">{therapy.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-3">{therapy.description}</p>
+                {serviceTypes.map((service) => (
+                  <Card key={service.name} className="p-5 border-l-4 border-l-blue-600">
+                    <h3 className="font-serif font-semibold mb-2">{service.name}</h3>
+                    <p className="text-sm text-muted-foreground mb-3">{service.description}</p>
                     <div className="flex flex-wrap gap-2">
-                      {therapy.benefits.map((benefit) => (
-                        <span key={benefit} className="text-xs bg-secondary px-2 py-1 rounded">
-                          {benefit}
+                      {service.details.map((detail) => (
+                        <span key={detail} className="text-xs bg-secondary px-2 py-1 rounded">
+                          {detail}
                         </span>
                       ))}
                     </div>
@@ -468,61 +374,45 @@ export default function WhatToExpectPage() {
               </div>
             </section>
 
-            {/* Daily Schedule */}
+            {/* Price Indications */}
             <section className="mb-16">
-              <h2 className="font-serif text-3xl font-bold mb-6">Sample Daily Schedule</h2>
+              <h2 className="font-serif text-3xl font-bold mb-6">Prijsindicaties</h2>
               <p className="text-muted-foreground mb-8">
-                Treatment facilities follow a structured schedule to help establish healthy routines.
-                While schedules vary, here is an example of what a typical day might look like.
+                Onderstaande prijzen zijn indicatief en kunnen varieren per loodgieter en regio.
+                Vraag altijd een offerte voor exacte prijzen.
               </p>
-
-              <Card className="p-6 bg-gradient-to-br from-teal-50 to-coral-50/50 dark:from-teal-900/20 dark:to-coral-900/10 border-teal-100 dark:border-teal-800">
+              <Card className="p-6 bg-gradient-to-br from-blue-50 to-orange-50/50 border-blue-100">
                 <div className="space-y-3">
-                  {dailyScheduleItems.map((item) => (
-                    <div key={item.time} className="flex items-center gap-4 py-2 border-b border-border/50 last:border-0">
-                      <div className="w-16 text-sm font-medium text-accent">{item.time}</div>
-                      <div className="w-8 h-8 bg-white dark:bg-background rounded-lg flex items-center justify-center text-muted-foreground">
-                        {item.icon}
-                      </div>
-                      <div className="flex-1 text-sm">{item.activity}</div>
+                  {priceIndications.map((item) => (
+                    <div key={item.service} className="flex items-center gap-4 py-2 border-b border-border/50 last:border-0">
+                      <div className="w-40 text-sm font-medium">{item.service}</div>
+                      <div className="w-32 text-sm text-blue-600 font-semibold">{item.range}</div>
+                      <div className="flex-1 text-sm text-muted-foreground">{item.note}</div>
                     </div>
                   ))}
                 </div>
               </Card>
-
               <p className="text-sm text-muted-foreground mt-4 italic">
-                Note: Actual schedules vary by facility and may include different activities, therapy types,
-                and timing based on individual treatment plans.
+                Prijzen zijn exclusief BTW tenzij anders vermeld. Materiaalkosten komen er vaak nog bij.
               </p>
             </section>
 
             <InlineAd />
 
-            {/* What to Bring */}
+            {/* What to Check */}
             <section className="mb-16">
-              <h2 className="font-serif text-3xl font-bold mb-6">What to Pack for Treatment</h2>
-              <p className="text-muted-foreground mb-8">
-                Knowing what to bring (and what to leave at home) helps you prepare for your stay.
-                Always check with your specific facility for their packing guidelines.
-              </p>
-
+              <h2 className="font-serif text-3xl font-bold mb-6">Checklist: Waar op Letten</h2>
               <div className="grid gap-6 md:grid-cols-2">
-                {whatToBring.map((category) => (
-                  <Card key={category.category} className={`p-6 ${category.category === 'Do Not Bring' ? 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-800' : 'bg-green-50 dark:bg-green-900/10 border-green-200 dark:border-green-800'}`}>
-                    <h3 className={`font-serif font-semibold text-lg mb-4 flex items-center gap-2 ${category.category === 'Do Not Bring' ? 'text-red-700 dark:text-red-400' : 'text-green-700 dark:text-green-400'}`}>
-                      {category.category === 'Do Not Bring' ? (
-                        <AlertCircle className="w-5 h-5" />
-                      ) : (
-                        <CheckCircle className="w-5 h-5" />
-                      )}
+                {whatToCheck.map((category) => (
+                  <Card key={category.category} className="p-6 bg-green-50 border-green-200">
+                    <h3 className="font-serif font-semibold text-lg mb-4 flex items-center gap-2 text-green-700">
+                      <CheckCircle className="w-5 h-5" />
                       {category.category}
                     </h3>
                     <ul className="space-y-2">
                       {category.items.map((item) => (
                         <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className={category.category === 'Do Not Bring' ? 'text-red-500' : 'text-green-500'}>
-                            {category.category === 'Do Not Bring' ? '×' : '•'}
-                          </span>
+                          <span className="text-green-500">&#10003;</span>
                           {item}
                         </li>
                       ))}
@@ -532,29 +422,9 @@ export default function WhatToExpectPage() {
               </div>
             </section>
 
-            {/* Aftercare */}
-            <section className="mb-16">
-              <h2 className="font-serif text-3xl font-bold mb-6">After Treatment: Continuing Care</h2>
-              <p className="text-muted-foreground mb-8">
-                Recovery does not end when you leave treatment. A strong aftercare plan is essential for
-                maintaining sobriety and continuing your progress.
-              </p>
-
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {aftercareComponents.map((component) => (
-                  <Card key={component.title} className="p-5">
-                    <h3 className="font-semibold mb-2">{component.title}</h3>
-                    <p className="text-sm text-muted-foreground">{component.description}</p>
-                  </Card>
-                ))}
-              </div>
-            </section>
-
-            <InlineAd />
-
             {/* FAQ Section */}
             <section className="mb-16">
-              <h2 className="font-serif text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+              <h2 className="font-serif text-3xl font-bold mb-6">Veelgestelde Vragen</h2>
               <Accordion type="single" collapsible className="space-y-4">
                 {faqs.map((faq, idx) => (
                   <AccordionItem key={idx} value={`faq-${idx}`} className="border rounded-lg px-6">
@@ -569,67 +439,40 @@ export default function WhatToExpectPage() {
               </Accordion>
             </section>
 
-            {/* Crisis Resources */}
-            <Card className="p-6 mb-12 bg-blue-50 dark:bg-blue-900/10 border-blue-200 dark:border-blue-800">
-              <div className="flex items-start gap-4">
-                <Phone className="w-8 h-8 text-blue-600 shrink-0" />
-                <div>
-                  <h3 className="font-serif font-semibold text-lg mb-2">Ready to Start Treatment?</h3>
-                  <p className="text-muted-foreground mb-4">
-                    If you or a loved one is ready to begin the journey to recovery, help is available.
-                  </p>
-                  <div className="flex flex-wrap gap-4">
-                    <div>
-                      <p className="font-medium text-sm">SAMHSA Helpline</p>
-                      <p className="text-blue-600 text-xl font-bold">1-800-662-4357</p>
-                    </div>
-                    <div>
-                      <p className="font-medium text-sm">Available</p>
-                      <p className="text-blue-600 text-lg font-bold">24/7, Free & Confidential</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
             {/* CTA Section */}
             <section className="text-center">
-              <Card className="p-8 bg-gradient-to-br from-teal-50 to-coral-50/50 dark:from-teal-900/20 dark:to-coral-900/10 border-teal-100 dark:border-teal-800">
+              <Card className="p-8 bg-gradient-to-br from-blue-50 to-orange-50/50 border-blue-100">
                 <h2 className="font-serif text-2xl font-bold mb-4">
-                  Find Treatment Centers Near You
+                  Vind een Betrouwbare Loodgieter
                 </h2>
                 <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                  Search our database of {SITE_STATS.totalFacilitiesDisplay}+ addiction treatment centers.
-                  Filter by location, treatment type, and insurance to find the right fit for your recovery.
+                  Zoek in onze database van loodgieters. Vergelijk reviews, prijzen en beschikbaarheid.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Link
                     href="/search"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
                   >
-                    <Calendar className="w-5 h-5" />
-                    Search Treatment Centers
+                    <Wrench className="w-5 h-5" />
+                    Zoek Loodgieter
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link
-                    href="/guide/insurance"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors"
+                    href="/guide"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors"
                   >
-                    <Heart className="w-5 h-5" />
-                    Insurance Coverage Guide
+                    <FileText className="w-5 h-5" />
+                    Meer Tips & Gidsen
                   </Link>
                 </div>
               </Card>
             </section>
 
-            {/* Author Attribution */}
             <div className="mt-12 pt-8 border-t">
               <p className="text-sm text-muted-foreground">
-                <strong>About this guide:</strong> This treatment guide is maintained by the
-                RehabNearMe editorial team. We strive to provide accurate, helpful information about
-                the addiction treatment process. Individual experiences may vary - always consult with
-                treatment providers for specific guidance.
-                Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}.
+                <strong>Over deze gids:</strong> Deze gids wordt onderhouden door VindLoodgieter.nl om u te
+                helpen bij het vinden van een betrouwbare loodgieter. Prijzen en informatie zijn indicatief
+                en kunnen varieren. Laatste update: {new Date().toLocaleDateString('nl-NL', { month: 'long', year: 'numeric' })}.
               </p>
             </div>
           </div>

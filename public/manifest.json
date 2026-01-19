@@ -1,14 +1,14 @@
 {
-  "name": "Rehab Near Me",
-  "short_name": "Rehab",
-  "description": "Find rehabilitation and addiction treatment centers near you. Search for rehab facilities across the United States with ratings, reviews, and directions.",
+  "name": "VindLoodgieter.nl",
+  "short_name": "Loodgieter",
+  "description": "Vind loodgieters en installateurs bij u in de buurt. Zoek door alle loodgieters in Nederland met reviews, beoordelingen en contactgegevens.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1a1a2e",
-  "theme_color": "#1a1a2e",
+  "background_color": "#2563EB",
+  "theme_color": "#2563EB",
   "orientation": "portrait-primary",
   "scope": "/",
-  "lang": "en",
+  "lang": "nl",
   "categories": ["lifestyle", "utilities"],
   "icons": [
     {
@@ -73,21 +73,21 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Search"
+      "label": "Zoeken"
     }
   ],
   "shortcuts": [
     {
-      "name": "Search",
-      "short_name": "Search",
-      "description": "Search for a rehab facility",
+      "name": "Zoeken",
+      "short_name": "Zoeken",
+      "description": "Zoek een loodgieter",
       "url": "/search",
       "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
     },
     {
-      "name": "Near Me",
-      "short_name": "Nearby",
-      "description": "Find rehab facilities near me",
+      "name": "In de Buurt",
+      "short_name": "Dichtbij",
+      "description": "Vind loodgieters in de buurt",
       "url": "/search?nearby=true",
       "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
     }

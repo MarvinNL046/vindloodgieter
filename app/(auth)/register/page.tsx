@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Mail, User, ArrowRight, Loader2, KeyRound, CheckCircle, Trees } from 'lucide-react';
+import { Mail, User, ArrowRight, Loader2, KeyRound, CheckCircle, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
@@ -32,13 +32,13 @@ export default function RegisterPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Something went wrong');
+        throw new Error(data.error || 'Er ging iets mis');
       }
 
       setCodeHash(data.codeHash);
       setStep('code');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong');
+      setError(err instanceof Error ? err.message : 'Er ging iets mis');
     } finally {
       setLoading(false);
     }
@@ -59,7 +59,7 @@ export default function RegisterPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Something went wrong');
+        throw new Error(data.error || 'Er ging iets mis');
       }
 
       setStep('success');
@@ -68,7 +68,7 @@ export default function RegisterPage() {
         router.push('/dashboard');
       }, 2000);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong');
+      setError(err instanceof Error ? err.message : 'Er ging iets mis');
     } finally {
       setLoading(false);
     }
@@ -77,53 +77,53 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left Side - Gradient Branding */}
-      <div className="hidden lg:flex lg:w-1/2 relative bg-gradient-to-br from-teal-800 via-teal-700 to-teal-900 overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 relative bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-teal-600/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-teal-500/15 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500/15 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         </div>
         <div className="relative z-10 flex flex-col justify-center px-12 xl:px-16">
           <Link href="/" className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-              <Trees className="w-6 h-6 text-coral-400" />
+              <Wrench className="w-6 h-6 text-orange-400" />
             </div>
             <div>
-              <span className="text-2xl font-serif font-bold text-white">Rehab</span>
-              <span className="text-2xl font-serif font-bold text-coral-400">NearMe</span>
+              <span className="text-2xl font-bold text-white">Vind</span>
+              <span className="text-2xl font-bold text-orange-400">Loodgieter</span>
             </div>
           </Link>
-          <h2 className="font-serif text-4xl xl:text-5xl font-bold text-white leading-tight mb-6">
-            Find recovery, hope
+          <h2 className="text-4xl xl:text-5xl font-bold text-white leading-tight mb-6">
+            Uw loodgietersbedrijf
             <br />
-            <span className="text-coral-300">and healing.</span>
+            <span className="text-orange-300">online zichtbaar.</span>
           </h2>
           <p className="text-white/70 text-lg max-w-md">
-            Create an account and manage your facility listings. Help people find the right care.
+            Maak een account aan en beheer uw bedrijfsvermelding. Help klanten u te vinden.
           </p>
 
           {/* Benefits on desktop */}
           <div className="mt-10 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-coral-500/20 flex items-center justify-center">
-                <CheckCircle className="w-4 h-4 text-coral-400" />
+              <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
+                <CheckCircle className="w-4 h-4 text-orange-400" />
               </div>
-              <span className="text-white/80">Claim facility listings</span>
+              <span className="text-white/80">Claim uw bedrijfsvermelding</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-coral-500/20 flex items-center justify-center">
-                <CheckCircle className="w-4 h-4 text-coral-400" />
+              <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
+                <CheckCircle className="w-4 h-4 text-orange-400" />
               </div>
-              <span className="text-white/80">Manage your location information</span>
+              <span className="text-white/80">Beheer uw bedrijfsgegevens</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-coral-500/20 flex items-center justify-center">
-                <CheckCircle className="w-4 h-4 text-coral-400" />
+              <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
+                <CheckCircle className="w-4 h-4 text-orange-400" />
               </div>
-              <span className="text-white/80">View statistics and messages</span>
+              <span className="text-white/80">Bekijk statistieken en berichten</span>
             </div>
           </div>
         </div>
@@ -135,10 +135,10 @@ export default function RegisterPage() {
           {/* Mobile Logo */}
           <div className="lg:hidden text-center mb-8">
             <Link href="/" className="inline-flex items-center gap-2">
-              <Trees className="w-8 h-8 text-primary" />
+              <Wrench className="w-8 h-8 text-blue-600" />
               <div>
-                <span className="text-xl font-serif font-bold text-primary">Rehab</span>
-                <span className="text-xl font-serif font-bold text-accent">NearMe</span>
+                <span className="text-xl font-bold text-blue-600">Vind</span>
+                <span className="text-xl font-bold text-orange-500">Loodgieter</span>
               </div>
             </Link>
           </div>
@@ -146,13 +146,13 @@ export default function RegisterPage() {
           <Card className="p-6 sm:p-8 shadow-soft">
             {/* Header */}
             <div className="text-center mb-8">
-              <h1 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mb-2">
-                {step === 'success' ? 'Account created!' : 'Create account'}
+              <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+                {step === 'success' ? 'Account aangemaakt!' : 'Account aanmaken'}
               </h1>
               <p className="text-muted-foreground">
-                {step === 'details' && 'Create an account to claim listings'}
-                {step === 'code' && 'Enter the verification code'}
-                {step === 'success' && 'You will be redirected to your dashboard'}
+                {step === 'details' && 'Maak een account aan om uw bedrijf te claimen'}
+                {step === 'code' && 'Voer de verificatiecode in'}
+                {step === 'success' && 'U wordt doorgestuurd naar uw dashboard'}
               </p>
             </div>
 
@@ -167,7 +167,7 @@ export default function RegisterPage() {
               <form onSubmit={handleSendCode} className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Name
+                    Naam
                   </label>
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -176,16 +176,16 @@ export default function RegisterPage() {
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="John Smith"
+                      placeholder="Jan Jansen"
                       required
-                      className="w-full pl-10 pr-4 py-3 border border-input rounded-lg bg-background focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all"
+                      className="w-full pl-10 pr-4 py-3 border border-input rounded-lg bg-background focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email address
+                    E-mailadres
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -194,25 +194,24 @@ export default function RegisterPage() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="name@example.com"
+                      placeholder="naam@voorbeeld.nl"
                       required
-                      className="w-full pl-10 pr-4 py-3 border border-input rounded-lg bg-background focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all"
+                      className="w-full pl-10 pr-4 py-3 border border-input rounded-lg bg-background focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                     />
                   </div>
                 </div>
 
                 <Button
                   type="submit"
-                  variant="accent"
                   size="lg"
                   disabled={loading}
-                  className="w-full"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 >
                   {loading ? (
                     <Loader2 className="w-5 h-5 animate-spin" />
                   ) : (
                     <>
-                      Create account
+                      Account aanmaken
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </>
                   )}
@@ -224,10 +223,10 @@ export default function RegisterPage() {
               <form onSubmit={handleVerifyCode} className="space-y-6">
                 <div>
                   <label htmlFor="code" className="block text-sm font-medium text-foreground mb-2">
-                    Verification code
+                    Verificatiecode
                   </label>
                   <p className="text-sm text-muted-foreground mb-3">
-                    We sent a 6-digit code to <strong className="text-foreground">{email}</strong>
+                    We hebben een 6-cijferige code gestuurd naar <strong className="text-foreground">{email}</strong>
                   </p>
                   <div className="relative">
                     <KeyRound className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -240,23 +239,22 @@ export default function RegisterPage() {
                       required
                       maxLength={6}
                       pattern="\d{6}"
-                      className="w-full pl-10 pr-4 py-3 border border-input rounded-lg bg-background focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all text-center text-2xl tracking-widest font-mono"
+                      className="w-full pl-10 pr-4 py-3 border border-input rounded-lg bg-background focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-center text-2xl tracking-widest font-mono"
                     />
                   </div>
                 </div>
 
                 <Button
                   type="submit"
-                  variant="accent"
                   size="lg"
                   disabled={loading || code.length !== 6}
-                  className="w-full"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 >
                   {loading ? (
                     <Loader2 className="w-5 h-5 animate-spin" />
                   ) : (
                     <>
-                      Verify
+                      Verifieer
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </>
                   )}
@@ -271,21 +269,21 @@ export default function RegisterPage() {
                   }}
                   className="w-full text-muted-foreground hover:text-foreground text-sm py-2 transition-colors"
                 >
-                  Back to details
+                  Terug naar gegevens
                 </button>
               </form>
             )}
 
             {step === 'success' && (
               <div className="text-center py-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-                  <CheckCircle className="w-8 h-8 text-primary" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                  <CheckCircle className="w-8 h-8 text-blue-600" />
                 </div>
-                <h2 className="text-xl font-semibold text-foreground mb-2">Welcome, {name}!</h2>
+                <h2 className="text-xl font-semibold text-foreground mb-2">Welkom, {name}!</h2>
                 <p className="text-muted-foreground mb-4">
-                  Your account has been successfully created. You will now be redirected to your dashboard.
+                  Uw account is succesvol aangemaakt. U wordt nu doorgestuurd naar uw dashboard.
                 </p>
-                <Loader2 className="w-6 h-6 animate-spin text-accent mx-auto" />
+                <Loader2 className="w-6 h-6 animate-spin text-blue-600 mx-auto" />
               </div>
             )}
 
@@ -293,9 +291,9 @@ export default function RegisterPage() {
             {step !== 'success' && (
               <div className="mt-8 pt-6 border-t border-border text-center">
                 <p className="text-muted-foreground">
-                  Already have an account?{' '}
-                  <Link href="/login" className="text-accent hover:text-accent/80 font-semibold transition-colors">
-                    Log in
+                  Heeft u al een account?{' '}
+                  <Link href="/login" className="text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                    Inloggen
                   </Link>
                 </p>
               </div>
@@ -306,26 +304,26 @@ export default function RegisterPage() {
           {step === 'details' && (
             <div className="lg:hidden mt-8 space-y-3">
               <h3 className="text-sm font-semibold text-foreground text-center mb-4">
-                With an account you can:
+                Met een account kunt u:
               </h3>
               <div className="grid gap-3">
                 <div className="flex items-center gap-3 bg-card rounded-lg p-3 shadow-sm border border-border">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-4 h-4 text-primary" />
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-4 h-4 text-blue-600" />
                   </div>
-                  <span className="text-sm text-foreground">Claim facility listings</span>
+                  <span className="text-sm text-foreground">Uw bedrijfsvermelding claimen</span>
                 </div>
                 <div className="flex items-center gap-3 bg-card rounded-lg p-3 shadow-sm border border-border">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-4 h-4 text-primary" />
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-4 h-4 text-blue-600" />
                   </div>
-                  <span className="text-sm text-foreground">Manage your location information</span>
+                  <span className="text-sm text-foreground">Uw bedrijfsgegevens beheren</span>
                 </div>
                 <div className="flex items-center gap-3 bg-card rounded-lg p-3 shadow-sm border border-border">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-4 h-4 text-primary" />
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-4 h-4 text-blue-600" />
                   </div>
-                  <span className="text-sm text-foreground">View statistics and messages</span>
+                  <span className="text-sm text-foreground">Statistieken en berichten bekijken</span>
                 </div>
               </div>
             </div>
@@ -333,9 +331,9 @@ export default function RegisterPage() {
 
           {/* Privacy note */}
           <p className="text-center text-muted-foreground text-sm mt-6">
-            By registering you agree to our{' '}
-            <Link href="/privacy" className="text-accent hover:underline">
-              privacy policy
+            Door te registreren gaat u akkoord met ons{' '}
+            <Link href="/privacy" className="text-blue-600 hover:underline">
+              privacybeleid
             </Link>
           </p>
         </div>

@@ -43,7 +43,7 @@ export default function FeedbackRibbon() {
       // Prepare data in API-expected format
       const feedbackData: FeedbackData = {
         page_url: window.location.pathname,
-        page_title: document.title || 'Rehab Near Me',
+        page_title: document.title || 'VindLoodgieter.nl',
       };
 
       // Determine type based on what was provided

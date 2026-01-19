@@ -19,129 +19,129 @@ export interface FooterGuide {
   description?: string;
 }
 
-// Treatment types section
-export const treatmentTypes: FooterGuide[] = [
+// Dienst types sectie
+export const serviceTypes: FooterGuide[] = [
   {
-    href: '/treatment/inpatient-rehab',
-    label: 'Inpatient Rehab',
-    description: 'Residential treatment programs'
+    href: '/dienst/spoed-lekkage',
+    label: 'Spoed Lekkage',
+    description: '24/7 hulp bij lekkages'
   },
   {
-    href: '/treatment/outpatient-programs',
-    label: 'Outpatient Programs',
-    description: 'Flexible treatment while living at home'
+    href: '/dienst/cv-installatie',
+    label: 'CV-Installatie',
+    description: 'Installatie en onderhoud CV-ketels'
   },
   {
-    href: '/treatment/detox-centers',
-    label: 'Detox Centers',
-    description: 'Medical detoxification services'
+    href: '/dienst/sanitair',
+    label: 'Sanitair Installatie',
+    description: 'Toilet, douche, wastafel installatie'
   },
   {
-    href: '/treatment/sober-living',
-    label: 'Sober Living Homes',
-    description: 'Transitional housing for recovery'
+    href: '/dienst/riool-ontstopping',
+    label: 'Riool Ontstopping',
+    description: 'Verstopt riool of afvoer'
   },
   {
-    href: '/treatment/dual-diagnosis',
-    label: 'Dual Diagnosis',
-    description: 'Co-occurring mental health treatment'
+    href: '/dienst/waterleiding',
+    label: 'Waterleiding',
+    description: 'Aanleg en reparatie waterleidingen'
   },
   {
-    href: '/treatment/luxury-rehab',
-    label: 'Luxury Rehab',
-    description: 'Premium treatment facilities'
+    href: '/dienst/badkamer-renovatie',
+    label: 'Badkamer Renovatie',
+    description: 'Complete badkamer verbouwing'
   }
 ];
 
-// Addiction resources section
+// Loodgieter resources sectie
 export const resources: FooterGuide[] = [
   {
-    href: '/guides/alcohol-addiction',
-    label: 'Alcohol Addiction',
-    description: 'Understanding and treating alcoholism'
+    href: '/guide/what-to-expect',
+    label: 'Wat te Verwachten',
+    description: 'Bij het inhuren van een loodgieter'
   },
   {
-    href: '/guides/opioid-addiction',
-    label: 'Opioid Addiction',
-    description: 'Heroin, fentanyl, and prescription opioid treatment'
+    href: '/guide/prices',
+    label: 'Prijzen & Tarieven',
+    description: 'Overzicht loodgieter kosten'
   },
   {
-    href: '/guides/drug-addiction',
-    label: 'Drug Addiction',
-    description: 'Cocaine, meth, and substance abuse treatment'
+    href: '/guide/emergency',
+    label: 'Spoed Loodgieter',
+    description: 'Wanneer spoed nodig is'
   },
   {
-    href: '/guides/prescription-drugs',
-    label: 'Prescription Drug Abuse',
-    description: 'Benzodiazepine and prescription addiction'
+    href: '/guide/services',
+    label: 'Diensten Overzicht',
+    description: 'Alle loodgietersdiensten'
   },
   {
-    href: '/guides/insurance-coverage',
-    label: 'Insurance Coverage',
-    description: 'Understanding rehab insurance options'
+    href: '/guide/tips',
+    label: 'Loodgieter Tips',
+    description: 'Handige tips en advies'
   },
   {
-    href: '/guides/choosing-rehab',
-    label: 'Choosing a Rehab',
-    description: 'How to find the right treatment center'
+    href: '/guide/checklist',
+    label: 'Keuze Checklist',
+    description: 'Waar op te letten'
   }
 ];
 
-// Support resources section
+// Support resources sectie
 export const support: FooterGuide[] = [
   {
-    href: '/guides/family-support',
-    label: 'Family Support',
-    description: 'Resources for loved ones'
+    href: '/guide/lekkage-preventie',
+    label: 'Lekkage Preventie',
+    description: 'Voorkom waterschade'
   },
   {
-    href: '/guides/intervention',
-    label: 'Intervention Guide',
-    description: 'How to help someone get treatment'
+    href: '/guide/cv-onderhoud',
+    label: 'CV Onderhoud',
+    description: 'Jaarlijks ketelonderhoud'
   },
   {
-    href: '/guides/aftercare',
-    label: 'Aftercare & Relapse Prevention',
-    description: 'Maintaining long-term recovery'
+    href: '/guide/doe-het-zelf',
+    label: 'Doe-het-zelf Tips',
+    description: 'Kleine reparaties zelf doen'
   },
   {
-    href: '/guides/veterans-programs',
-    label: 'Veterans Programs',
-    description: 'Treatment for military veterans'
+    href: '/guide/verzekering',
+    label: 'Verzekering',
+    description: 'Waterschade en verzekering'
   },
   {
-    href: '/guides/teen-treatment',
-    label: 'Teen & Adolescent',
-    description: 'Youth addiction treatment programs'
+    href: '/guide/duurzaam',
+    label: 'Duurzame Installaties',
+    description: 'Warmtepompen en vloerverwarming'
   }
 ];
 
 // Static guides content (pillar pages)
 export const guides: FooterGuide[] = [
   {
-    href: '/guides/treatment-types',
-    label: 'Types of Treatment',
-    description: 'Understand different treatment options'
+    href: '/guide/what-to-expect',
+    label: 'Wat te Verwachten',
+    description: 'Complete gids loodgieter inhuren'
   },
   {
-    href: '/guides/what-to-expect',
-    label: 'What to Expect in Rehab',
-    description: 'Guide to the treatment process'
+    href: '/guide/services',
+    label: 'Diensten Overzicht',
+    description: 'Alle loodgietersdiensten'
   },
   {
-    href: '/guides/paying-for-rehab',
-    label: 'Paying for Rehab',
-    description: 'Financial options and insurance'
+    href: '/guide/prices',
+    label: 'Prijzen & Tarieven',
+    description: 'Kostenindicaties'
   },
   {
-    href: '/guides/signs-of-addiction',
-    label: 'Signs of Addiction',
-    description: 'Recognizing substance abuse'
+    href: '/guide/emergency',
+    label: 'Spoed Service',
+    description: 'Wanneer 24/7 hulp nodig is'
   },
   {
-    href: '/guides/recovery-success',
-    label: 'Recovery Success Stories',
-    description: 'Inspiring stories of recovery'
+    href: '/guide/tips',
+    label: 'Tips & Advies',
+    description: 'Handige loodgieter tips'
   }
 ];
 
@@ -150,9 +150,9 @@ let statesCacheFooter: FooterState[] | null = null;
 let typesCacheFooter: FooterType[] | null = null;
 
 /**
- * Get top states by facility count
- * @param limit - Maximum number of states to return (default 8)
- * @returns Array of states sorted by facility count (descending)
+ * Get top provincies by loodgieter count
+ * @param limit - Maximum number of provincies to return (default 8)
+ * @returns Array of provincies sorted by loodgieter count (descending)
  */
 export async function getTopStatesByFacilityCount(limit: number = 8): Promise<FooterState[]> {
   if (statesCacheFooter && statesCacheFooter.length >= limit) {
@@ -162,7 +162,7 @@ export async function getTopStatesByFacilityCount(limit: number = 8): Promise<Fo
   try {
     const facilities = await getAllFacilities();
 
-    // Count facilities per state
+    // Count loodgieters per provincie
     const stateCounts = new Map<string, number>();
 
     for (const facility of facilities) {
@@ -186,15 +186,15 @@ export async function getTopStatesByFacilityCount(limit: number = 8): Promise<Fo
 
     return sortedStates.slice(0, limit);
   } catch (error) {
-    console.error('Error getting top states:', error);
+    console.error('Error getting top provincies:', error);
     return [];
   }
 }
 
 /**
- * Get top facility types by count
+ * Get top loodgieter types by count
  * @param limit - Maximum number of types to return (default 8)
- * @returns Array of types sorted by facility count (descending)
+ * @returns Array of types sorted by loodgieter count (descending)
  */
 export async function getTopTypesByFacilityCount(limit: number = 8): Promise<FooterType[]> {
   if (typesCacheFooter && typesCacheFooter.length >= limit) {
@@ -205,7 +205,7 @@ export async function getTopTypesByFacilityCount(limit: number = 8): Promise<Foo
     const facilities = await getAllFacilities();
     const allTypes = await getAllFacilityTypes();
 
-    // Count facilities per type
+    // Count loodgieters per type
     const typeCounts = new Map<string, number>();
     const typeNames = new Map<string, string>();
 
@@ -280,7 +280,7 @@ export async function getFooterData(stateLimit: number = 8, typeLimit: number = 
   return {
     states: topStates,
     types: topTypes,
-    treatmentTypes,
+    serviceTypes,
     resources,
     support,
     guides

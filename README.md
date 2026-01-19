@@ -1,10 +1,10 @@
-# RehabNearByMe.com
+# VindLoodgieter.nl
 
-A comprehensive online directory for finding rehabilitation and addiction treatment centers in the United States.
+Een uitgebreide online directory voor het vinden van loodgieters en installateurs in Nederland.
 
 ## Project Status
 
-Active development - building a comprehensive database of treatment facilities.
+Actieve ontwikkeling - bouw van een complete database van loodgieters.
 
 ## Tech Stack
 
@@ -13,6 +13,11 @@ Active development - building a comprehensive database of treatment facilities.
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui
 - **Database**: Supabase / Drizzle ORM
+
+## Kleurschema
+
+- **Primary (Blauw)**: #2563EB - Vertrouwen, water, professionaliteit
+- **Accent (Oranje)**: #F97316 - Urgentie, actie, warmte
 
 ## Development
 
@@ -34,19 +39,28 @@ npm run start
 
 ```
 ├── app/                    # Next.js app directory
-│   ├── facility/          # Facility detail pages
-│   ├── city/              # City overview pages
-│   ├── county/            # County overview pages
-│   ├── state/             # State overview pages
-│   └── search/            # Search functionality
+│   ├── loodgieter/        # Loodgieter detail pagina's
+│   ├── plaats/            # Plaats overzichtspagina's
+│   ├── gemeente/          # Gemeente overzichtspagina's
+│   ├── provincie/         # Provincie overzichtspagina's
+│   └── search/            # Zoekfunctionaliteit
 ├── components/            # React components
-├── data/                  # Database files
-├── public/               # Static assets
-└── docs/                 # Documentation
-    └── archive/          # Archived documentation
+├── data/                  # Database bestanden
+├── public/               # Statische assets
+└── docs/                 # Documentatie
 ```
+
+## Diensten
+
+- Spoed Lekkage (24/7 service)
+- CV-installatie & Onderhoud
+- Sanitair Installatie
+- Riool Ontstopping
+- Waterleiding Reparatie
+- Badkamer Renovatie
+- Vloerverwarming
 
 ## Contact
 
-- Website: https://rehabnearbyme.com
-- Email: info@rehabnearbyme.com
+- Website: https://vindloodgieter.nl
+- Email: info@vindloodgieter.nl

@@ -65,26 +65,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 function getTypePlaceholder(type: string): string {
-  const typeSlug = type?.toLowerCase().replace(/\s+/g, '-') || 'rehab-center';
-  const validTypes = ['inpatient-rehab', 'outpatient-treatment', 'detox-center', 'sober-living', 'dual-diagnosis', 'luxury-rehab'];
+  const typeSlug = type?.toLowerCase().replace(/\s+/g, '-') || 'loodgieter';
+  const validTypes = ['loodgieter', 'installateur', 'sanitair', 'cv-specialist', 'riool-specialist'];
   if (validTypes.includes(typeSlug)) {
     return `/images/placeholders/${typeSlug}.svg`;
   }
-  return '/images/placeholders/rehab-center.svg';
+  return '/images/placeholders/loodgieter.svg';
 }
 
 function getTypeIcon(type: string): string {
   const typeMap: Record<string, string> = {
-    'inpatient rehab': '🏥',
-    'outpatient treatment': '🏢',
-    'detox center': '💊',
-    'sober living': '🏠',
-    'dual diagnosis': '🧠',
-    'luxury rehab': '✨',
-    'adolescent program': '👨‍👩‍👧‍👦',
-    'veterans program': '🎖️',
-    'women\'s program': '👩',
-    'men\'s program': '👨',
+    'loodgieter': '🔧',
+    'installateur': '🔧',
+    'sanitair specialist': '🚿',
+    'cv specialist': '🔥',
+    'riool specialist': '🚰',
+    'spoed loodgieter': '🚨',
+    'badkamer specialist': '🛁',
+    'waterleiding specialist': '💧',
   };
   return typeMap[type?.toLowerCase()] || '🏥';
 }
@@ -164,25 +162,25 @@ export default async function FacilityPage({ params }: PageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://www.rehabnearbyme.com'
+        item: 'https://www.vindloodgieter.nl'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: facility.state,
-        item: `https://www.rehabnearbyme.com/state/${createStateSlug(facility.state)}`
+        item: `https://www.vindloodgieter.nl/state/${createStateSlug(facility.state)}`
       },
       ...(facility.county ? [{
         '@type': 'ListItem',
         position: 3,
         name: `${facility.county} County`,
-        item: `https://www.rehabnearbyme.com/county/${createCountySlug(facility.county)}`
+        item: `https://www.vindloodgieter.nl/county/${createCountySlug(facility.county)}`
       }] : []),
       {
         '@type': 'ListItem',
         position: facility.county ? 4 : 3,
         name: facility.name,
-        item: `https://www.rehabnearbyme.com/facility/${facility.slug}`
+        item: `https://www.vindloodgieter.nl/facility/${facility.slug}`
       }
     ]
   };
@@ -209,7 +207,7 @@ export default async function FacilityPage({ params }: PageProps) {
     }),
     openingHours: facility.opening_hours,
     telephone: phone || '',
-    url: `https://www.rehabnearbyme.com/facility/${facility.slug}`,
+    url: `https://www.vindloodgieter.nl/facility/${facility.slug}`,
     ...((facility.photo_url || facility.photo) && { image: facility.photo_url || facility.photo }),
     ...(rating && {
       aggregateRating: {
@@ -643,7 +641,7 @@ export default async function FacilityPage({ params }: PageProps) {
           {/* Similar Facilities */}
           {similarFacilities.length > 0 && (
             <section className="mt-12 max-w-6xl mx-auto">
-              <h2 className="font-serif text-xl sm:text-2xl font-bold mb-6">Treatment Facilities in {facility.city}</h2>
+              <h2 className="font-serif text-xl sm:text-2xl font-bold mb-6">Loodgieters in {facility.city}</h2>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 {similarFacilities.map((similar) => (
                   <Link
@@ -687,7 +685,7 @@ export default async function FacilityPage({ params }: PageProps) {
                     {facility.state}
                   </h3>
                   <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">
-                    All treatment facilities in this state
+                    Alle loodgieters in deze provincie
                   </p>
                   <div className="mt-2 sm:mt-3 flex items-center gap-1 text-xs sm:text-sm font-medium text-accent">
                     View
@@ -706,7 +704,7 @@ export default async function FacilityPage({ params }: PageProps) {
                       {facility.county} County
                     </h3>
                     <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">
-                      All treatment facilities in this county
+                      Alle loodgieters in deze gemeente
                     </p>
                     <div className="mt-2 sm:mt-3 flex items-center gap-1 text-xs sm:text-sm font-medium text-accent">
                       View
@@ -726,7 +724,7 @@ export default async function FacilityPage({ params }: PageProps) {
                       {facility.type}s
                     </h3>
                     <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">
-                      Similar treatment facilities
+                      Vergelijkbare loodgieters
                     </p>
                     <div className="mt-2 sm:mt-3 flex items-center gap-1 text-xs sm:text-sm font-medium text-accent">
                       View
@@ -745,7 +743,7 @@ export default async function FacilityPage({ params }: PageProps) {
                     Compare
                   </h3>
                   <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">
-                    Compare up to 3 treatment facilities
+                    Vergelijk tot 3 loodgieters
                   </p>
                   <div className="mt-2 sm:mt-3 flex items-center gap-1 text-xs sm:text-sm font-medium text-accent">
                     View
