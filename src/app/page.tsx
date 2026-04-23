@@ -1,8 +1,7 @@
-import { DualCtaHero } from "@/components/dual-cta-hero";
+import { Hero } from "@/components/hero";
 import { ServicesGrid } from "@/components/services-grid";
 import { HowItWorks } from "@/components/how-it-works";
 import { LeadForm } from "@/components/lead-form";
-import { CostTable } from "@/components/cost-table";
 import { Faq } from "@/components/faq";
 import { siteConfig } from "@/config/site.config";
 import { serviceJsonLd } from "@/lib/json-ld";
@@ -13,11 +12,10 @@ export default function HomePage() {
   const ld = serviceJsonLd(siteConfig, siteUrl);
   return (
     <>
-      <DualCtaHero />
+      <Hero />
       <ServicesGrid />
       <HowItWorks />
       <LeadForm />
-      <CostTable />
       <Faq />
       <script
         type="application/ld+json"

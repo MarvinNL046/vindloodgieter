@@ -25,7 +25,7 @@ export function DualCtaHero() {
             </p>
             <a
               href="#aanvragen"
-              className="mt-4 inline-block bg-red-600 hover:bg-red-700 text-white font-medium px-5 py-3 rounded-md"
+              className="shiny-btn mt-4 inline-block bg-red-600 hover:bg-red-700 text-white font-medium px-5 py-3 rounded-md"
             >
               Spoed-aanvraag doen
             </a>
@@ -44,7 +44,7 @@ export function DualCtaHero() {
             </p>
             <a
               href="#aanvragen"
-              className="mt-4 inline-block accent-bg text-white font-medium px-5 py-3 rounded-md"
+              className="shiny-btn mt-4 inline-block accent-bg text-white font-medium px-5 py-3 rounded-md"
             >
               Offertes aanvragen
             </a>
